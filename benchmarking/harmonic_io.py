@@ -6,7 +6,7 @@ Various helper functions for remote SSH invokation, setting up and tearing down 
 """
 
 # Path to https://github.com/HASTE-project/HarmonicIOSetup
-HARMONIC_IO_SETUP_PATH = '../HarmonicIOSetup/{}'
+HARMONIC_IO_SETUP_PATH = '../../HarmonicIOSetup/{}'
 NUMBER_WORKER_NODES = 6
 DOCKER_IMAGE_URL = 'benblamey/haste-image-proc:latest'
 
@@ -52,7 +52,7 @@ def run_playbook(playbook_filename):
     proc_result = run(
         'ansible-playbook -i {} {}'.format(
             to_harmonic_io_setup_path('hosts'),
-            to_harmonic_io_setup_path(playbook_filename)),
+            to_harmonic_io_setup_path('playbooks/' + playbook_filename)),
         shell=True, stdout=PIPE, stderr=PIPE)
     print(proc_result.stdout.decode('utf-8'))
     print(proc_result.stderr.decode('utf-8'))
@@ -111,3 +111,6 @@ def ensure_normal_production_state():
     # TODO: what if the image name was different for the normal production state?
     # CONSTS for production state.
     ensure_exactly_containers(6)
+
+if __name__ == '__main__':
+    ensure_normal_production_state()

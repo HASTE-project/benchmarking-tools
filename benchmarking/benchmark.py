@@ -61,5 +61,5 @@ def benchmarks():
 
 
 if __name__ == '__main__':
-    benchmarks()
+    #benchmarks()
     ensure_normal_production_state()
