@@ -6,7 +6,7 @@ Various helper functions for remote SSH invokation, setting up and tearing down 
 """
 
 # Path to https://github.com/HASTE-project/HarmonicIOSetup
-HARMONIC_IO_SETUP_PATH = '../../HarmonicIOSetup/{}'
+HARMONIC_IO_SETUP_PATH = '/Users/benblamey/projects/HASTE/HarmonicIOSetup/{}'
 NUMBER_WORKER_NODES = 6
 DOCKER_IMAGE_URL = 'benblamey/haste-image-proc:latest'
 
@@ -83,6 +83,7 @@ def start_container_on_node(i):
     ansible_name = worker_ansible_name(i)
     # note curly braces for JSON are doubled to escape them.
     # note that HIO worker does not bind to localhost, we need to use the actual IP address.
+    # We can invoke this from outside, but to save the firewall faff, do it from the remote shell.
     run_remote_ssh(
         'curl -X POST \\\"http://{}:8888/docker?token=None&command=create\\\" --data \'{{\\\"c_name\\\" : \\\"{}\\\", \\\"num\\\" : 1}}\''
             .format(worker_ip_address(i), DOCKER_IMAGE_URL), hosts=ansible_name)
@@ -96,7 +97,7 @@ def start_containers(count):
 # Invoke after benchmarking is finished.
 def remove_stopped_containers():
     # Remove any stopped containers.
-    run('ansible -i {} master -a "sudo docker prune"'.format(to_harmonic_io_setup_path('hosts')), shell=True)
+    run_remote_ssh('sudo docker container prune --force', hosts='workers')
 
 
 def ensure_exactly_containers(count):

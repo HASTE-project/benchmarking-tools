@@ -10,8 +10,14 @@
 
 4. Set relative path of 'HarmonicIOSetup', number of nodes, etc.
 
-5. Run benchmark.py to generate results
+5. To do the benchmarking (saves results as a text file):
+```
+$ python3 -m benchmarking.benchmark
+```
 
-6. Run plot_benchmark.py to plot results
+6. To plot results
+```
+$ python3 -m benchmarking.plot_benchmark
+```
 
 Contributors: Ben Blamey

@@ -5,7 +5,7 @@ from .harmonic_io import run_remote_ssh, ensure_exactly_containers, \
 
 SIMULATOR_HOSTNAME = 'lovisainstance'
 
-result_filename = 'results/' + datetime.datetime.today().strftime('%Y_%m_%d__%H_%M_%S') + '_benchmarking.txt'
+result_filename = '../results/' + datetime.datetime.today().strftime('%Y_%m_%d__%H_%M_%S') + '_benchmarking.txt'
 print('output to: ' + result_filename)
 
 
@@ -27,11 +27,19 @@ def run_simulator():
     benchmarks = [row.split(',') for row in stdout.splitlines() if row.startswith('benchmarking,')]
     # print(benchmarks)
 
-    # 3rd column is the 'tag' -- extract the 'full' result - this is the total duration to run the pipeline.
-    benchmark_total = [row for row in benchmarks if row[2] == 'full'][0]
-    print(benchmark_total)
+    # Out:
+    # {'benchmarking': 'benchmarking', 'file': 'benchmark_full_pipeline', 'topic': 'full', 'description': '',
+    #  'started_at_time': '1517925196.327163', 'ended_time': '1517925292.111895', 'duration_secs': '95.78473210334778',
+    #  'number_of_bytes': '-1', 'container_count': 1}
 
-    return dict(zip(benchmarks[0], benchmark_total))
+    # 3rd column is the 'tag' -- extract the 'full' result - this is the total duration to run the pipeline.
+    benchmark_total = [row for row in benchmarks if row[1] == 'benchmark_full_pipeline' and row[2] == 'full'][0]
+    prepare_total = [row for row in benchmarks if row[1] == 'simulator_no_flask' and row[2] == 'prepared_to_stream'][0]
+
+    # total - prepare = 'real' processing time
+    result = {'total': benchmark_total, 'prepare': prepare_total}
+    print(result)
+    return result
 
 
 def run_test(container_count):
@@ -63,6 +71,6 @@ def benchmarks():
 if __name__ == '__main__':
     # remove containers from last time
     remove_stopped_containers()
-    #benchmarks()
+    benchmarks()
     ensure_normal_production_state()
     # we don't remove containers here, so that we can debug any errors.
