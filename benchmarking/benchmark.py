@@ -1,7 +1,7 @@
 import datetime
 import time
 from .harmonic_io import run_remote_ssh, ensure_exactly_containers, \
-    NUMBER_WORKER_NODES, DOCKER_IMAGE_URL, ensure_normal_production_state
+    NUMBER_WORKER_NODES, DOCKER_IMAGE_URL, ensure_normal_production_state, remove_stopped_containers
 
 SIMULATOR_HOSTNAME = 'lovisainstance'
 
@@ -61,5 +61,8 @@ def benchmarks():
 
 
 if __name__ == '__main__':
+    # remove containers from last time
+    remove_stopped_containers()
     #benchmarks()
     ensure_normal_production_state()
+    # we don't remove containers here, so that we can debug any errors.
