@@ -65,6 +65,8 @@ def stop_all_containers_and_restart_hio():
     # stop the HIO master and worker (by quiting screen):
     run_playbook('stopMasterWorker.yml')
 
+    run_remote_ssh('sudo pkill -f harmonicIO')
+
     # stop any running containers: (--quiet = show only numeric IDs)
     # send SIGTERM, after grace period, SIGKILL
     run_remote_ssh('sudo docker stop $(sudo docker ps --all --quiet --filter=\'name={}\')'.format(DOCKER_IMAGE_URL))

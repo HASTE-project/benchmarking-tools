@@ -5,7 +5,7 @@ from .harmonic_io import run_remote_ssh, ensure_exactly_containers, \
 
 SIMULATOR_HOSTNAME = 'lovisainstance'
 
-result_filename = '../results/' + datetime.datetime.today().strftime('%Y_%m_%d__%H_%M_%S') + '_benchmarking.txt'
+result_filename = './results/' + datetime.datetime.today().strftime('%Y_%m_%d__%H_%M_%S') + '_benchmarking.txt'
 print('output to: ' + result_filename)
 
 
@@ -24,6 +24,8 @@ def run_simulator():
 
     stdout = completed_process.stdout.decode('utf-8')
 
+
+
     benchmarks = [row.split(',') for row in stdout.splitlines() if row.startswith('benchmarking,')]
     # print(benchmarks)
 
@@ -33,8 +35,8 @@ def run_simulator():
     #  'number_of_bytes': '-1', 'container_count': 1}
 
     # 3rd column is the 'tag' -- extract the 'full' result - this is the total duration to run the pipeline.
-    benchmark_total = [row for row in benchmarks if row[1] == 'benchmark_full_pipeline' and row[2] == 'full'][0]
-    prepare_total = [row for row in benchmarks if row[1] == 'simulator_no_flask' and row[2] == 'prepared_to_stream'][0]
+    benchmark_total = [row for row in benchmarks if row[1] == 'benchmark_full_pipeline' and row[2] == 'full'][0][6]
+    prepare_total = [row for row in benchmarks if row[1] == 'simulator_no_flask' and row[2] == 'prepared_to_stream'][0][6]
 
     # total - prepare = 'real' processing time
     result = {'total': benchmark_total, 'prepare': prepare_total}

@@ -15,7 +15,7 @@ with open(filename) as f:
         line_dict = ast.literal_eval(line)
         results.append(line_dict)
 
-y_durations = [float(result['duration_secs']) for result in results]
+y_durations = [float(result['total']) - float(result['prepare']) for result in results]
 x_number_of_containers = [int(result['container_count']) for result in results]
 
 #row = ast.literal_eval("{'benchmarking': 'benchmarking', 'file': 'benchmark_full_pipeline', 'topic': 'full', 'description': '', 'started_at_time': '1517923501.820833', 'ended_time': '1517923542.4397023', 'duration_secs': '40.61886930465698', 'number_of_bytes': '-1', 'container_count': 1}")
