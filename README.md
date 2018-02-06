@@ -13,3 +13,5 @@
 5. Run benchmark.py to generate results
 
 6. Run plot_benchmark.py to plot results
+
+Contributors: Ben Blamey
