@@ -33,14 +33,6 @@ def run_simulator():
 
     return dict(zip(benchmarks[0], benchmark_total))
 
-    # TODO:
-    # - benchmark full pipeline needs to use the correct image
-    # - need to record the output back somehow, grab the text - then process back here.
-    # - output the results
-    # run and record
-    # stop and review
-    # tidy up data
-
 
 def run_test(container_count):
     print('container count is: {}'.format(container_count))
