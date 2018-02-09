@@ -5,7 +5,9 @@ import ast
 Reads the output from 'benchmark.py' and plots it:
 """
 
-filename = '/Users/benblamey/projects/haste/results/2018_02_06__14_52_29-hio-benchmarking.txt'
+#filename = '/Users/benblamey/projects/haste/results/2018_02_06__14_52_29-hio-benchmarking.txt'
+#filename = '/Users/benblamey/projects/haste/results/2018_02_07__10_36_55-hio-benchmarking.txt'
+filename = '/Users/benblamey/projects/haste/results/2018_02_08__07_28_56_benchmarking.txt'
 
 results = []
 

@@ -1,5 +1,6 @@
 from subprocess import run, PIPE
 import socket
+import time
 
 """
 Various helper functions for remote SSH invokation, setting up and tearing down HIO and associated containers.
@@ -7,25 +8,21 @@ Various helper functions for remote SSH invokation, setting up and tearing down 
 
 # Path to https://github.com/HASTE-project/HarmonicIOSetup
 HARMONIC_IO_SETUP_PATH = '/Users/benblamey/projects/HASTE/HarmonicIOSetup/{}'
-NUMBER_WORKER_NODES = 6
+NUMBER_WORKER_NODES = 20
 DOCKER_IMAGE_URL = 'benblamey/haste-image-proc:latest'
 
 # TODO: factor out port numbers
 
 
+# These hosts need to be defined in 'hosts' in HarmonicIOSetup, and SSH access configured.
 def worker_hostname(i):
     # i start with 1
-    return 'hio-worker-prod-{}'.format(i)
+    return 'hio-worker-prod-0-{}'.format(i)
 
 
 def worker_ip_address(i):
     # works because I have setup my /etc/hosts file with the private IPs.
     return socket.gethostbyname(worker_hostname(i))
-
-
-def worker_ansible_name(i):
-    # start with 1
-    return 'workernode{}'.format(i)
 
 
 def to_harmonic_io_setup_path(filename):
@@ -78,17 +75,21 @@ def stop_all_containers_and_restart_hio():
     run_remote_ssh(
         'sh -c \'netstat --numeric --listening --tcp | grep --line-buffered --extended \\\"(8888|8080)\\\"\'')
 
-    # TODO: capture output string from netstat to double-check number of workers/master.
+    # TODO: capture output string from netstat to double-check number of workers/master. !!!!!!!!!!!
+
+    # Allow system to stabilize
+    time.sleep(10)
 
 
 def start_container_on_node(i):
-    ansible_name = worker_ansible_name(i)
     # note curly braces for JSON are doubled to escape them.
     # note that HIO worker does not bind to localhost, we need to use the actual IP address.
     # We can invoke this from outside, but to save the firewall faff, do it from the remote shell.
+
+    # TODO: just run this on, say, the simulator node?
     run_remote_ssh(
         'curl -X POST \\\"http://{}:8888/docker?token=None&command=create\\\" --data \'{{\\\"c_name\\\" : \\\"{}\\\", \\\"num\\\" : 1}}\''
-            .format(worker_ip_address(i), DOCKER_IMAGE_URL), hosts=ansible_name)
+            .format(worker_ip_address(i), DOCKER_IMAGE_URL), hosts=worker_hostname(i))
 
 
 def start_containers(count):
@@ -99,12 +100,17 @@ def start_containers(count):
 # Invoke after benchmarking is finished.
 def remove_stopped_containers():
     # Remove any stopped containers.
+    # --force - don't prompt to confirm
     run_remote_ssh('sudo docker container prune --force', hosts='workers')
 
 
 def ensure_exactly_containers(count):
     stop_all_containers_and_restart_hio()
     start_containers(count)
+
+    # Allow the master to update its status, and the system to stabilize:
+    time.sleep(10)
+
     run_remote_ssh('sudo docker ps', hosts='workers')
 
 
@@ -113,7 +119,7 @@ def ensure_normal_production_state():
 
     # TODO: what if the image name was different for the normal production state?
     # CONSTS for production state.
-    ensure_exactly_containers(6)
+    ensure_exactly_containers(NUMBER_WORKER_NODES)
 
 if __name__ == '__main__':
     ensure_normal_production_state()

@@ -1,5 +1,4 @@
 import datetime
-import time
 from .harmonic_io import run_remote_ssh, ensure_exactly_containers, \
     NUMBER_WORKER_NODES, DOCKER_IMAGE_URL, ensure_normal_production_state, remove_stopped_containers
 
@@ -18,13 +17,9 @@ def append_result_to_file(str):
 
 
 def run_simulator():
-    # TODO: simulator hostname as const
     # Streams 500 images, then polls MongoDB to wait for completion, and outputs benchmark info as CSV to stdout:
     completed_process = run_remote_ssh('python3 ./exjobb/benchmark_full_pipeline.py', hosts=SIMULATOR_HOSTNAME)
-
     stdout = completed_process.stdout.decode('utf-8')
-
-
 
     benchmarks = [row.split(',') for row in stdout.splitlines() if row.startswith('benchmarking,')]
     # print(benchmarks)
@@ -48,9 +43,6 @@ def run_test(container_count):
     print('container count is: {}'.format(container_count))
     ensure_exactly_containers(container_count)
 
-    # Allow the master to update its status, and the system to stabilize:
-    time.sleep(10)
-
     result = run_simulator()
 
     result['container_count'] = container_count
@@ -67,12 +59,19 @@ def benchmarks():
     run_remote_ssh('sudo docker pull {}'.format(DOCKER_IMAGE_URL), hosts='workers')
 
     for container_count in range(1, NUMBER_WORKER_NODES + 1):
-        run_test(container_count)
+        try:
+            run_test(container_count)
+        except Exception as e:
+            print('exception in run_test(..):')
+            print(e)
+            print('(continuing)')
 
 
 if __name__ == '__main__':
     # remove containers from last time
-    remove_stopped_containers()
-    benchmarks()
-    ensure_normal_production_state()
+    try:
+        remove_stopped_containers()
+        benchmarks()
+    finally:
+        ensure_normal_production_state()
     # we don't remove containers here, so that we can debug any errors.
