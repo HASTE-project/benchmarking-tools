@@ -2,9 +2,9 @@ import random
 import string
 from itertools import repeat
 
-RANDOM_1MB = ''.join(random.choice(string.ascii_uppercase + string.ascii_lowercase + string.digits)
-                     for _ in range(1024))
-RANDOM_100MB = ''.join(list(repeat(RANDOM_1MB, 100 * 1024)))
+RANDOM_1KB = ''.join(random.choice(string.ascii_uppercase + string.ascii_lowercase + string.digits)
+                     for _ in range(1000))
+RANDOM_100MB = ''.join(list(repeat(RANDOM_1KB, 100 * 1024)))
 
 
 def generate_message(shared_state_copy):

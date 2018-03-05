@@ -8,7 +8,7 @@ Start the server:
 python3 -m haste.benchmarking.streaming_server
 ```
 
-Connect (and pipe to /dev/null):
+Connect (and pipe to /dev/null) to test:
 ```
 sudo sh ./pipe_9999_to_dev_null
 ```
@@ -56,7 +56,7 @@ http://localhost:8080
 
 4. Upload and deploy the app:
 ```
-./run_job.sh
+./deploy_benchmark_job_to_cluster.sh
 ```
 
 5. Then test by writing some input into `netcat` on the master node. 
