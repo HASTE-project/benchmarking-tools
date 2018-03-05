@@ -12,12 +12,12 @@
 
 5. To do the benchmarking (saves results as a text file):
 ```
-$ python3 -m benchmarking.benchmark
+$ python3 -m haste.benchmarking.benchmark
 ```
 
 6. To plot results
 ```
-$ python3 -m benchmarking.plot_benchmark
+$ python3 -m haste.benchmarking.plot_benchmark
 ```
 
 Contributors: Ben Blamey
