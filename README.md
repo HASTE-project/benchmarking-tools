@@ -22,4 +22,7 @@ $ python3 -m benchmarking.plot_benchmark
 
 Contributors: Ben Blamey
 
+SEE ALSO: haste/benchmarking/spark/readme.MD
+
+
 TODO: move the hosts from HarmonicIOSetup into this repo?
