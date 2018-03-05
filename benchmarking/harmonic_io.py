@@ -81,6 +81,10 @@ def stop_all_containers_and_restart_hio():
     time.sleep(10)
 
 
+def pull_docker_image():
+    run_remote_ssh('sudo docker pull %s' % DOCKER_IMAGE_URL, hosts='workers')
+
+
 def start_container_on_node(i):
     # note curly braces for JSON are doubled to escape them.
     # note that HIO worker does not bind to localhost, we need to use the actual IP address.
@@ -105,7 +109,8 @@ def remove_stopped_containers():
 
 
 def ensure_exactly_containers(count):
-    stop_all_containers_and_restart_hio()
+    # TODO remove this line?
+    #stop_all_containers_and_restart_hio()
     start_containers(count)
 
     # Allow the master to update its status, and the system to stabilize:
@@ -121,5 +126,7 @@ def ensure_normal_production_state():
     # CONSTS for production state.
     ensure_exactly_containers(NUMBER_WORKER_NODES)
 
+
 if __name__ == '__main__':
+    pull_docker_image()
     ensure_normal_production_state()
