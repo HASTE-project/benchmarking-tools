@@ -55,7 +55,7 @@ class ClientStreamingThread(threading.Thread):
             if pause > 0:
                 time.sleep(pause)
             else:
-                print('streaming_server: overran target period by ' + str(-pause) + ' seconds!')
+                #print('streaming_server: overran target period by ' + str(-pause) + ' seconds!')
 
             if int(ts_before_stream) >= last_unix_time_interval + REPORT_INTERVAL:
                 last_unix_time_interval = int(ts_before_stream)
