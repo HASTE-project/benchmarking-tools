@@ -26,14 +26,18 @@ lines = ssc.socketTextStream('192.168.1.51', 9999)  # spark-stream-server
 def parse_message(line):
     return {'cpu_pause_ms': int(line[1:7])}
 
+
 # Copied from pause.py
 def cpu_pause(secs):
-    start = time.time()
-    while time.time() < start + secs:
-        #print('.')
-        x = 0
-        for n in range(2000):
-            x = x + 1
+    if secs > 0:
+        start = time.time()
+        while time.time() < start + secs:
+            #print('.')
+            x = 0
+            for n in range(1000):
+                x = x + 1
+    else:
+        pass
 
 
 def process_line(line):
