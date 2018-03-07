@@ -10,7 +10,7 @@ python3 -m haste.benchmarking.streaming_server
 
 Connect (and pipe to /dev/null) to test:
 ```
-sudo sh ./pipe_9999_to_dev_null
+sudo sh ./pipe_9999_to_dev_null.sh
 ```
 
 Vary the params:

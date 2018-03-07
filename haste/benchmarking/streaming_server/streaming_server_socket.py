@@ -45,9 +45,8 @@ class ClientStreamingThread(threading.Thread):
                     # TODO: don't send the exact same string each time (incase Spark caches it)
                     message_to_send = shared_state['message']
 
-            bytes_written = self.csocket.send(message_to_send)
-            if bytes_written != len(message_to_send):
-                print('bytes written: {} message length: {}' % (bytes_written, len(message_to_send)))
+            self.csocket.sendall(message_to_send)
+
             message_count = message_count + 1
 
             ts_after_stream = time.time()
