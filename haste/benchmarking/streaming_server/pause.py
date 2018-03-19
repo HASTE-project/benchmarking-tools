@@ -5,7 +5,8 @@ def pause(secs):
     while time.time() < start + secs:
         #print('.')
         x = 0
-        for n in range(2000):
+        # TODO: this might get optimized away, do something more fancy - with rand() etc.
+        for n in range(200):
             x = x + 1
 
 

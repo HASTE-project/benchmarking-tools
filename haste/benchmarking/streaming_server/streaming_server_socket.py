@@ -15,6 +15,8 @@ class ClientStreamingThread(threading.Thread):
     def __init__(self, client_address, client_socket):
         threading.Thread.__init__(self)
         self.csocket = client_socket
+        client_socket.setsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF, 4 * 1024 * 1000)
+
         self.client_address = client_address
         self.client_socket = client_socket
 
@@ -79,6 +81,8 @@ class ClientStreamingThread(threading.Thread):
 def start_streaming_server():
     stream_server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     stream_server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+
+
     stream_server.bind((ALL_HOSTS, STREAM_PORT))
     print("Streaming Server started on " + ALL_HOSTS + ":" + str(STREAM_PORT))
     print("Waiting for client request..")

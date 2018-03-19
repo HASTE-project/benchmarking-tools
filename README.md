@@ -20,6 +20,11 @@ $ python3 -m haste.benchmarking.benchmark
 $ python3 -m haste.benchmarking.plot_benchmark
 ```
 
+7. To pull image and start containers (for production state):
+```
+python3 -m haste.benchmarking.harmonic_io
+``` 
+
 Contributors: Ben Blamey
 
 SEE ALSO: haste/benchmarking/spark/readme.MD
