@@ -6,7 +6,7 @@ def pause(secs):
         #print('.')
         x = 0
         # TODO: this might get optimized away, do something more fancy - with rand() etc.
-        for n in range(200):
+        for n in range(2000):
             x = x + 1
 
 
