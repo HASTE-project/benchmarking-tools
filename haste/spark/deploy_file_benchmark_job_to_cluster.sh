@@ -3,7 +3,7 @@
 # python3 setup.py bdist_egg
 
 # rsync dist/spark_streaming_benchmark-0.1-py3.5.egg lovisainstance:~/
-rsync streaming_benchmark.py ben-bastion:~/
+rsync file_streaming_benchmark.py ben-bastion:~/
 
 # Deploy mode:
 # cluster: run remotely, report back console output
@@ -18,7 +18,7 @@ ssh ben-bastion 'SPARK_HOME=~/spark-2.3.0-bin-hadoop2.7 ; \
     --master spark://ben-spark-master:7077 \
     --deploy-mode client \
     --conf spark.streaming.blockInterval=50ms \
-    streaming_benchmark.py'
+    file_streaming_benchmark.py'
 
 #    --supervise \
 #    --verbose \
