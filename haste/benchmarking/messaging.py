@@ -13,17 +13,24 @@ _counter = 0
 
 
 # This takes ~0.04 seconds! but we only need to do it each time we change the params
-def generate_message(shared_state_copy):
+def generate_message(shared_state_copy, newline_terminator=True):
     global _counter
     _counter += 1
-    filename = str(time.time()) + '.' + "%08d" % (_counter & 10000000)
+    filename = "%s_%08d" % (str(time.time()), _counter & 10000000)
     content = "C%06d-F%s-" % (shared_state_copy['cpu_pause_ms'], filename)
     content_bytes = bytearray(content, 'UTF-8')
 
-    content_bytes += RANDOM_100MB[:(shared_state_copy['message_bytes'] - (len(content_bytes) - 1))]
-    content_bytes[-1] = NEWLINE
+    length = shared_state_copy['message_bytes'] - (len(content_bytes))
 
-    return content_bytes
+    if newline_terminator:
+        length = length + 1
+
+    content_bytes.extend(RANDOM_100MB[:length])
+
+    if newline_terminator:
+        content_bytes[-1] = NEWLINE
+
+    return content_bytes, filename
 
 
 def parse_message(line):
@@ -34,7 +41,7 @@ if __name__ == '__main__':
     shared_state = {'cpu_pause_ms': 123, 'message_bytes': 30000000}
 
     time_start = time.time()
-    line = generate_message(shared_state)
+    line, filename = generate_message(shared_state)
     print(time.time() - time_start)
 
     if len(line) != 30000000 + 1:  # account for \n

@@ -12,7 +12,7 @@ shared_state = {
 
 
 def regenerate_data():
-    shared_state['message'] = generate_message(shared_state['params'])
+    shared_state['message'], filename = generate_message(shared_state['params'])
 
 
 regenerate_data()
