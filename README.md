@@ -3,6 +3,8 @@
  $ pip3 install -e . 
  ```
 
+# Benchmarking HarmonicIO with the microscope simulator
+
 2. Clone https://github.com/HASTE-project/HarmonicIOSetup
 (into a sibling directory)
 
@@ -25,9 +27,20 @@ $ python3 -m haste.benchmarking.plot_benchmark
 python3 -m haste.benchmarking.harmonic_io
 ``` 
 
-Contributors: Ben Blamey
+# Sever Based Streaming (for example, with Spark)
+
+```bash
+python3 -m haste.benchmarking.streaming_server 
+```
+
+Control server will listen on :8080
 
 SEE ALSO: haste/benchmarking/spark/readme.MD
+
+
+
+
+Contributors: Ben Blamey
 
 
 TODO: move the hosts from HarmonicIOSetup into this repo?

@@ -3,8 +3,8 @@ from pyspark import SparkContext
 from pyspark.streaming import StreamingContext
 import os
 
-os.environ['PYSPARK_PYTHON'] = 'python3'  # executors
-os.environ['PYSPARK_DRIVER_PYTHON'] = 'python3'  # driver
+#os.environ['PYSPARK_PYTHON'] = 'python3'  # executors
+#os.environ['PYSPARK_DRIVER_PYTHON'] = 'python3'  # driver
 
 sc = SparkContext(appName="FileStreamingBenchmark")
 
@@ -18,21 +18,26 @@ sc = SparkContext(appName="FileStreamingBenchmark")
 # lines = ssc.socketTextStream('ben-stream-src', 9999)
 
 
-MESSAGE_SIZES = [500, 1000, 10000, 100000, 1000000, 5000000, 10000000]
+#MESSAGE_SIZES = [500, 1000, 10000, 100000, 1000000, 5000000, 10000000]
 
 #for message_size in MESSAGE_SIZES:
 
 
-message_size = MESSAGE_SIZES[0]
+#message_size = MESSAGE_SIZES[0]
 
 ssc = StreamingContext(sc, 5)  # second argument is the batch interval in seconds.
+
 # RDDs of the contents? or the lines in each file?
-lines = ssc.textFileStream('/mnt/nfs/ben-stream-src-2/benchmarking/' + str(message_size))
-file_count = lines.count()
-lines.pprint(1)
+lines = ssc.textFileStream('/mnt/nfs/ben-stream-src-2/bench2')
+#file_count = lines.count().pprint()
+
+
+
+#lines.pprint(1)
+
 # TODO: process lines
 ssc.start()
-ssc.awaitTerminationOrTimeout(10)
+ssc.awaitTermination()
 
 
 # Copied from messaging.py

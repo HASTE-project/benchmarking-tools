@@ -1,5 +1,5 @@
 import datetime
-from .harmonic_io import run_remote_ssh, ensure_exactly_containers, \
+from haste.benchmarking.harmonic_io.harmonic_io import run_remote_ssh, ensure_exactly_containers, \
     NUMBER_WORKER_NODES, DOCKER_IMAGE_URL, ensure_normal_production_state, remove_stopped_containers
 
 SIMULATOR_HOSTNAME = 'lovisainstance'

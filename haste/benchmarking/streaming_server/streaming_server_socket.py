@@ -78,7 +78,7 @@ class ClientStreamingThread(threading.Thread):
 # }
 
 
-def start_streaming_server():
+def start_socket_streaming():
     stream_server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     stream_server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
@@ -94,4 +94,4 @@ def start_streaming_server():
 
 
 if __name__ == '__main__':
-    start_streaming_server()
+    start_socket_streaming()
