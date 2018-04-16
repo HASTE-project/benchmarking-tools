@@ -1,5 +1,5 @@
 from .streaming_server_socket import start_streaming_server
-from .control_http_server import run
+from .control_http_server import run_control_server
 import threading
 
 # Dummy Server for Benchmarking Streaming Applications.
@@ -10,5 +10,5 @@ import threading
 
 
 if __name__ == '__main__':
-    run()
+    run_control_server()
     start_streaming_server()

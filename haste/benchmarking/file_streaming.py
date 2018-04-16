@@ -5,8 +5,9 @@ import shutil
 
 # python3 -m haste.benchmarking.file_streaming
 
-#WORKING_DIR = '/mnt/ramdisk/benchmarking/'
-WORKING_DIR = '/tmp/benchmarking/'
+# WORKING_DIR_BASE = '/srv/nfs-export/benchmarking/'
+# WORKING_DIR_BASE = '/tmp/benchmarking/'
+WORKING_DIR_BASE = '/srv/nfs-export/shm/benchmarking'
 
 # for 3 000 000 byte files (3 MB)
 # ubuntu@ben-stream-src:~/benchmarking-tools/haste$ python3 -m haste.benchmarking.file_streaming
@@ -16,14 +17,14 @@ WORKING_DIR = '/tmp/benchmarking/'
 # 0.011159896850585938
 # 2.115196943283081 - copying 200 files
 
-os.makedirs(WORKING_DIR, exist_ok=True)
+os.makedirs(WORKING_DIR_BASE, exist_ok=True)
 
 
-def create_new_file(filename_suffix=''):
-    bytes, filename = messaging.generate_message({'cpu_pause_ms': 20, 'message_bytes': 3000000},
+def create_new_file(config, working_dir, filename_suffix=''):
+    bytes, filename = messaging.generate_message(config,
                                                  newline_terminator=False)
 
-    filename_with_suffix = WORKING_DIR + filename + filename_suffix
+    filename_with_suffix = working_dir + filename + filename_suffix
     newFile = open(filename_with_suffix, "wb")
     newFile.write(bytes)
     newFile.close()
@@ -32,16 +33,36 @@ def create_new_file(filename_suffix=''):
 
 
 start = time.time()
-filename_base, filename_with_suffix = create_new_file(filename_suffix='IGNORE')
 
-print(time.time() - start)
+#MESSAGE_SIZES = [500, 1000, 10000, 100000, 1000000, 5000000, 10000000]
+MESSAGE_SIZES = [5000000]
 
-start = time.time()
-for i in range(200):
-    shutil.copy(filename_with_suffix, WORKING_DIR + '_' + str(i))
-print(time.time() - start)
+for message_size in MESSAGE_SIZES:
+    print(message_size)
+
+    config = {'cpu_pause_ms': 20, 'message_bytes': message_size}
+    working_dir = WORKING_DIR_BASE + str(message_size) + '/'
+
+    os.makedirs(working_dir, exist_ok=True)
+
+    filename_base, filename_with_suffix = create_new_file(config, working_dir, filename_suffix='')
+
+    #number_of_files = min(max(int((15 * 1000000) / message_size), 10),10000)
+    number_of_files = 200
+
+    start = time.time()
+
+    for i in range(number_of_files):
+        shutil.copy(filename_with_suffix, filename_with_suffix + '_' + str(i))
+
+    print(time.time() - start)
 
 #
-# start = time.time()
-# os.system('cp source.txt destination.txt')
+#
+
 # print(time.time() - start)
+#
+# #
+# # start = time.time()
+# # os.system('cp source.txt destination.txt')
+# # print(time.time() - start)

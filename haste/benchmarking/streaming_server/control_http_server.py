@@ -61,7 +61,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
         self.wfile.write("{'result':'new config applied.'}".encode('utf-8'))
 
 
-def run():
+def run_control_server():
     http_server_thread = threading.Thread(target=__run)
     http_server_thread.start()
 
@@ -81,4 +81,4 @@ def __run():
 
 
 if __name__ == '__main__':
-    run()
+    run_control_server()

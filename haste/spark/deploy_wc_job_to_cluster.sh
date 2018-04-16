@@ -1,21 +1,17 @@
 #!/usr/bin/env bash
 
-# python3 setup.py bdist_egg
-
-# rsync dist/spark_streaming_benchmark-0.1-py3.5.egg lovisainstance:~/
-rsync spark_streaming_benchmark/word_count_example.py lovisainstance:~/
+rsync word_count_example.py ben-spark-master:~/
 
 # Deploy mode:
 # cluster: run remotely, report back console output
 # client: relay everything, run it locally.
 # Note: 'cluster' deploy mode not supported for Python: https://spark.apache.org/docs/latest/submitting-applications.html
 
-# LovisaInstance: 192.168.1.33
-
-ssh lovisainstance 'SPARK_HOME=~/spark-2.2.1-bin-hadoop2.7 ; \
+ssh ben-spark-master 'SPARK_HOME=/usr/local/spark ; \
     PYSPARK_PYTHON=python3 \
     $SPARK_HOME/bin/spark-submit \
-    --master spark://192.168.1.33:7077 \
+    --master spark://ben-spark-master:7077 \
+    --conf spark.streaming.blockInterval=50ms \
     --deploy-mode client \
     word_count_example.py'
 
