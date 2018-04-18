@@ -45,23 +45,36 @@ class SparkMonitor:
     @staticmethod
     def __do_request_GET_streaming_statistics(host, port, app_id):
         url = "http://%s:%d/api/v1/applications/%s/streaming/statistics" % (host, port, app_id)
-        #print(url)
+        parsed = SparkMonitor._get_and_parse_json(url)
+        return parsed
+
+    @staticmethod
+    def __do_request_GET_streaming_batches(host, port, app_id):
+        url = "http://%s:%d/api/v1/applications/%s/streaming/batches" % (host, port, app_id)
+        parsed = SparkMonitor._get_and_parse_json(url)
+        return parsed
+
+    @staticmethod
+    def _get_and_parse_json(url):
+        # print(url)
         req = urllib.request.Request(url,
                                      headers={'Content-type': 'application/json',
                                               'Accept': 'application/json'})
-
         f = urllib.request.urlopen(req)
         parsed = json.loads(f.read())
         # {'startTime': '2018-03-02T06:26:10.544GMT', 'batchDuration': 1000, 'numReceivers': 1, 'numActiveReceivers': 1,
         #  'numInactiveReceivers': 0, 'numTotalCompletedBatches': 29, 'numRetainedCompletedBatches': 29,
         #  'numActiveBatches': 0, 'numProcessedRecords': 28, 'numReceivedRecords': 28, 'avgInputRate': 0.9655172413793104,
         #  'avgSchedulingDelay': 5, 'avgProcessingTime': 122, 'avgTotalDelay': 127}
-
         return parsed
 
     def get_status(self):
-        stats = self.__do_request_GET_streaming_statistics(self.host, self.port, self.app_id)
-        return stats
+        status = {
+            'stats': self.__do_request_GET_streaming_statistics(self.host, self.port, self.app_id),
+            'batches': self.__do_request_GET_streaming_batches(self.host, self.port, self.app_id)
+
+        }
+        return status
 
 
 if __name__ == '__main__':

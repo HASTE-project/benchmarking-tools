@@ -11,14 +11,21 @@ rsync file_streaming_benchmark.py ben-spark-master:~/
 # Note: 'cluster' deploy mode not supported for Python: https://spark.apache.org/docs/latest/submitting-applications.html
 
 # LovisaInstance: 192.168.1.13
-
+#while true; do
 ssh ben-spark-master 'PYSPARK_PYTHON=python3 \
     SPARK_HOME=/usr/local/spark ; \
     $SPARK_HOME/bin/spark-submit \
     --master spark://ben-spark-master:7077 \
+    --conf spark.streaming.fileStream.minRememberDuration=30s \
+    --conf spark.cleaner.periodicGC.interval=30s \
     --deploy-mode client \
-    --verbose \
     file_streaming_benchmark.py'
+#    sleep 5
+#    echo 'restarting..
+#done
+
+#    --conf "spark.executor.extraJavaOptions=-verbose:gc \
+#    --conf "spark.driver.extraJavaOptions=-verbose:gc \
 
 #    --conf spark.streaming.blockInterval=50ms \
 #    --supervise \
