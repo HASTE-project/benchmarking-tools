@@ -8,7 +8,7 @@ from ..messaging import generate_message
 import json
 
 SEARCH_FOR_OLD_FILES = 2
-DELETE_OLD_FILES_AFTER = 100  # ?? 2 x batch interval + forced garbage collection interval + margin
+DELETE_OLD_FILES_AFTER = 300  # ?? 2 x batch interval + forced garbage collection interval + margin
 
 _FILENAME_PREFIX = ".COPYING." #filenames starting with a . are ignored by Spark
 _REPORT_INTERVAL = 3

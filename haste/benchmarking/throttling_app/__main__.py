@@ -93,7 +93,7 @@ def find_max_throughput():
 
             # FIXME: if the streaming app fails for some reason (out of disk space) - it just increases forever!
 
-            if time.time() > ((NUMBER_OF_BATCHES + 1) * BATCH_INTERVAL_SECONDS) + frequency_last_set:
+            if time.time() > ((NUMBER_OF_BATCHES + 2) * BATCH_INTERVAL_SECONDS) + frequency_last_set:
                 print('waited a few intervals since the last change of frequency, should we increase?..')
                 if mean_total_delay < BATCH_INTERVAL_SECONDS * 0.01:
                     new_frequency = frequency * 50
