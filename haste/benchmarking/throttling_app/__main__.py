@@ -27,7 +27,7 @@ def fetch_total_delays():
         except:
             continue
 
-        #print(stats)
+        # print(stats)
 
         with total_delays_secs_by_timestamp_lock:
             for batch in stats['batches']:
@@ -44,7 +44,7 @@ def fetch_total_delays():
                 # TODO: print out the data
                 total_delays_secs_by_timestamp[timestamp] = total_delay
 
-        #print(total_delays_secs_by_timestamp.items()[-1])
+        # print(total_delays_secs_by_timestamp.items()[-1])
 
         # TODO: the whole throttling decision depends on this info - might as well put the code in here
         # (idea of separate threads was if getting the data was slow)
@@ -52,7 +52,7 @@ def fetch_total_delays():
         time.sleep(FETCH_STATUS_INTERVAL_SECONDS)
 
 
-BATCH_INTERVAL_SECONDS = 15
+BATCH_INTERVAL_SECONDS = 10
 NUMBER_OF_BATCHES = 2  # Number of batches to wait before computing new frequency
 
 # wait a few batch intervals before the initial increase
@@ -61,8 +61,11 @@ frequency_last_set = time.time() + (BATCH_INTERVAL_SECONDS * 2)
 frequency = -1
 
 
-def find_max_throughput(message_size_bytes=500000, cpu_cost_ms=20):
+def find_max_throughput():
     global frequency_last_set, frequency
+
+    message_size_bytes = 500000
+    cpu_cost_ms = 20
 
     set_new_freq(1, message_size_bytes=message_size_bytes, cpu_cost_ms=cpu_cost_ms)
 
@@ -84,7 +87,7 @@ def find_max_throughput(message_size_bytes=500000, cpu_cost_ms=20):
         else:
             latest_total_delays = total_delays_secs_by_timestamp.values()[-min(NUMBER_OF_BATCHES,
                                                                                len(total_delays_secs_by_timestamp)):]
-            #print(latest_total_delays)
+            # print(latest_total_delays)
             mean_total_delay = statistics.mean(latest_total_delays)
             print('mean total delay is now: ' + str(mean_total_delay) + ' target frequency is: ' + str(frequency))
 

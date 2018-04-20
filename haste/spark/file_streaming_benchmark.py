@@ -10,7 +10,7 @@ from pyspark.streaming import StreamingContext
 
 sc = SparkContext(appName="FileStreamingBenchmark")
 
-ssc = StreamingContext(sc, 15)  # second argument is the batch interval in seconds.
+ssc = StreamingContext(sc, 10)  # second argument is the batch interval in seconds.
 # for file based streaming from an NFS share - needs to be high because listing the files takes a while
 
 

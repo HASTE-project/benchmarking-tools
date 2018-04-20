@@ -16,8 +16,8 @@ ssh ben-spark-master 'PYSPARK_PYTHON=python3 \
     SPARK_HOME=/usr/local/spark ; \
     $SPARK_HOME/bin/spark-submit \
     --master spark://ben-spark-master:7077 \
-    --conf spark.streaming.fileStream.minRememberDuration=30s \
-    --conf spark.cleaner.periodicGC.interval=30s \
+    --conf spark.streaming.fileStream.minRememberDuration=20s \
+    --conf spark.cleaner.periodicGC.interval=10s \
     --deploy-mode client \
     file_streaming_benchmark.py'
 #    sleep 5
