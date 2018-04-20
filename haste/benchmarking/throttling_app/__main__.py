@@ -53,7 +53,7 @@ def fetch_total_delays():
 
 
 BATCH_INTERVAL_SECONDS = 10
-NUMBER_OF_BATCHES = 2  # Number of batches to wait before computing new frequency
+NUMBER_OF_BATCHES = 5  # Number of batches to wait before computing new frequency
 
 # wait a few batch intervals before the initial increase
 frequency_last_set = time.time() + (BATCH_INTERVAL_SECONDS * 2)
