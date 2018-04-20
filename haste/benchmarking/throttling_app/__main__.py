@@ -18,6 +18,7 @@ monitor.start()
 total_delays_secs_by_timestamp = SortedDict()
 total_delays_secs_by_timestamp_lock = threading.Lock()
 
+have_queued_jobs = False
 
 def fetch_total_delays():
     while True:
@@ -30,8 +31,12 @@ def fetch_total_delays():
         # print(stats)
 
         with total_delays_secs_by_timestamp_lock:
+            queued_job_count = 0
             for batch in stats['batches']:
                 if batch['status'] != 'COMPLETED':
+                    if batch['status'] == 'QUEUED':
+                        queued_job_count += 1
+
                     print('..skipping batch ' + str(batch['batchId']) + ' with status ' + str(batch['status']))
                     continue
 
@@ -44,6 +49,9 @@ def fetch_total_delays():
                 # TODO: print out the data
                 total_delays_secs_by_timestamp[timestamp] = total_delay
 
+
+            have_queued_jobs = queued_job_count > 1
+
         # print(total_delays_secs_by_timestamp.items()[-1])
 
         # TODO: the whole throttling decision depends on this info - might as well put the code in here
@@ -52,22 +60,21 @@ def fetch_total_delays():
         time.sleep(FETCH_STATUS_INTERVAL_SECONDS)
 
 
-BATCH_INTERVAL_SECONDS = 10
+BATCH_INTERVAL_SECONDS = 5
 NUMBER_OF_BATCHES = 5  # Number of batches to wait before computing new frequency
 
 # wait a few batch intervals before the initial increase
 frequency_last_set = time.time() + (BATCH_INTERVAL_SECONDS * 2)
 
-frequency = -1
-
+frequency = 50
 
 def find_max_throughput():
     global frequency_last_set, frequency
 
-    message_size_bytes = 500000
+    message_size_bytes = 1000000
     cpu_cost_ms = 20
 
-    set_new_freq(1, message_size_bytes=message_size_bytes, cpu_cost_ms=cpu_cost_ms)
+    set_new_freq(frequency, message_size_bytes=message_size_bytes, cpu_cost_ms=cpu_cost_ms)
 
     while True:
         time.sleep(1)
@@ -92,8 +99,8 @@ def find_max_throughput():
             print('mean total delay is now: ' + str(mean_total_delay) + ' target frequency is: ' + str(frequency))
 
             # FIXME: if the streaming app fails for some reason (out of disk space) - it just increases forever!
-
-            if time.time() > ((NUMBER_OF_BATCHES + 2) * BATCH_INTERVAL_SECONDS) + frequency_last_set:
+            # hack: filter to only look at batches since we last raised the rate - there might not be any yet
+            if len(latest_total_delays) > 1 and time.time() > ((NUMBER_OF_BATCHES + 2) * BATCH_INTERVAL_SECONDS) + frequency_last_set:
                 print('waited a few intervals since the last change of frequency, should we increase?..')
                 if mean_total_delay < BATCH_INTERVAL_SECONDS * 0.01:
                     new_frequency = frequency * 50
@@ -113,7 +120,12 @@ def find_max_throughput():
             set_new_freq(new_frequency, message_size_bytes=message_size_bytes, cpu_cost_ms=cpu_cost_ms)
 
 
-def set_new_freq(new_frequency, message_size_bytes=500000, cpu_cost_ms=20):
+def set_new_freq(new_frequency, message_size_bytes, cpu_cost_ms=20):
+    # hack: spark jobs don't start until files are all read,
+    # so to prevent frequency escalation - clean
+
+    total_delays_secs_by_timestamp = {}
+
     global frequency, frequency_last_set
     frequency = new_frequency
     frequency_last_set = time.time()

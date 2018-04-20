@@ -22,8 +22,9 @@ ssh ben-spark-master 'PYSPARK_PYTHON=python3 \
     file_streaming_benchmark.py'
 
 
-# minRememberDuration must be x2 batch interval or bigger
+# minRememberDuration must be x2 batch interval or bigger (https://halfvim.github.io/2016/06/28/FileInputDStream-in-Spark-Streaming/)
 # see: FileInputDStream.scala
+# otherwise new files might not get picked up.
 
 
 #    sleep 5

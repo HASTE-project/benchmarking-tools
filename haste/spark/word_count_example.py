@@ -14,7 +14,7 @@ BATCH_INTERVAL_SECONDS = 5
 
 spark_streaming_context = StreamingContext(spark_context, BATCH_INTERVAL_SECONDS)
 
-lines = spark_streaming_context.socketTextStream('ben-stream-src-2', 9999)
+lines = spark_streaming_context.socketTextStream('ben-stream-src-3', 9999)
 
 lines.flatMap(lambda line: line.split(" ")) \
     .map(lambda word: (word, 1)) \

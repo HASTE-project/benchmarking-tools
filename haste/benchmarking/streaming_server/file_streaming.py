@@ -4,31 +4,38 @@ import time
 import shutil
 import platform
 import threading
-from ..messaging import generate_message
 import json
 
-SEARCH_FOR_OLD_FILES = 2
-DELETE_OLD_FILES_AFTER = 300  # ?? 2 x batch interval + forced garbage collection interval + margin
+SEARCH_FOR_OLD_FILES = 1
 
-_FILENAME_PREFIX = ".COPYING." #filenames starting with a . are ignored by Spark
+_FILENAME_IGNORE_PREFIX = ".COPYING." #filenames starting with a . are ignored by Spark
 _REPORT_INTERVAL = 3
 _counter = 0
-_USE_RAMDISK = False
+_USE_RAMDISK = True
+_USE_HARD_LINKS = True
 
 if platform.system() == 'Darwin':
     # on my laptop:
+    DELETE_OLD_FILES_AFTER = 300
     WORKING_DIR_BASE = '/tmp/benchmarking/'
 else:
     if _USE_RAMDISK:
+        DELETE_OLD_FILES_AFTER = 300
         # (This is a bind mount from /dev/shm/bench - to where its mounted on the clients
-        WORKING_DIR_BASE = '/mnt/nfs/ben-stream-src-2-shm-bench/'
+        WORKING_DIR_BASE = '/dev/shm/bench/'
     else:
-
+        DELETE_OLD_FILES_AFTER = 300
         WORKING_DIR_BASE = '/srv/nfs-export/bench2/'
 
 os.makedirs(WORKING_DIR_BASE, exist_ok=True)
 
-# TODO: delete all files in directory
+# delete all files in directory
+for f in os.listdir(WORKING_DIR_BASE):
+    file_path = os.path.join(WORKING_DIR_BASE, f)
+    if os.path.isfile(file_path):
+        os.unlink(file_path)
+
+
 
 
 MESSAGE_SIZES = [500, 1000, 10000, 100000, 1000000, 5000000, 10000000]
@@ -37,32 +44,6 @@ MESSAGE_SIZES = [500, 1000, 10000, 100000, 1000000, 5000000, 10000000]
 # for message_size in MESSAGE_SIZES:
 #     message_bytes = generate_message()
 #     create_new_file()
-
-_file_paths = {}
-
-def get_path_of_original(shared_state):
-    key = json.dumps(shared_state['params'], sort_keys=True)
-
-    if key in _file_paths:
-
-        path = _file_paths[key]
-
-        # # 'touch' the file so its picked up by spark
-        # with open(path, 'a'):
-        #     try:  # Whatever if file was already existing
-        #         os.utime(path, None)  # => Set current time anyway
-        #     except OSError:
-        #         pass  # File deleted between open() and os.utime() calls
-        # update - not needed - instead we create new files.
-
-        return path
-    else:
-        file_path_with_prefix = WORKING_DIR_BASE + '.ORIG.' + generate_filename()
-        file = open(file_path_with_prefix, "wb")
-        file.write(shared_state['message'])
-        file.close()
-        _file_paths[key] = file_path_with_prefix
-        return file_path_with_prefix
 
 
 def start():
@@ -128,10 +109,7 @@ def _start_file_streaming():
         # TODO: save message to disk
         #create_new_file(message_bytes, WORKING_DIR_BASE)
 
-        filepath_of_original = get_path_of_original(shared_state_copy)
-
-        # looks like apache spark doesn't support soft links
-        create_hardlink(filepath_of_original)
+        create_file(shared_state_copy)
 
         message_count = message_count + 1
 
@@ -148,39 +126,52 @@ def _start_file_streaming():
 
             # also, use the reporting interval to make new 'core' files - otherwise we re-process the old files.
             # this works if the reporting interval is less than the batch interval
-            global _file_paths
-            _file_paths = {}
+            if _USE_HARD_LINKS:
+                global _file_paths
+                _file_paths = {}
 
             last_unix_time_interval = int(ts_before_stream)
             print('streamed ' + str(message_count) + ' messages to ' + WORKING_DIR_BASE
                   + ' , reporting every ' + str(_REPORT_INTERVAL) + ' seconds')
 
 
-def create_hardlink(filepath_of_original):
-    filename = generate_filename()
-    file_path_without_prefix = WORKING_DIR_BASE + '/' + filename
-    file_path_with_prefix = WORKING_DIR_BASE + '/' + _FILENAME_PREFIX + filename
-
-    os.link(filepath_of_original, file_path_with_prefix)
-
-    # Clean rename so we pick it up safely in Spark
-    os.rename(file_path_with_prefix, file_path_without_prefix)
+_file_paths = {}
 
 
-def create_new_file(message_bytes, working_dir):
-    filename = generate_filename()
-    file_path_without_prefix = working_dir + '/' + filename
-    file_path_with_prefix = working_dir + '/' + _FILENAME_PREFIX + filename
 
+def create_file(shared_state):
+    key = json.dumps(shared_state['params'], sort_keys=True)
 
-    file = open(file_path_with_prefix, "wb")
-    file.write(message_bytes)
-    file.close()
+    new_filename = generate_filename()
+    new_file_path_without_prefix = WORKING_DIR_BASE + new_filename
 
-    # Clean rename so we pick it up safely in Spark
-    os.rename(file_path_with_prefix, file_path_without_prefix)
+    if _USE_HARD_LINKS and key in _file_paths:
+        # Create a new hardlink to an existing file:
 
-    return filename, file_path_with_prefix
+        path_to_target = _file_paths[key]
+
+        # (hard link is atomic)
+        os.link(path_to_target, new_file_path_without_prefix)
+
+        return path_to_target
+    else:
+        # Make a new file
+        new_file_path_with_prefix = WORKING_DIR_BASE + _FILENAME_IGNORE_PREFIX + new_filename
+
+        # TODO: if this fails, kill the application
+
+        #try:
+        file = open(new_file_path_with_prefix, "wb")
+        file.write(shared_state['message'])
+        file.close()
+        # except Exception:
+        #     exit('failed to create new file')
+
+        # Clean rename so we pick it up safely in Spark
+        os.rename(new_file_path_with_prefix, new_file_path_without_prefix)
+
+        _file_paths[key] = new_file_path_without_prefix
+        return new_file_path_without_prefix
 
 
 def generate_filename():
@@ -192,6 +183,22 @@ def generate_filename():
 
 
 if __name__ == '__main__':
+
+    def create_new_file(message_bytes, working_dir):
+        filename = generate_filename()
+        file_path_without_prefix = working_dir + '/' + filename
+        file_path_with_prefix = working_dir + '/' + _FILENAME_IGNORE_PREFIX + filename
+
+        file = open(file_path_with_prefix, "wb")
+        file.write(message_bytes)
+        file.close()
+
+        # Clean rename so we pick it up safely in Spark
+        os.rename(file_path_with_prefix, file_path_without_prefix)
+
+        return filename, file_path_with_prefix
+
+
     start()
 
     if False:

@@ -10,7 +10,7 @@ from pyspark.streaming import StreamingContext
 
 sc = SparkContext(appName="FileStreamingBenchmark")
 
-ssc = StreamingContext(sc, 10)  # second argument is the batch interval in seconds.
+ssc = StreamingContext(sc, 5)  # second argument is the batch interval in seconds.
 # for file based streaming from an NFS share - needs to be high because listing the files takes a while
 
 
@@ -25,11 +25,11 @@ ssc = StreamingContext(sc, 10)  # second argument is the batch interval in secon
 if False:
     lines = ssc.socketTextStream('ben-stream-src', 9999)
 else:
-    USE_RAMDISK = False
+    USE_RAMDISK = True
     if USE_RAMDISK:
-        lines = ssc.textFileStream('/mnt/nfs/ben-stream-src-2-shm-bench')
+        lines = ssc.textFileStream('/mnt/nfs/ben-stream-src-3-shm-bench')
     else:
-        lines = ssc.textFileStream('/mnt/nfs/ben-stream-src-2/bench2')
+        lines = ssc.textFileStream('/mnt/nfs/ben-stream-src-3/bench2')
 
 
 # Copied from messaging.py
