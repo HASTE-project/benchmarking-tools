@@ -25,8 +25,11 @@ ssc = StreamingContext(sc, 15)  # second argument is the batch interval in secon
 if False:
     lines = ssc.socketTextStream('ben-stream-src', 9999)
 else:
-    # lines = ssc.textFileStream('/mnt/nfs/ben-stream-src-2/bench2')
-    lines = ssc.textFileStream('/mnt/nfs/ben-stream-src-2-shm-bench')
+    USE_RAMDISK = False
+    if USE_RAMDISK:
+        lines = ssc.textFileStream('/mnt/nfs/ben-stream-src-2-shm-bench')
+    else:
+        lines = ssc.textFileStream('/mnt/nfs/ben-stream-src-2/bench2')
 
 
 # Copied from messaging.py

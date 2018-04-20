@@ -13,16 +13,17 @@ DELETE_OLD_FILES_AFTER = 150  # 2 x batch interval + forced garbage collection i
 _FILENAME_PREFIX = ".COPYING." #filenames starting with a . are ignored by Spark
 _REPORT_INTERVAL = 3
 _counter = 0
-_USE_RAMDISK = True
+_USE_RAMDISK = False
 
 if platform.system() == 'Darwin':
     # on my laptop:
     WORKING_DIR_BASE = '/tmp/benchmarking/'
 else:
     if _USE_RAMDISK:
-        # (This is a bind mount to /dev/shm/bench)
+        # (This is a bind mount from /dev/shm/bench - to where its mounted on the clients
         WORKING_DIR_BASE = '/mnt/nfs/ben-stream-src-2-shm-bench/'
     else:
+
         WORKING_DIR_BASE = '/srv/nfs-export/bench2/'
 
 os.makedirs(WORKING_DIR_BASE, exist_ok=True)
@@ -79,7 +80,7 @@ def _start_deleting_old_files():
         now = time.time()
         it = os.scandir(WORKING_DIR_BASE)
         for entry in it:
-            if not entry.name.endswith('_COPYING') and entry.is_file():
+            if 'COPYING' not in entry.name and entry.is_file():
                 #print(entry.name)
 
                 # The file is a hard-link - delete it based on its creation time (not the file attributes)
@@ -104,7 +105,7 @@ def _start_deleting_old_files():
                     os.remove(WORKING_DIR_BASE + entry.name)
         #it.close() needs >py3.6
         time.sleep(SEARCH_FOR_OLD_FILES)
-        print('looking for files to delete...')
+        #print('looking for files to delete...')
 
 
 def _start_file_streaming():
