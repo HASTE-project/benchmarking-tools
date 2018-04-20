@@ -20,6 +20,12 @@ ssh ben-spark-master 'PYSPARK_PYTHON=python3 \
     --conf spark.cleaner.periodicGC.interval=10s \
     --deploy-mode client \
     file_streaming_benchmark.py'
+
+
+# minRememberDuration must be x2 batch interval or bigger
+# see: FileInputDStream.scala
+
+
 #    sleep 5
 #    echo 'restarting..
 #done
