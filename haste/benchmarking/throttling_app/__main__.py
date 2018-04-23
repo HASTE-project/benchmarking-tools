@@ -5,11 +5,14 @@ import threading
 import statistics
 from .streaming_server_rest_client import set_new_params
 
+from ...spark.file_streaming_benchmark import USE_RAMDISK, BATCH_INTERVAL_SECONDS
+
 FETCH_STATUS_INTERVAL_SECONDS = 5
 
-HOST = 'localhost'
+# Using port forwarding.
+HOST_FOR_SPARK_REST_API = 'localhost'
 
-monitor = SparkMonitor(HOST)
+monitor = SparkMonitor(HOST_FOR_SPARK_REST_API)
 
 monitor.start()
 
@@ -60,7 +63,6 @@ def fetch_total_delays():
         time.sleep(FETCH_STATUS_INTERVAL_SECONDS)
 
 
-BATCH_INTERVAL_SECONDS = 5
 NUMBER_OF_BATCHES = 5  # Number of batches to wait before computing new frequency
 
 # wait a few batch intervals before the initial increase

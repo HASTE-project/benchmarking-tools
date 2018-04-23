@@ -1,16 +1,16 @@
 import time
-
 import os
-os.environ['PYSPARK_PYTHON'] = 'python3'  # executors
-os.environ['PYSPARK_DRIVER_PYTHON'] = 'python3'  # driver
-
 from pyspark import SparkContext
 from pyspark.streaming import StreamingContext
 
+os.environ['PYSPARK_PYTHON'] = 'python3'  # executors
+os.environ['PYSPARK_DRIVER_PYTHON'] = 'python3'  # driver
+
+BATCH_INTERVAL_SECONDS = 5
 
 sc = SparkContext(appName="FileStreamingBenchmark")
 
-ssc = StreamingContext(sc, 5)  # second argument is the batch interval in seconds.
+ssc = StreamingContext(sc, BATCH_INTERVAL_SECONDS)  # second argument is the batch interval in seconds.
 # for file based streaming from an NFS share - needs to be high because listing the files takes a while
 
 

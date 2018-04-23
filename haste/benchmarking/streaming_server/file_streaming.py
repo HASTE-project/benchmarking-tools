@@ -1,4 +1,6 @@
 from .shared_state import shared_state, shared_state_lock
+
+from ...spark.file_streaming_benchmark import USE_RAMDISK, BATCH_INTERVAL_SECONDS
 import os
 import time
 import shutil
@@ -6,12 +8,12 @@ import platform
 import threading
 import json
 
-SEARCH_FOR_OLD_FILES = 1
+SEARCH_FOR_OLD_FILES_INTERVAL = 1
 
 _FILENAME_IGNORE_PREFIX = ".COPYING." #filenames starting with a . are ignored by Spark
 _REPORT_INTERVAL = 3
 _counter = 0
-_USE_RAMDISK = True
+
 _USE_HARD_LINKS = True
 
 if platform.system() == 'Darwin':
@@ -19,7 +21,7 @@ if platform.system() == 'Darwin':
     DELETE_OLD_FILES_AFTER = 300
     WORKING_DIR_BASE = '/tmp/benchmarking/'
 else:
-    if _USE_RAMDISK:
+    if USE_RAMDISK:
         DELETE_OLD_FILES_AFTER = 300
         # (This is a bind mount from /dev/shm/bench - to where its mounted on the clients
         WORKING_DIR_BASE = '/dev/shm/bench/'
@@ -61,7 +63,7 @@ def _start_deleting_old_files():
         now = time.time()
         it = os.scandir(WORKING_DIR_BASE)
         for entry in it:
-            if 'COPYING' not in entry.name and entry.is_file():
+            if _FILENAME_IGNORE_PREFIX not in entry.name and entry.is_file():
                 #print(entry.name)
 
                 # The file is a hard-link - delete it based on its creation time (not the file attributes)
@@ -85,7 +87,7 @@ def _start_deleting_old_files():
                     #print('deleting..' + entry.name)
                     os.remove(WORKING_DIR_BASE + entry.name)
         #it.close() needs >py3.6
-        time.sleep(SEARCH_FOR_OLD_FILES)
+        time.sleep(SEARCH_FOR_OLD_FILES_INTERVAL)
         #print('looking for files to delete...')
 
 
