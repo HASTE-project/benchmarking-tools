@@ -93,6 +93,7 @@ def _start_file_streaming():
     last_unix_time_interval = -1
     last_unix_time_second = -1
     message_count = 0
+    message_count_this_interval = 0
 
     while True:
         ts_before_stream = time.time()
@@ -109,9 +110,12 @@ def _start_file_streaming():
         # TODO: save message to disk
         #create_new_file(message_bytes, WORKING_DIR_BASE)
 
+        # TODO: just create all the files for this seconds worth in one go.
+
         create_file(shared_state_copy)
 
         message_count = message_count + 1
+        message_count_this_interval = message_count_this_interval + 1
 
         ts_after_stream = time.time()
 
@@ -120,7 +124,8 @@ def _start_file_streaming():
         if pause > 0:
             time.sleep(pause)
         else:
-            print('streaming_server: overran target period by ' + str(-pause) + ' seconds!')
+            #print('streaming_server: overran target period by ' + str(-pause) + ' seconds!')
+            pass
 
         if int(ts_before_stream) >= last_unix_time_interval + _REPORT_INTERVAL:
 
@@ -133,6 +138,8 @@ def _start_file_streaming():
             last_unix_time_interval = int(ts_before_stream)
             print('streamed ' + str(message_count) + ' messages to ' + WORKING_DIR_BASE
                   + ' , reporting every ' + str(_REPORT_INTERVAL) + ' seconds')
+            print(message_count_this_interval/_REPORT_INTERVAL, 1/shared_state_copy['params']['period_sec'])
+            message_count_this_interval = 0
 
 
 _file_paths = {}
@@ -141,6 +148,7 @@ _file_paths = {}
 
 def create_file(shared_state):
     key = json.dumps(shared_state['params'], sort_keys=True)
+    #print(key)
 
     new_filename = generate_filename()
     new_file_path_without_prefix = WORKING_DIR_BASE + new_filename
@@ -151,10 +159,13 @@ def create_file(shared_state):
         path_to_target = _file_paths[key]
 
         # (hard link is atomic)
+        #a = time.time()
         os.link(path_to_target, new_file_path_without_prefix)
+        #print(time.time() - a)
 
         return path_to_target
     else:
+        print('making a new file')
         # Make a new file
         new_file_path_with_prefix = WORKING_DIR_BASE + _FILENAME_IGNORE_PREFIX + new_filename
 
@@ -214,7 +225,7 @@ if __name__ == '__main__':
         MESSAGE_SIZES = [5000000]
 
         for message_size in MESSAGE_SIZES:
-            print(message_size)
+            #print(message_size)
 
             config = {'cpu_pause_ms': 20, 'message_bytes': message_size}
             working_dir = WORKING_DIR_BASE + str(message_size) + '/'
@@ -231,7 +242,7 @@ if __name__ == '__main__':
             for i in range(number_of_files):
                 shutil.copy(filename_with_suffix, filename_with_suffix + '_' + str(i))
 
-            print(time.time() - ts_start_file_streaming)
+            #print(time.time() - ts_start_file_streaming)
 
     #
     #
