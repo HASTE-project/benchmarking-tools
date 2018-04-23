@@ -9,12 +9,14 @@ import threading
 import json
 
 SEARCH_FOR_OLD_FILES_INTERVAL = 1
+MESSAGE_SIZES = [500, 1000, 10000, 100000, 1000000, 5000000, 10000000]
 
 _FILENAME_IGNORE_PREFIX = ".COPYING." #filenames starting with a . are ignored by Spark
 _REPORT_INTERVAL = 3
 _counter = 0
-
 _USE_HARD_LINKS = True
+
+_file_paths = {}
 
 if platform.system() == 'Darwin':
     # on my laptop:
@@ -32,15 +34,11 @@ else:
 os.makedirs(WORKING_DIR_BASE, exist_ok=True)
 
 # delete all files in directory
+print('deleting all files in ' + WORKING_DIR_BASE)
 for f in os.listdir(WORKING_DIR_BASE):
     file_path = os.path.join(WORKING_DIR_BASE, f)
     if os.path.isfile(file_path):
         os.unlink(file_path)
-
-
-
-
-MESSAGE_SIZES = [500, 1000, 10000, 100000, 1000000, 5000000, 10000000]
 
 # TODO: symlink approach
 # for message_size in MESSAGE_SIZES:
@@ -94,43 +92,42 @@ def _start_deleting_old_files():
 def _start_file_streaming():
     last_unix_time_interval = -1
     last_unix_time_second = -1
-    message_count = 0
+    message_count_all_time = 0
     message_count_this_interval = 0
 
     while True:
         ts_before_stream = time.time()
 
-        if last_unix_time_second != int(ts_before_stream):
-            last_unix_time_second = int(ts_before_stream)
+        # if last_unix_time_second != int(ts_before_stream):
+        #     last_unix_time_second = int(ts_before_stream)
 
-            with shared_state_lock:
-                shared_state_copy = shared_state.copy()
-                # TODO: don't send the exact same string each time (incase Spark caches it)
-                message_bytes = shared_state['message']
+        # Get the message from shared state:
+        with shared_state_lock:
+            shared_state_copy = shared_state.copy()
+            # TODO: don't send the exact same string each time (incase Spark caches it)
+            frequency = 1/shared_state['params']['period_sec']
+
+        print('frequency is ' + str(frequency))
 
         # TODO: this includes the '\n' at the end (the length is one byte off)
         # TODO: save message to disk
-        #create_new_file(message_bytes, WORKING_DIR_BASE)
 
-        # TODO: just create all the files for this seconds worth in one go.
-
-        create_file(shared_state_copy)
-
-        message_count = message_count + 1
-        message_count_this_interval = message_count_this_interval + 1
+        for i in range(0, int(frequency)):
+            create_file(shared_state_copy)
+            message_count_all_time = message_count_all_time + 1
+            message_count_this_interval = message_count_this_interval + 1
 
         ts_after_stream = time.time()
 
-        pause = shared_state_copy['params']['period_sec'] - (ts_after_stream - ts_before_stream)
+        pause = 1 - (ts_after_stream - ts_before_stream)
 
         if pause > 0:
             time.sleep(pause)
         else:
-            #print('streaming_server: overran target period by ' + str(-pause) + ' seconds!')
+            print('streaming_server: overran target period by ' + str(-pause) + ' seconds!')
             pass
 
         if int(ts_before_stream) >= last_unix_time_interval + _REPORT_INTERVAL:
-
             # also, use the reporting interval to make new 'core' files - otherwise we re-process the old files.
             # this works if the reporting interval is less than the batch interval
             if _USE_HARD_LINKS:
@@ -138,13 +135,13 @@ def _start_file_streaming():
                 _file_paths = {}
 
             last_unix_time_interval = int(ts_before_stream)
-            print('streamed ' + str(message_count) + ' messages to ' + WORKING_DIR_BASE
+            print('streamed ' + str(message_count_all_time) + ' messages to ' + WORKING_DIR_BASE
                   + ' , reporting every ' + str(_REPORT_INTERVAL) + ' seconds')
             print(message_count_this_interval/_REPORT_INTERVAL, 1/shared_state_copy['params']['period_sec'])
             message_count_this_interval = 0
 
 
-_file_paths = {}
+
 
 
 

@@ -1,35 +1,11 @@
 import time
 import os
-from pyspark import SparkContext
-from pyspark.streaming import StreamingContext
 
 os.environ['PYSPARK_PYTHON'] = 'python3'  # executors
 os.environ['PYSPARK_DRIVER_PYTHON'] = 'python3'  # driver
 
 BATCH_INTERVAL_SECONDS = 5
-
-sc = SparkContext(appName="FileStreamingBenchmark")
-
-ssc = StreamingContext(sc, BATCH_INTERVAL_SECONDS)  # second argument is the batch interval in seconds.
-# for file based streaming from an NFS share - needs to be high because listing the files takes a while
-
-
-# Self-contained - so that it can be submitted as a single script (no external deps. ex. Spark)
-
-# Port for Streaming Server is 9999
-# IP address that worker node will connect to (don't use localhost or 127.0.0.1 in a cluster context)
-#lines = ssc.socketTextStream('192.168.1.13', 9999)  # LovisaInstance
-#lines = ssc.socketTextStream('192.168.1.51', 9999)  # spark-stream-server
-#lines = ssc.socketTextStream('localhost', 9999)
-
-if False:
-    lines = ssc.socketTextStream('ben-stream-src', 9999)
-else:
-    USE_RAMDISK = True
-    if USE_RAMDISK:
-        lines = ssc.textFileStream('/mnt/nfs/ben-stream-src-3-shm-bench')
-    else:
-        lines = ssc.textFileStream('/mnt/nfs/ben-stream-src-3/bench2')
+USE_RAMDISK = True
 
 
 # Copied from messaging.py
@@ -61,9 +37,37 @@ def process_line(line):
     cpu_pause(sleep_secs)
 
 
-lines.map(process_line).count().pprint()
+def stream():
+    # import in here, so we can import this script into other modules (to use the constants).
+    from pyspark import SparkContext
+    from pyspark.streaming import StreamingContext
 
-#ssc.remember(20) # release RDDs for garbage collection after 1 second
+    sc = SparkContext(appName="FileStreamingBenchmark")
+    ssc = StreamingContext(sc, BATCH_INTERVAL_SECONDS)  # second argument is the batch interval in seconds.
+    # for file based streaming from an NFS share - needs to be high because listing the files takes a while
+    # Self-contained - so that it can be submitted as a single script (no external deps. ex. Spark)
+    # Port for Streaming Server is 9999
+    # IP address that worker node will connect to (don't use localhost or 127.0.0.1 in a cluster context)
+    # lines = ssc.socketTextStream('192.168.1.13', 9999)  # LovisaInstance
+    # lines = ssc.socketTextStream('192.168.1.51', 9999)  # spark-stream-server
+    # lines = ssc.socketTextStream('localhost', 9999)
+    if False:
+        lines = ssc.socketTextStream('ben-stream-src', 9999)
+    else:
+        if USE_RAMDISK:
+            lines = ssc.textFileStream('/mnt/nfs/ben-stream-src-3-shm-bench')
+        else:
+            lines = ssc.textFileStream('/mnt/nfs/ben-stream-src-3/bench2')
 
-ssc.start()
-ssc.awaitTermination()
+    lines.map(process_line).count().pprint()
+
+    # ssc.remember(20) # release RDDs for garbage collection after 1 second
+
+    ssc.start()
+    ssc.awaitTermination()
+
+
+if __name__ == '__main__':
+    stream()
+
+
