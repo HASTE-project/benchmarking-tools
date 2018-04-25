@@ -18,7 +18,7 @@ _USE_HARD_LINKS = False
 
 _file_paths = {}
 
-DELETE_OLD_FILES_AFTER = 1000
+DELETE_OLD_FILES_AFTER = 1200
 
 if platform.system() == 'Darwin':
     # on my laptop:
@@ -30,14 +30,6 @@ else:
     else:
         WORKING_DIR_BASE = '/srv/nfs-export/bench2/'
 
-os.makedirs(WORKING_DIR_BASE, exist_ok=True)
-
-# delete all files in directory
-print('deleting all files in ' + WORKING_DIR_BASE)
-for f in os.listdir(WORKING_DIR_BASE):
-    file_path = os.path.join(WORKING_DIR_BASE, f)
-    if os.path.isfile(file_path):
-        os.unlink(file_path)
 
 # TODO: symlink approach
 # for message_size in MESSAGE_SIZES:
@@ -46,6 +38,15 @@ for f in os.listdir(WORKING_DIR_BASE):
 
 
 def start():
+    os.makedirs(WORKING_DIR_BASE, exist_ok=True)
+
+    # delete all files in directory
+    print('deleting all files in ' + WORKING_DIR_BASE)
+    for f in os.listdir(WORKING_DIR_BASE):
+        file_path = os.path.join(WORKING_DIR_BASE, f)
+        if os.path.isfile(file_path):
+            os.unlink(file_path)
+
     thread_delete_old_files = threading.Thread(target=_start_deleting_old_files, daemon=True)
     thread_delete_old_files.start()
 
@@ -220,7 +221,7 @@ if __name__ == '__main__':
         # 2.115196943283081 - copying 200 files
 
 
-        MESSAGE_SIZES = [5000000]
+        # MESSAGE_SIZES = [5000000]
 
         for message_size in MESSAGE_SIZES:
             #print(message_size)

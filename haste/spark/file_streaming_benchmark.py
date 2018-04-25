@@ -1,5 +1,6 @@
 import time
 import os
+import gc
 
 os.environ['PYSPARK_PYTHON'] = 'python3'  # executors
 os.environ['PYSPARK_DRIVER_PYTHON'] = 'python3'  # driver
@@ -39,10 +40,18 @@ def process_line(line):
 
 def stream():
     # import in here, so we can import this script into other modules (to use the constants).
-    from pyspark import SparkContext
+    from pyspark import SparkContext, SparkConf
     from pyspark.streaming import StreamingContext
 
-    sc = SparkContext(appName="FileStreamingBenchmark")
+    conf = SparkConf()\
+        .setMaster("spark://ben-spark-master:7077") \
+        .set('spark.streaming.fileStream.minRememberDuration', '30s')\
+        .set('spark.cleaner.periodicGC.interval', '10s')\
+        .setAppName("FileStreamingBenchmark")
+
+    sc = SparkContext(conf=conf)
+    sc.setLogLevel('WARN')
+
     ssc = StreamingContext(sc, BATCH_INTERVAL_SECONDS)  # second argument is the batch interval in seconds.
     # for file based streaming from an NFS share - needs to be high because listing the files takes a while
     # Self-contained - so that it can be submitted as a single script (no external deps. ex. Spark)
@@ -57,7 +66,7 @@ def stream():
         if USE_RAMDISK:
             lines = ssc.textFileStream('/mnt/nfs/ben-stream-src-3-shm-bench')
         else:
-            lines = ssc.textFileStream('/mnt/nfs/ben-stream-src-3/bench2')
+            lines = ssc.textFileStream('/mnt/nfs/ben-stream-src-3/bench2/')
 
     lines.map(process_line).count().pprint()
 
@@ -65,7 +74,6 @@ def stream():
 
     ssc.start()
     ssc.awaitTermination()
-
 
 if __name__ == '__main__':
     stream()

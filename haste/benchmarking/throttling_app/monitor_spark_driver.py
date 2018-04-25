@@ -11,6 +11,7 @@ class SparkMonitor:
 
     def start(self):
         app = self.__do_request_get_applications(self.host, self.port)
+        print(app)
         self.app_id = app[0]['id']
 
     @staticmethod
@@ -19,7 +20,7 @@ class SparkMonitor:
                                      headers={'Content-type': 'application/json',
                                               'Accept': 'application/json'})
 
-        f = urllib.request.urlopen(req)
+        f = urllib.request.urlopen(req, timeout=10)
         parsed = json.loads(f.read())
         # e.g.: [
         #     {
@@ -70,7 +71,7 @@ class SparkMonitor:
 
     def get_status(self):
         status = {
-            'stats': self.__do_request_GET_streaming_statistics(self.host, self.port, self.app_id),
+            #'stats': self.__do_request_GET_streaming_statistics(self.host, self.port, self.app_id),
             'batches': self.__do_request_GET_streaming_batches(self.host, self.port, self.app_id)
 
         }
