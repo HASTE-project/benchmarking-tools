@@ -10,6 +10,7 @@ shared_state = {
     }
 }
 
+# TODO: use 'frequency' instead of period. (make it an integer)
 
 def regenerate_data():
     shared_state['message'], filename = generate_message(shared_state['params'])

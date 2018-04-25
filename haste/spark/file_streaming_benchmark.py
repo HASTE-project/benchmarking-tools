@@ -5,7 +5,7 @@ os.environ['PYSPARK_PYTHON'] = 'python3'  # executors
 os.environ['PYSPARK_DRIVER_PYTHON'] = 'python3'  # driver
 
 BATCH_INTERVAL_SECONDS = 5
-USE_RAMDISK = True
+USE_RAMDISK = False
 
 
 # Copied from messaging.py

@@ -14,21 +14,20 @@ MESSAGE_SIZES = [500, 1000, 10000, 100000, 1000000, 5000000, 10000000]
 _FILENAME_IGNORE_PREFIX = ".COPYING." #filenames starting with a . are ignored by Spark
 _REPORT_INTERVAL = 3
 _counter = 0
-_USE_HARD_LINKS = True
+_USE_HARD_LINKS = False
 
 _file_paths = {}
 
+DELETE_OLD_FILES_AFTER = 1000
+
 if platform.system() == 'Darwin':
     # on my laptop:
-    DELETE_OLD_FILES_AFTER = 300
     WORKING_DIR_BASE = '/tmp/benchmarking/'
 else:
     if USE_RAMDISK:
-        DELETE_OLD_FILES_AFTER = 300
         # (This is a bind mount from /dev/shm/bench - to where its mounted on the clients
         WORKING_DIR_BASE = '/dev/shm/bench/'
     else:
-        DELETE_OLD_FILES_AFTER = 300
         WORKING_DIR_BASE = '/srv/nfs-export/bench2/'
 
 os.makedirs(WORKING_DIR_BASE, exist_ok=True)
@@ -82,7 +81,7 @@ def _start_deleting_old_files():
 
                 # Think there is an issue if garbage collection occurs and the files have been removed:
                 if now > DELETE_OLD_FILES_AFTER + modification_time_seconds:
-                    #print('deleting..' + entry.name)
+                    #print(time.asctime() + ' deleting.. ' + entry.name)
                     os.remove(WORKING_DIR_BASE + entry.name)
         #it.close() needs >py3.6
         time.sleep(SEARCH_FOR_OLD_FILES_INTERVAL)
@@ -137,7 +136,7 @@ def _start_file_streaming():
             last_unix_time_interval = int(ts_before_stream)
             print('streamed ' + str(message_count_all_time) + ' messages to ' + WORKING_DIR_BASE
                   + ' , reporting every ' + str(_REPORT_INTERVAL) + ' seconds')
-            print(message_count_this_interval/_REPORT_INTERVAL, 1/shared_state_copy['params']['period_sec'])
+            #print(message_count_this_interval/_REPORT_INTERVAL, 1/shared_state_copy['params']['period_sec'])
             message_count_this_interval = 0
 
 
@@ -164,7 +163,7 @@ def create_file(shared_state):
 
         return path_to_target
     else:
-        print('making a new file')
+        #print('making a new file')
         # Make a new file
         new_file_path_with_prefix = WORKING_DIR_BASE + _FILENAME_IGNORE_PREFIX + new_filename
 

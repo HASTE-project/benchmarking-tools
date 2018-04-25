@@ -29,7 +29,8 @@ def fetch_total_delays():
         try:
             stats = monitor.get_status()
         except:
-            continue
+            import sys
+            sys.exit()
 
         # print(stats)
 
@@ -63,17 +64,16 @@ def fetch_total_delays():
         time.sleep(FETCH_STATUS_INTERVAL_SECONDS)
 
 
-NUMBER_OF_BATCHES = 5  # Number of batches to wait before computing new frequency
+NUMBER_OF_BATCHES = 10  # Number of batches to wait before computing new frequency
 
 # wait a few batch intervals before the initial increase
 frequency_last_set = time.time() + (BATCH_INTERVAL_SECONDS * 2)
-
-frequency = 50
+frequency = 4
 
 def find_max_throughput():
     global frequency_last_set, frequency
 
-    message_size_bytes = 1000000
+    message_size_bytes = 10000000
     cpu_cost_ms = 20
 
     set_new_freq(frequency, message_size_bytes=message_size_bytes, cpu_cost_ms=cpu_cost_ms)
@@ -89,34 +89,42 @@ def find_max_throughput():
         latest_total_delay = total_delays_secs_by_timestamp.values()[-1]
         print(latest_total_delay)
 
-        if frequency is not 1 and latest_total_delay > BATCH_INTERVAL_SECONDS * 1.3:
+        if frequency is not 1 and latest_total_delay > BATCH_INTERVAL_SECONDS * 5 and time.time() > (NUMBER_OF_BATCHES/2 * BATCH_INTERVAL_SECONDS) + frequency_last_set:
             # Spark can't cope
             print('total delay is now: ' + str(latest_total_delay) + ' - spark cant cope - reverting to 1Hz')
-            new_frequency = 1
+            new_frequency = max(1, frequency / 2)
         else:
             latest_total_delays = total_delays_secs_by_timestamp.values()[-min(NUMBER_OF_BATCHES,
                                                                                len(total_delays_secs_by_timestamp)):]
-            # print(latest_total_delays)
+            print(latest_total_delays)
             mean_total_delay = statistics.mean(latest_total_delays)
             print('mean total delay is now: ' + str(mean_total_delay) + ' target frequency is: ' + str(frequency))
 
-            # FIXME: if the streaming app fails for some reason (out of disk space) - it just increases forever!
-            # hack: filter to only look at batches since we last raised the rate - there might not be any yet
-            if len(latest_total_delays) > 1 and time.time() > ((NUMBER_OF_BATCHES + 2) * BATCH_INTERVAL_SECONDS) + frequency_last_set:
+            if len(latest_total_delays) > 1 and time.time() > (NUMBER_OF_BATCHES/2 * BATCH_INTERVAL_SECONDS) + frequency_last_set and mean_total_delay > 2 * BATCH_INTERVAL_SECONDS:
+                    print('(B) we we overshot! frequency was: ' + str(frequency))
+                    new_frequency = int(frequency * 0.80)
+                    # FIXME: if the streaming app fails for some reason (out of disk space) - it just increases forever!
+                    # hack: filter to only look at batches since we last raised the rate - there might not be any yet
+            elif len(latest_total_delays) > 1 and time.time() > ((NUMBER_OF_BATCHES + 3) * BATCH_INTERVAL_SECONDS) + frequency_last_set:
+                mean_total_delay = max(sorted(latest_total_delays)[-2], latest_total_delays[-1])
+
                 print('waited a few intervals since the last change of frequency, should we increase?..')
                 if mean_total_delay < BATCH_INTERVAL_SECONDS * 0.01:
                     new_frequency = frequency * 50
                 elif mean_total_delay < BATCH_INTERVAL_SECONDS * 0.1:
                     new_frequency = frequency * 5
                 elif mean_total_delay < BATCH_INTERVAL_SECONDS * 0.5:
-                    new_frequency = frequency * 2
+                    new_frequency = frequency * 1.75
                 elif mean_total_delay < BATCH_INTERVAL_SECONDS * 0.9:
-                    new_frequency = int(frequency * 1.1)
+                    new_frequency = int(frequency * 1.05)
                 elif mean_total_delay < BATCH_INTERVAL_SECONDS:
                     # we consider this our max stable throughput
                     print('max throughput is:' + str(frequency))
                     exit(0)
-                # TODO: elif: we overshot - scale back down!
+                else:
+                    print('we we overshot! frequency was: ' + str(frequency))
+                    new_frequency = int(frequency * 0.80)
+                    # TODO: elif: we overshot - scale back down!
 
         if new_frequency is not None and new_frequency != frequency:
             set_new_freq(new_frequency, message_size_bytes=message_size_bytes, cpu_cost_ms=cpu_cost_ms)
@@ -130,7 +138,7 @@ def set_new_freq(new_frequency, message_size_bytes, cpu_cost_ms=20):
 
     global frequency, frequency_last_set
     frequency = new_frequency
-    frequency_last_set = time.time()
+    frequency_last_set = time.time() + BATCH_INTERVAL_SECONDS
     print('setting new frequency...' + str(frequency))
     new_params = {
         "cpu_pause_ms": cpu_cost_ms,
