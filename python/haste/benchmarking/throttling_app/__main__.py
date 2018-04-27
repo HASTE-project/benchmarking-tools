@@ -13,7 +13,7 @@ FETCH_STATUS_INTERVAL_SECONDS = 5
 
 # Using port forwarding.
 HOST_FOR_SPARK_REST_API = 'localhost'
-NUMBER_OF_BATCHES = 8  # Number of batches to wait before computing new frequency
+NUMBER_OF_BATCHES = 15  # Number of batches to wait before computing new frequency
 
 # TODO: hmmm... includes the scheduling delay - what if it simply gets behind. get it errs on caution.
 # key[0] is the *oldest* key[-1] is the *newest*
@@ -57,8 +57,8 @@ def fetch_total_delays():
         # TODO: print out the data
         if timestamp not in total_delays_secs_by_timestamp:
             import datetime
-            print('fetched batch: ' + datetime.datetime.utcfromtimestamp(timestamp).strftime(
-                '%Y-%m-%dT%H:%M:%SZ') + ' ' + str(total_delay) + 's')
+            # print('fetched batch: ' + datetime.datetime.utcfromtimestamp(timestamp).strftime(
+            #     '%Y-%m-%dT%H:%M:%SZ') + ' ' + str(total_delay) + 's')
             total_delays_secs_by_timestamp[timestamp] = total_delay
 
         have_queued_jobs = queued_job_count > 1
@@ -107,6 +107,15 @@ def find_max_throughput(message_size_bytes, cpu_cost_ms, initial_frequency=1):
             mean_total_delay = statistics.mean(list(recent_delays.values()))
             print('mean total delay is now: ' + str(mean_total_delay) + ' target frequency is: ' + str(frequency) + ' message size is ' + str(message_size))
 
+            if len(recent_delays) > 1:
+                longest_total_delays = sorted(list(recent_delays.values()))
+                # total_delay_high = max(longest_total_delays[-2], longest_total_delays[-1], mean_total_delay)
+                total_delay_high = mean_total_delay
+                variance = statistics.variance(recent_delays)
+                stdev = statistics.stdev(recent_delays)
+                print('mean: ' + str(mean_total_delay) + ' variance: ' + str(variance) + ' stdev: ' + str(stdev))
+
+
             if len(recent_delays) > 5 and mean_total_delay > 2 * BATCH_INTERVAL_SECONDS:
                 # throttle down early if we're struggling - but allow time to recover from before
                 print('(B) we we overshot! frequency was: ' + str(frequency))
@@ -114,11 +123,6 @@ def find_max_throughput(message_size_bytes, cpu_cost_ms, initial_frequency=1):
                 # FIXME: if the streaming app fails for some reason (out of disk space) - it just increases forever!
                 # hack: filter to only look at batches since we last raised the rate - there might not be any yet
             elif len(recent_delays) > NUMBER_OF_BATCHES:
-                longest_total_delays = sorted(list(recent_delays.values()))
-                #total_delay_high = max(longest_total_delays[-2], longest_total_delays[-1], mean_total_delay)
-                total_delay_high = mean_total_delay
-                print('total_delay_high: ' + str(total_delay_high))
-
                 print('waited a few intervals since the last change of frequency, should we increase?..')
                 if total_delay_high < BATCH_INTERVAL_SECONDS * 0.01:
                     new_frequency = frequency * 50
