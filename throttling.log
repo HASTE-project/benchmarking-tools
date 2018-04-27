@@ -1,0 +1,60 @@
+[{'id': 'app-20180427202611-0059', 'name': 'File Streaming', 'attempts': [{'startTime': '2018-04-27T20:26:10.382GMT', 'endTime': '1969-12-31T23:59:59.999GMT', 'lastUpdated': '2018-04-27T20:26:10.382GMT', 'duration': 0, 'sparkUser': 'ubuntu', 'completed': False, 'appSparkVersion': '2.3.0', 'startTimeEpoch': 1524860770382, 'endTimeEpoch': -1, 'lastUpdatedEpoch': 1524860770382}]}]
+message_size: 100000000
+setting new frequency...1
+b'{"cpu_pause_ms": 20, "message_bytes": 100000000, "period_sec": 1.0}'
+{'result':'new config applied.'}
+..skipping batch 1524860865000 with status PROCESSING
+fetched batch: 2018-04-27T20:27:40Z 1.922s
+fetched batch: 2018-04-27T20:27:35Z 0.005s
+fetched batch: 2018-04-27T20:27:30Z 0.006s
+fetched batch: 2018-04-27T20:27:25Z 0.006s
+fetched batch: 2018-04-27T20:27:20Z 0.014s
+fetched batch: 2018-04-27T20:27:15Z 0.005s
+fetched batch: 2018-04-27T20:27:10Z 0.005s
+fetched batch: 2018-04-27T20:27:05Z 0.006s
+fetched batch: 2018-04-27T20:27:00Z 0.008s
+fetched batch: 2018-04-27T20:26:55Z 0.01s
+fetched batch: 2018-04-27T20:26:50Z 0.008s
+fetched batch: 2018-04-27T20:26:45Z 0.008s
+fetched batch: 2018-04-27T20:26:40Z 0.01s
+fetched batch: 2018-04-27T20:26:35Z 0.008s
+fetched batch: 2018-04-27T20:26:30Z 0.008s
+fetched batch: 2018-04-27T20:26:25Z 0.011s
+fetched batch: 2018-04-27T20:26:20Z 0.015s
+fetched batch: 2018-04-27T20:26:15Z 0.05s
+..skipping batch 1524860865000 with status PROCESSING
+fetched batch: 2018-04-27T20:27:45Z 2.598s
+..skipping batch 1524860870000 with status PROCESSING
+..skipping batch 1524860870000 with status PROCESSING
+..skipping batch 1524860870000 with status PROCESSING
+..skipping batch 1524860870000 with status PROCESSING
+..skipping batch 1524860875000 with status QUEUED
+..skipping batch 1524860870000 with status PROCESSING
+..skipping batch 1524860875000 with status PROCESSING
+fetched batch: 2018-04-27T20:27:50Z 6.232s
+..skipping batch 1524860875000 with status PROCESSING
+..skipping batch 1524860875000 with status PROCESSING
+..skipping batch 1524860880000 with status QUEUED
+..skipping batch 1524860875000 with status PROCESSING
+..skipping batch 1524860880000 with status QUEUED
+..skipping batch 1524860875000 with status PROCESSING
+..skipping batch 1524860880000 with status PROCESSING
+fetched batch: 2018-04-27T20:27:55Z 7.692s
+..skipping batch 1524860880000 with status PROCESSING
+..skipping batch 1524860885000 with status QUEUED
+..skipping batch 1524860880000 with status PROCESSING
+..skipping batch 1524860885000 with status QUEUED
+..skipping batch 1524860880000 with status PROCESSING
+..skipping batch 1524860885000 with status QUEUED
+..skipping batch 1524860880000 with status PROCESSING
+..skipping batch 1524860885000 with status QUEUED
+..skipping batch 1524860880000 with status PROCESSING
+..skipping batch 1524860890000 with status QUEUED
+..skipping batch 1524860885000 with status PROCESSING
+fetched batch: 2018-04-27T20:28:00Z 9.141s
+SortedDict({1524860880: 9.141})
+mean total delay is now: 9.141 target frequency is: 1 message size is 100000000
+..skipping batch 1524860890000 with status QUEUED
+..skipping batch 1524860885000 with status PROCESSING
+SortedDict({1524860880: 9.141})
+mean total delay is now: 9.141 target frequency is: 1 message size is 100000000

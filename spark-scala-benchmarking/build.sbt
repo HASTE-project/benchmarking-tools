@@ -1,4 +1,4 @@
-name := "scala-spark-playpen"
+name := "spark-scala-benchmarking"
 
 version := "0.1"
 

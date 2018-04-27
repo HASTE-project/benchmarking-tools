@@ -171,7 +171,8 @@ def set_new_freq(new_frequency, message_size_bytes, cpu_cost_ms=20):
     # find_max_throughput_thread.start()
 
 
-for message_size in MESSAGE_SIZES:
+# Try the bigger message sizes first, because they are more likely to work.
+for message_size in sorted(MESSAGE_SIZES, reverse=True):
     if message_size < 1000000:
         print('skipping ' + str(message_size))
         continue
