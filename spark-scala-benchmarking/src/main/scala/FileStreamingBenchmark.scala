@@ -70,8 +70,12 @@ object FileStreamingBenchmark {
 
     sparkSession.sparkContext.setLogLevel("WARN")
 
+
+
     if (true) {
       val ssc = new StreamingContext(sparkSession.sparkContext, Seconds(BATCH_INTERVAL))
+
+
 
       ssc.fileStream[LongWritable, Text, TextInputFormat](dir,
         filter = includePath(_),
