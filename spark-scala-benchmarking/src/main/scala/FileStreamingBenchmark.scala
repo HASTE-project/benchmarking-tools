@@ -2,41 +2,18 @@
 
 import java.time.Instant
 
-import org.apache.hadoop.conf.Configuration
-import org.apache.hadoop.fs.{FileSystem, Path}
-import org.apache.spark.sql.SparkSession
+import org.apache.hadoop.fs.Path
 import org.apache.hadoop.io.{LongWritable, Text}
 import org.apache.hadoop.mapreduce.lib.input.TextInputFormat
-import org.apache.spark.SparkContext
-import org.apache.spark.rdd.UnionRDD
+import org.apache.spark.sql.SparkSession
 import org.apache.spark.streaming.{Seconds, StreamingContext}
 
 import scala.util.Random
 
 
-object SimpleApp {
+object FileStreamingBenchmark {
 
-  //  def fileNameFilter(path: Path): Boolean = {
-  //    if (path.getName().contains("COPYING")) {
-  //      //logger.info("*** ignoring incomplete file: " + path.getName())
-  //      return false
-  //    } else {
-  //      return true
-  //    }
-  //  }
-  //
-  //  def deleteFile(sc: SparkContext, fileName: String): Unit = {
-  //    val filePath = new Path(fileName)
-  //    val fs = FileSystem.get(new Configuration())
-  //    if (fs.isDirectory(filePath)) {
-  //      fs.listStatus(filePath).foreach((status) => {
-  //        fs.delete(status.getPath(), true)
-  //      })
-  //    } else {
-  //      fs.delete(filePath, true)
-  //    }
-  //  }
-
+  // NOTE: remember to update the matching const in the python code.
   val BATCH_INTERVAL = 5
 
   def process_line(line: String): Float = {
@@ -45,16 +22,16 @@ object SimpleApp {
     val start = Instant.now.getEpochSecond
     val r = Random.javaRandomToRandom(new java.util.Random())
 
-    var result: Float = 0
-
+    var dummyResult: Float = 0
     while (start + pause_secs > Instant.now.getEpochSecond) {
+      // Keep the CPU busy
       for (i <- 1 to 1000) {
         val a = r.nextFloat()
         val b = r.nextFloat()
-        result = a * b
+        dummyResult = a * b
       }
     }
-    result
+    dummyResult
   }
 
   def includePath(path: Path): Boolean = {
@@ -64,7 +41,7 @@ object SimpleApp {
     //println("filter path")
     val name = path.getName
 
-    val localhostname = java.net.InetAddress.getLocalHost.getHostName
+    //val localhostname = java.net.InetAddress.getLocalHost.getHostName
     // println(localhostname) 'ben-spark-master' -- is this the driver app ?
 
     if (name.startsWith(".")) return false
@@ -85,12 +62,11 @@ object SimpleApp {
     val sparkSession = SparkSession.builder
       .master("spark://ben-spark-master:7077")
       .appName("File Streaming")
-      .config("spark.streaming.unpersist", "True")
+      .config("spark.streaming.unpersist", "True") // Not sure this matters, we arn't caching anyway
       .config("spark.streaming.fileStream.minRememberDuration", "60s") // big so file info gets cached.
       .getOrCreate()
 
     // Leaving this as default 60
-
 
     sparkSession.sparkContext.setLogLevel("WARN")
 
@@ -98,7 +74,7 @@ object SimpleApp {
       val ssc = new StreamingContext(sparkSession.sparkContext, Seconds(BATCH_INTERVAL))
 
       ssc.fileStream[LongWritable, Text, TextInputFormat](dir,
-        filter = includePath(_), // TODO: check last modified time here.
+        filter = includePath(_),
         newFilesOnly = true)
         .map(_._2.toString)
         .map(line => process_line(line))
@@ -107,7 +83,6 @@ object SimpleApp {
       ssc.start()
       ssc.awaitTermination()
     }
-
 
   }
 }

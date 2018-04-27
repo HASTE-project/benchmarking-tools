@@ -172,7 +172,7 @@ def set_new_freq(new_frequency, message_size_bytes, cpu_cost_ms=20):
 
 
 for message_size in MESSAGE_SIZES:
-    if message_size < 10000000:
+    if message_size < 1000000:
         print('skipping ' + str(message_size))
         continue
     print('message_size: ' + str(message_size))
