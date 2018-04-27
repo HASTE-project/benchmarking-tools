@@ -1,6 +1,10 @@
-To run:
 
-```
-/Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home/bin/java -Xms512M -Xmx1024M -Xss1M -XX:+CMSClassUnloadingEnabled "-javaagent:/Applications/IntelliJ IDEA CE.app/Contents/lib/idea_rt.jar=51418:/Applications/IntelliJ IDEA CE.app/Contents/bin" -Dfile.encoding=UTF-8 -classpath "/Users/benblamey/Library/Application Support/IdeaIC2017.3/Scala/launcher/sbt-launch.jar" xsbt.boot.Boot package
-sh ./deploy.bash
-```
+
+
+4 components:
+
+1. python streaming server - can stream messages either over TCP or to disk
+2. PySpark application which processes messages (either over TCP or from disk)
+3. Scala Spark application which processes messages (only supports disk)
+4. Python-based throttling app - queries running application, and throttles stream source application to determine 
+max throughput. 

@@ -68,7 +68,7 @@ object FileStreamingBenchmark {
 
     // Leaving this as default 60
 
-    sparkSession.sparkContext.setLogLevel("WARN")
+    sparkSession.sparkContext.setLogLevel("INFO")
 
 
 

@@ -3916,3 +3916,351 @@ fetched batch: 2018-04-27T21:07:45Z 0.007s
 fetched batch: 2018-04-27T21:07:55Z 0.002s
 fetched batch: 2018-04-27T21:07:50Z 10.559s
 fetched batch: 2018-04-27T21:08:00Z 0.005s
+..skipping batch 1524863285000 with status PROCESSING
+..skipping batch 1524863285000 with status PROCESSING
+..skipping batch 1524863285000 with status PROCESSING
+..skipping batch 1524863290000 with status QUEUED
+..skipping batch 1524863285000 with status PROCESSING
+..skipping batch 1524863290000 with status PROCESSING
+fetched batch: 2018-04-27T21:08:05Z 5.48s
+..skipping batch 1524863290000 with status PROCESSING
+fetched batch: 2018-04-27T21:08:10Z 4.519s
+SortedDict({1524863290: 4.519})
+mean total delay is now: 4.519 target frequency is: 38 message size is 10000000
+SortedDict({1524863290: 4.519})
+mean total delay is now: 4.519 target frequency is: 38 message size is 10000000
+..skipping batch 1524863295000 with status PROCESSING
+SortedDict({1524863290: 4.519})
+mean total delay is now: 4.519 target frequency is: 38 message size is 10000000
+..skipping batch 1524863295000 with status PROCESSING
+SortedDict({1524863290: 4.519})
+mean total delay is now: 4.519 target frequency is: 38 message size is 10000000
+..skipping batch 1524863295000 with status PROCESSING
+SortedDict({1524863290: 4.519})
+mean total delay is now: 4.519 target frequency is: 38 message size is 10000000
+..skipping batch 1524863295000 with status PROCESSING
+SortedDict({1524863290: 4.519})
+mean total delay is now: 4.519 target frequency is: 38 message size is 10000000
+fetched batch: 2018-04-27T21:08:15Z 6.724s
+SortedDict({1524863290: 4.519, 1524863295: 6.724})
+mean total delay is now: 5.6215 target frequency is: 38 message size is 10000000
+fetched batch: 2018-04-27T21:08:20Z 0.005s
+SortedDict({1524863290: 4.519, 1524863295: 6.724, 1524863300: 0.005})
+mean total delay is now: 3.7493333333333334 target frequency is: 38 message size is 10000000
+SortedDict({1524863290: 4.519, 1524863295: 6.724, 1524863300: 0.005})
+mean total delay is now: 3.7493333333333334 target frequency is: 38 message size is 10000000
+..skipping batch 1524863305000 with status QUEUED
+SortedDict({1524863290: 4.519, 1524863295: 6.724, 1524863300: 0.005})
+mean total delay is now: 3.7493333333333334 target frequency is: 38 message size is 10000000
+..skipping batch 1524863305000 with status PROCESSING
+SortedDict({1524863290: 4.519, 1524863295: 6.724, 1524863300: 0.005})
+mean total delay is now: 3.7493333333333334 target frequency is: 38 message size is 10000000
+..skipping batch 1524863305000 with status PROCESSING
+SortedDict({1524863290: 4.519, 1524863295: 6.724, 1524863300: 0.005})
+mean total delay is now: 3.7493333333333334 target frequency is: 38 message size is 10000000
+..skipping batch 1524863305000 with status PROCESSING
+SortedDict({1524863290: 4.519, 1524863295: 6.724, 1524863300: 0.005})
+mean total delay is now: 3.7493333333333334 target frequency is: 38 message size is 10000000
+..skipping batch 1524863305000 with status PROCESSING
+SortedDict({1524863290: 4.519, 1524863295: 6.724, 1524863300: 0.005})
+mean total delay is now: 3.7493333333333334 target frequency is: 38 message size is 10000000
+..skipping batch 1524863305000 with status PROCESSING
+SortedDict({1524863290: 4.519, 1524863295: 6.724, 1524863300: 0.005})
+mean total delay is now: 3.7493333333333334 target frequency is: 38 message size is 10000000
+fetched batch: 2018-04-27T21:08:30Z 0.012s
+fetched batch: 2018-04-27T21:08:25Z 7.201s
+SortedDict({1524863290: 4.519, 1524863295: 6.724, 1524863300: 0.005, 1524863305: 7.201, 1524863310: 0.012})
+mean total delay is now: 3.6922 target frequency is: 38 message size is 10000000
+SortedDict({1524863290: 4.519, 1524863295: 6.724, 1524863300: 0.005, 1524863305: 7.201, 1524863310: 0.012})
+mean total delay is now: 3.6922 target frequency is: 38 message size is 10000000
+SortedDict({1524863290: 4.519, 1524863295: 6.724, 1524863300: 0.005, 1524863305: 7.201, 1524863310: 0.012})
+mean total delay is now: 3.6922 target frequency is: 38 message size is 10000000
+..skipping batch 1524863315000 with status PROCESSING
+SortedDict({1524863290: 4.519, 1524863295: 6.724, 1524863300: 0.005, 1524863305: 7.201, 1524863310: 0.012})
+mean total delay is now: 3.6922 target frequency is: 38 message size is 10000000
+..skipping batch 1524863315000 with status PROCESSING
+SortedDict({1524863290: 4.519, 1524863295: 6.724, 1524863300: 0.005, 1524863305: 7.201, 1524863310: 0.012})
+mean total delay is now: 3.6922 target frequency is: 38 message size is 10000000
+..skipping batch 1524863315000 with status PROCESSING
+SortedDict({1524863290: 4.519, 1524863295: 6.724, 1524863300: 0.005, 1524863305: 7.201, 1524863310: 0.012})
+mean total delay is now: 3.6922 target frequency is: 38 message size is 10000000
+..skipping batch 1524863315000 with status PROCESSING
+SortedDict({1524863290: 4.519, 1524863295: 6.724, 1524863300: 0.005, 1524863305: 7.201, 1524863310: 0.012})
+mean total delay is now: 3.6922 target frequency is: 38 message size is 10000000
+..skipping batch 1524863315000 with status PROCESSING
+SortedDict({1524863290: 4.519, 1524863295: 6.724, 1524863300: 0.005, 1524863305: 7.201, 1524863310: 0.012})
+mean total delay is now: 3.6922 target frequency is: 38 message size is 10000000
+fetched batch: 2018-04-27T21:08:40Z 0.004s
+fetched batch: 2018-04-27T21:08:35Z 6.818s
+SortedDict({1524863290: 4.519, 1524863295: 6.724, 1524863300: 0.005, 1524863305: 7.201, 1524863310: 0.012, 1524863315: 6.818, 1524863320: 0.004})
+mean total delay is now: 3.6118571428571427 target frequency is: 38 message size is 10000000
+SortedDict({1524863290: 4.519, 1524863295: 6.724, 1524863300: 0.005, 1524863305: 7.201, 1524863310: 0.012, 1524863315: 6.818, 1524863320: 0.004})
+mean total delay is now: 3.6118571428571427 target frequency is: 38 message size is 10000000
+SortedDict({1524863290: 4.519, 1524863295: 6.724, 1524863300: 0.005, 1524863305: 7.201, 1524863310: 0.012, 1524863315: 6.818, 1524863320: 0.004})
+mean total delay is now: 3.6118571428571427 target frequency is: 38 message size is 10000000
+..skipping batch 1524863325000 with status PROCESSING
+SortedDict({1524863290: 4.519, 1524863295: 6.724, 1524863300: 0.005, 1524863305: 7.201, 1524863310: 0.012, 1524863315: 6.818, 1524863320: 0.004})
+mean total delay is now: 3.6118571428571427 target frequency is: 38 message size is 10000000
+..skipping batch 1524863325000 with status PROCESSING
+SortedDict({1524863290: 4.519, 1524863295: 6.724, 1524863300: 0.005, 1524863305: 7.201, 1524863310: 0.012, 1524863315: 6.818, 1524863320: 0.004})
+mean total delay is now: 3.6118571428571427 target frequency is: 38 message size is 10000000
+..skipping batch 1524863325000 with status PROCESSING
+SortedDict({1524863290: 4.519, 1524863295: 6.724, 1524863300: 0.005, 1524863305: 7.201, 1524863310: 0.012, 1524863315: 6.818, 1524863320: 0.004})
+mean total delay is now: 3.6118571428571427 target frequency is: 38 message size is 10000000
+..skipping batch 1524863325000 with status PROCESSING
+SortedDict({1524863290: 4.519, 1524863295: 6.724, 1524863300: 0.005, 1524863305: 7.201, 1524863310: 0.012, 1524863315: 6.818, 1524863320: 0.004})
+mean total delay is now: 3.6118571428571427 target frequency is: 38 message size is 10000000
+fetched batch: 2018-04-27T21:08:50Z 0.006s
+fetched batch: 2018-04-27T21:08:45Z 5.696s
+SortedDict({1524863290: 4.519, 1524863295: 6.724, 1524863300: 0.005, 1524863305: 7.201, 1524863310: 0.012, 1524863315: 6.818, 1524863320: 0.004, 1524863325: 5.696, 1524863330: 0.006})
+mean total delay is now: 3.4427777777777777 target frequency is: 38 message size is 10000000
+total_delay_high: 3.4427777777777777
+waited a few intervals since the last change of frequency, should we increase?..
+setting new frequency...40
+b'{"cpu_pause_ms": 20, "message_bytes": 10000000, "period_sec": 0.025}'
+{'result':'new config applied.'}
+..skipping batch 1524863335000 with status PROCESSING
+..skipping batch 1524863335000 with status PROCESSING
+..skipping batch 1524863335000 with status PROCESSING
+..skipping batch 1524863335000 with status PROCESSING
+..skipping batch 1524863335000 with status PROCESSING
+fetched batch: 2018-04-27T21:09:00Z 0.005s
+fetched batch: 2018-04-27T21:08:55Z 6.412s
+..skipping batch 1524863345000 with status PROCESSING
+..skipping batch 1524863345000 with status PROCESSING
+..skipping batch 1524863345000 with status PROCESSING
+..skipping batch 1524863345000 with status PROCESSING
+fetched batch: 2018-04-27T21:09:05Z 6.513s
+fetched batch: 2018-04-27T21:09:10Z 0.002s
+..skipping batch 1524863355000 with status PROCESSING
+..skipping batch 1524863355000 with status PROCESSING
+..skipping batch 1524863355000 with status PROCESSING
+fetched batch: 2018-04-27T21:09:15Z 3.488s
+..skipping batch 1524863360000 with status PROCESSING
+..skipping batch 1524863360000 with status PROCESSING
+..skipping batch 1524863360000 with status PROCESSING
+..skipping batch 1524863360000 with status PROCESSING
+..skipping batch 1524863365000 with status PROCESSING
+fetched batch: 2018-04-27T21:09:20Z 4.635s
+SortedDict({1524863360: 4.635})
+mean total delay is now: 4.635 target frequency is: 40 message size is 10000000
+fetched batch: 2018-04-27T21:09:25Z 1.553s
+SortedDict({1524863360: 4.635, 1524863365: 1.553})
+mean total delay is now: 3.094 target frequency is: 40 message size is 10000000
+SortedDict({1524863360: 4.635, 1524863365: 1.553})
+mean total delay is now: 3.094 target frequency is: 40 message size is 10000000
+..skipping batch 1524863370000 with status PROCESSING
+SortedDict({1524863360: 4.635, 1524863365: 1.553})
+mean total delay is now: 3.094 target frequency is: 40 message size is 10000000
+..skipping batch 1524863370000 with status PROCESSING
+SortedDict({1524863360: 4.635, 1524863365: 1.553})
+mean total delay is now: 3.094 target frequency is: 40 message size is 10000000
+..skipping batch 1524863370000 with status PROCESSING
+SortedDict({1524863360: 4.635, 1524863365: 1.553})
+mean total delay is now: 3.094 target frequency is: 40 message size is 10000000
+..skipping batch 1524863370000 with status PROCESSING
+SortedDict({1524863360: 4.635, 1524863365: 1.553})
+mean total delay is now: 3.094 target frequency is: 40 message size is 10000000
+..skipping batch 1524863375000 with status PROCESSING
+fetched batch: 2018-04-27T21:09:30Z 5.004s
+SortedDict({1524863360: 4.635, 1524863365: 1.553, 1524863370: 5.004})
+mean total delay is now: 3.7306666666666666 target frequency is: 40 message size is 10000000
+fetched batch: 2018-04-27T21:09:35Z 1.058s
+SortedDict({1524863360: 4.635, 1524863365: 1.553, 1524863370: 5.004, 1524863375: 1.058})
+mean total delay is now: 3.0625 target frequency is: 40 message size is 10000000
+SortedDict({1524863360: 4.635, 1524863365: 1.553, 1524863370: 5.004, 1524863375: 1.058})
+mean total delay is now: 3.0625 target frequency is: 40 message size is 10000000
+..skipping batch 1524863380000 with status PROCESSING
+SortedDict({1524863360: 4.635, 1524863365: 1.553, 1524863370: 5.004, 1524863375: 1.058})
+mean total delay is now: 3.0625 target frequency is: 40 message size is 10000000
+..skipping batch 1524863380000 with status PROCESSING
+SortedDict({1524863360: 4.635, 1524863365: 1.553, 1524863370: 5.004, 1524863375: 1.058})
+mean total delay is now: 3.0625 target frequency is: 40 message size is 10000000
+fetched batch: 2018-04-27T21:09:40Z 3.47s
+SortedDict({1524863360: 4.635, 1524863365: 1.553, 1524863370: 5.004, 1524863375: 1.058, 1524863380: 3.47})
+mean total delay is now: 3.144 target frequency is: 40 message size is 10000000
+SortedDict({1524863360: 4.635, 1524863365: 1.553, 1524863370: 5.004, 1524863375: 1.058, 1524863380: 3.47})
+mean total delay is now: 3.144 target frequency is: 40 message size is 10000000
+..skipping batch 1524863385000 with status PROCESSING
+SortedDict({1524863360: 4.635, 1524863365: 1.553, 1524863370: 5.004, 1524863375: 1.058, 1524863380: 3.47})
+mean total delay is now: 3.144 target frequency is: 40 message size is 10000000
+..skipping batch 1524863385000 with status PROCESSING
+SortedDict({1524863360: 4.635, 1524863365: 1.553, 1524863370: 5.004, 1524863375: 1.058, 1524863380: 3.47})
+mean total delay is now: 3.144 target frequency is: 40 message size is 10000000
+..skipping batch 1524863385000 with status PROCESSING
+SortedDict({1524863360: 4.635, 1524863365: 1.553, 1524863370: 5.004, 1524863375: 1.058, 1524863380: 3.47})
+mean total delay is now: 3.144 target frequency is: 40 message size is 10000000
+..skipping batch 1524863385000 with status PROCESSING
+SortedDict({1524863360: 4.635, 1524863365: 1.553, 1524863370: 5.004, 1524863375: 1.058, 1524863380: 3.47})
+mean total delay is now: 3.144 target frequency is: 40 message size is 10000000
+..skipping batch 1524863385000 with status PROCESSING
+SortedDict({1524863360: 4.635, 1524863365: 1.553, 1524863370: 5.004, 1524863375: 1.058, 1524863380: 3.47})
+mean total delay is now: 3.144 target frequency is: 40 message size is 10000000
+fetched batch: 2018-04-27T21:09:50Z 0.005s
+fetched batch: 2018-04-27T21:09:45Z 5.693s
+SortedDict({1524863360: 4.635, 1524863365: 1.553, 1524863370: 5.004, 1524863375: 1.058, 1524863380: 3.47, 1524863385: 5.693, 1524863390: 0.005})
+mean total delay is now: 3.0597142857142856 target frequency is: 40 message size is 10000000
+SortedDict({1524863360: 4.635, 1524863365: 1.553, 1524863370: 5.004, 1524863375: 1.058, 1524863380: 3.47, 1524863385: 5.693, 1524863390: 0.005})
+mean total delay is now: 3.0597142857142856 target frequency is: 40 message size is 10000000
+..skipping batch 1524863395000 with status PROCESSING
+SortedDict({1524863360: 4.635, 1524863365: 1.553, 1524863370: 5.004, 1524863375: 1.058, 1524863380: 3.47, 1524863385: 5.693, 1524863390: 0.005})
+mean total delay is now: 3.0597142857142856 target frequency is: 40 message size is 10000000
+..skipping batch 1524863395000 with status PROCESSING
+SortedDict({1524863360: 4.635, 1524863365: 1.553, 1524863370: 5.004, 1524863375: 1.058, 1524863380: 3.47, 1524863385: 5.693, 1524863390: 0.005})
+mean total delay is now: 3.0597142857142856 target frequency is: 40 message size is 10000000
+..skipping batch 1524863395000 with status PROCESSING
+SortedDict({1524863360: 4.635, 1524863365: 1.553, 1524863370: 5.004, 1524863375: 1.058, 1524863380: 3.47, 1524863385: 5.693, 1524863390: 0.005})
+mean total delay is now: 3.0597142857142856 target frequency is: 40 message size is 10000000
+..skipping batch 1524863395000 with status PROCESSING
+SortedDict({1524863360: 4.635, 1524863365: 1.553, 1524863370: 5.004, 1524863375: 1.058, 1524863380: 3.47, 1524863385: 5.693, 1524863390: 0.005})
+mean total delay is now: 3.0597142857142856 target frequency is: 40 message size is 10000000
+..skipping batch 1524863400000 with status PROCESSING
+fetched batch: 2018-04-27T21:09:55Z 5.195s
+SortedDict({1524863360: 4.635, 1524863365: 1.553, 1524863370: 5.004, 1524863375: 1.058, 1524863380: 3.47, 1524863385: 5.693, 1524863390: 0.005, 1524863395: 5.195})
+mean total delay is now: 3.326625 target frequency is: 40 message size is 10000000
+..skipping batch 1524863400000 with status PROCESSING
+SortedDict({1524863360: 4.635, 1524863365: 1.553, 1524863370: 5.004, 1524863375: 1.058, 1524863380: 3.47, 1524863385: 5.693, 1524863390: 0.005, 1524863395: 5.195})
+mean total delay is now: 3.326625 target frequency is: 40 message size is 10000000
+fetched batch: 2018-04-27T21:10:00Z 1.556s
+SortedDict({1524863360: 4.635, 1524863365: 1.553, 1524863370: 5.004, 1524863375: 1.058, 1524863380: 3.47, 1524863385: 5.693, 1524863390: 0.005, 1524863395: 5.195, 1524863400: 1.556})
+mean total delay is now: 3.129888888888889 target frequency is: 40 message size is 10000000
+total_delay_high: 3.129888888888889
+waited a few intervals since the last change of frequency, should we increase?..
+setting new frequency...42
+b'{"cpu_pause_ms": 20, "message_bytes": 10000000, "period_sec": 0.023809523809523808}'
+{'result':'new config applied.'}
+..skipping batch 1524863405000 with status PROCESSING
+..skipping batch 1524863405000 with status PROCESSING
+..skipping batch 1524863405000 with status PROCESSING
+..skipping batch 1524863405000 with status PROCESSING
+..skipping batch 1524863405000 with status PROCESSING
+fetched batch: 2018-04-27T21:10:10Z 0.004s
+fetched batch: 2018-04-27T21:10:05Z 6.136s
+..skipping batch 1524863415000 with status PROCESSING
+..skipping batch 1524863415000 with status PROCESSING
+..skipping batch 1524863415000 with status PROCESSING
+..skipping batch 1524863415000 with status PROCESSING
+fetched batch: 2018-04-27T21:10:15Z 4.31s
+..skipping batch 1524863420000 with status PROCESSING
+..skipping batch 1524863420000 with status PROCESSING
+..skipping batch 1524863420000 with status PROCESSING
+..skipping batch 1524863420000 with status PROCESSING
+fetched batch: 2018-04-27T21:10:25Z 0.004s
+fetched batch: 2018-04-27T21:10:20Z 6.025s
+..skipping batch 1524863430000 with status PROCESSING
+..skipping batch 1524863430000 with status PROCESSING
+fetched batch: 2018-04-27T21:10:30Z 2.946s
+SortedDict({1524863430: 2.946})
+mean total delay is now: 2.946 target frequency is: 42 message size is 10000000
+SortedDict({1524863430: 2.946})
+mean total delay is now: 2.946 target frequency is: 42 message size is 10000000
+..skipping batch 1524863435000 with status PROCESSING
+SortedDict({1524863430: 2.946})
+mean total delay is now: 2.946 target frequency is: 42 message size is 10000000
+..skipping batch 1524863435000 with status PROCESSING
+SortedDict({1524863430: 2.946})
+mean total delay is now: 2.946 target frequency is: 42 message size is 10000000
+..skipping batch 1524863435000 with status PROCESSING
+SortedDict({1524863430: 2.946})
+mean total delay is now: 2.946 target frequency is: 42 message size is 10000000
+fetched batch: 2018-04-27T21:10:35Z 4.65s
+SortedDict({1524863430: 2.946, 1524863435: 4.65})
+mean total delay is now: 3.798 target frequency is: 42 message size is 10000000
+SortedDict({1524863430: 2.946, 1524863435: 4.65})
+mean total delay is now: 3.798 target frequency is: 42 message size is 10000000
+..skipping batch 1524863440000 with status PROCESSING
+SortedDict({1524863430: 2.946, 1524863435: 4.65})
+mean total delay is now: 3.798 target frequency is: 42 message size is 10000000
+..skipping batch 1524863440000 with status PROCESSING
+SortedDict({1524863430: 2.946, 1524863435: 4.65})
+mean total delay is now: 3.798 target frequency is: 42 message size is 10000000
+fetched batch: 2018-04-27T21:10:40Z 3.182s
+SortedDict({1524863430: 2.946, 1524863435: 4.65, 1524863440: 3.182})
+mean total delay is now: 3.5926666666666667 target frequency is: 42 message size is 10000000
+..skipping batch 1524863445000 with status PROCESSING
+SortedDict({1524863430: 2.946, 1524863435: 4.65, 1524863440: 3.182})
+mean total delay is now: 3.5926666666666667 target frequency is: 42 message size is 10000000
+..skipping batch 1524863445000 with status PROCESSING
+SortedDict({1524863430: 2.946, 1524863435: 4.65, 1524863440: 3.182})
+mean total delay is now: 3.5926666666666667 target frequency is: 42 message size is 10000000
+..skipping batch 1524863445000 with status PROCESSING
+SortedDict({1524863430: 2.946, 1524863435: 4.65, 1524863440: 3.182})
+mean total delay is now: 3.5926666666666667 target frequency is: 42 message size is 10000000
+fetched batch: 2018-04-27T21:10:45Z 3.754s
+SortedDict({1524863430: 2.946, 1524863435: 4.65, 1524863440: 3.182, 1524863445: 3.754})
+mean total delay is now: 3.633 target frequency is: 42 message size is 10000000
+SortedDict({1524863430: 2.946, 1524863435: 4.65, 1524863440: 3.182, 1524863445: 3.754})
+mean total delay is now: 3.633 target frequency is: 42 message size is 10000000
+..skipping batch 1524863450000 with status PROCESSING
+SortedDict({1524863430: 2.946, 1524863435: 4.65, 1524863440: 3.182, 1524863445: 3.754})
+mean total delay is now: 3.633 target frequency is: 42 message size is 10000000
+..skipping batch 1524863450000 with status PROCESSING
+SortedDict({1524863430: 2.946, 1524863435: 4.65, 1524863440: 3.182, 1524863445: 3.754})
+mean total delay is now: 3.633 target frequency is: 42 message size is 10000000
+fetched batch: 2018-04-27T21:10:50Z 3.08s
+SortedDict({1524863430: 2.946, 1524863435: 4.65, 1524863440: 3.182, 1524863445: 3.754, 1524863450: 3.08})
+mean total delay is now: 3.5224 target frequency is: 42 message size is 10000000
+..skipping batch 1524863455000 with status PROCESSING
+SortedDict({1524863430: 2.946, 1524863435: 4.65, 1524863440: 3.182, 1524863445: 3.754, 1524863450: 3.08})
+mean total delay is now: 3.5224 target frequency is: 42 message size is 10000000
+..skipping batch 1524863455000 with status PROCESSING
+SortedDict({1524863430: 2.946, 1524863435: 4.65, 1524863440: 3.182, 1524863445: 3.754, 1524863450: 3.08})
+mean total delay is now: 3.5224 target frequency is: 42 message size is 10000000
+..skipping batch 1524863455000 with status PROCESSING
+SortedDict({1524863430: 2.946, 1524863435: 4.65, 1524863440: 3.182, 1524863445: 3.754, 1524863450: 3.08})
+mean total delay is now: 3.5224 target frequency is: 42 message size is 10000000
+..skipping batch 1524863455000 with status PROCESSING
+SortedDict({1524863430: 2.946, 1524863435: 4.65, 1524863440: 3.182, 1524863445: 3.754, 1524863450: 3.08})
+mean total delay is now: 3.5224 target frequency is: 42 message size is 10000000
+..skipping batch 1524863455000 with status PROCESSING
+SortedDict({1524863430: 2.946, 1524863435: 4.65, 1524863440: 3.182, 1524863445: 3.754, 1524863450: 3.08})
+mean total delay is now: 3.5224 target frequency is: 42 message size is 10000000
+..skipping batch 1524863455000 with status PROCESSING
+SortedDict({1524863430: 2.946, 1524863435: 4.65, 1524863440: 3.182, 1524863445: 3.754, 1524863450: 3.08})
+mean total delay is now: 3.5224 target frequency is: 42 message size is 10000000
+fetched batch: 2018-04-27T21:11:00Z 0.003s
+fetched batch: 2018-04-27T21:10:55Z 7.216s
+SortedDict({1524863430: 2.946, 1524863435: 4.65, 1524863440: 3.182, 1524863445: 3.754, 1524863450: 3.08, 1524863455: 7.216, 1524863460: 0.003})
+mean total delay is now: 3.5472857142857146 target frequency is: 42 message size is 10000000
+SortedDict({1524863430: 2.946, 1524863435: 4.65, 1524863440: 3.182, 1524863445: 3.754, 1524863450: 3.08, 1524863455: 7.216, 1524863460: 0.003})
+mean total delay is now: 3.5472857142857146 target frequency is: 42 message size is 10000000
+..skipping batch 1524863465000 with status PROCESSING
+SortedDict({1524863430: 2.946, 1524863435: 4.65, 1524863440: 3.182, 1524863445: 3.754, 1524863450: 3.08, 1524863455: 7.216, 1524863460: 0.003})
+mean total delay is now: 3.5472857142857146 target frequency is: 42 message size is 10000000
+..skipping batch 1524863465000 with status PROCESSING
+SortedDict({1524863430: 2.946, 1524863435: 4.65, 1524863440: 3.182, 1524863445: 3.754, 1524863450: 3.08, 1524863455: 7.216, 1524863460: 0.003})
+mean total delay is now: 3.5472857142857146 target frequency is: 42 message size is 10000000
+..skipping batch 1524863465000 with status PROCESSING
+SortedDict({1524863430: 2.946, 1524863435: 4.65, 1524863440: 3.182, 1524863445: 3.754, 1524863450: 3.08, 1524863455: 7.216, 1524863460: 0.003})
+mean total delay is now: 3.5472857142857146 target frequency is: 42 message size is 10000000
+..skipping batch 1524863470000 with status PROCESSING
+fetched batch: 2018-04-27T21:11:05Z 4.666s
+SortedDict({1524863430: 2.946, 1524863435: 4.65, 1524863440: 3.182, 1524863445: 3.754, 1524863450: 3.08, 1524863455: 7.216, 1524863460: 0.003, 1524863465: 4.666})
+mean total delay is now: 3.687125 target frequency is: 42 message size is 10000000
+fetched batch: 2018-04-27T21:11:10Z 0.431s
+SortedDict({1524863430: 2.946, 1524863435: 4.65, 1524863440: 3.182, 1524863445: 3.754, 1524863450: 3.08, 1524863455: 7.216, 1524863460: 0.003, 1524863465: 4.666, 1524863470: 0.431})
+mean total delay is now: 3.3253333333333335 target frequency is: 42 message size is 10000000
+total_delay_high: 3.3253333333333335
+waited a few intervals since the last change of frequency, should we increase?..
+setting new frequency...44
+b'{"cpu_pause_ms": 20, "message_bytes": 10000000, "period_sec": 0.022727272727272728}'
+{'result':'new config applied.'}
+..skipping batch 1524863475000 with status PROCESSING
+..skipping batch 1524863475000 with status PROCESSING
+..skipping batch 1524863475000 with status PROCESSING
+..skipping batch 1524863475000 with status PROCESSING
+..skipping batch 1524863475000 with status PROCESSING
+..skipping batch 1524863475000 with status PROCESSING
+..skipping batch 1524863475000 with status PROCESSING
+..skipping batch 1524863475000 with status PROCESSING
+fetched batch: 2018-04-27T21:11:25Z 0.004s
+fetched batch: 2018-04-27T21:11:20Z 0.03s
+fetched batch: 2018-04-27T21:11:15Z 10.811s
+..skipping batch 1524863490000 with status PROCESSING
+..skipping batch 1524863490000 with status PROCESSING
+..skipping batch 1524863490000 with status PROCESSING
+fetched batch: 2018-04-27T21:11:30Z 4.137s
+..skipping batch 1524863495000 with status PROCESSING
+fetched batch: 2018-04-27T21:11:35Z 2.201s
+SortedDict({1524863495: 2.201})
+mean total delay is now: 2.201 target frequency is: 44 message size is 10000000
