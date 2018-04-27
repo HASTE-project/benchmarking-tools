@@ -18,7 +18,8 @@ _USE_HARD_LINKS = False
 
 _file_paths = {}
 
-DELETE_OLD_FILES_AFTER = 1200
+# 6 x batch interval (+margin if small)
+DELETE_OLD_FILES_AFTER = BATCH_INTERVAL_SECONDS * 12
 
 if platform.system() == 'Darwin':
     # on my laptop:

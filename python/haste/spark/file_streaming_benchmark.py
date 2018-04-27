@@ -8,6 +8,8 @@ os.environ['PYSPARK_DRIVER_PYTHON'] = 'python3'  # driver
 BATCH_INTERVAL_SECONDS = 5
 USE_RAMDISK = False
 
+# Deprecated: used the Scala application - so that we can set the file filter to avoid crashing when listing files.
+
 
 # Copied from messaging.py
 def parse_message(line):
@@ -45,12 +47,14 @@ def stream():
 
     conf = SparkConf()\
         .setMaster("spark://ben-spark-master:7077") \
-        .set('spark.streaming.fileStream.minRememberDuration', '30s')\
-        .set('spark.cleaner.periodicGC.interval', '10s')\
+        .set('spark.streaming.fileStream.minRememberDuration', '10s')\
+        .set('spark.streaming.unpersist', 'True')\
         .setAppName("FileStreamingBenchmark")
 
+    #.set('spark.cleaner.periodicGC.interval', '10s')
+
     sc = SparkContext(conf=conf)
-    sc.setLogLevel('WARN')
+    sc.setLogLevel('DEBUG')
 
     ssc = StreamingContext(sc, BATCH_INTERVAL_SECONDS)  # second argument is the batch interval in seconds.
     # for file based streaming from an NFS share - needs to be high because listing the files takes a while
@@ -68,12 +72,21 @@ def stream():
         else:
             lines = ssc.textFileStream('/mnt/nfs/ben-stream-src-3/bench2/')
 
-    lines.map(process_line).count().pprint()
+    lines.map(process_line).foreachRDD(lambda rdd: print(rdd.count()))
 
-    # ssc.remember(20) # release RDDs for garbage collection after 1 second
+    #ssc.remember(20) # release RDDs for garbage collection after 1 second
 
     ssc.start()
     ssc.awaitTermination()
+
+    # import threading
+    # def foo():
+    #     while True:
+    #         time.sleep(10)
+    #         gc.collect()
+    #
+    # t = threading.Thread(target=foo)
+    # t.start()
 
 if __name__ == '__main__':
     stream()

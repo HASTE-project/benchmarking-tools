@@ -8,11 +8,12 @@ from ...spark.file_streaming_benchmark import BATCH_INTERVAL_SECONDS
 import calendar
 from ..streaming_server.file_streaming import MESSAGE_SIZES
 
+# = batch interval
 FETCH_STATUS_INTERVAL_SECONDS = 5
 
 # Using port forwarding.
 HOST_FOR_SPARK_REST_API = 'localhost'
-NUMBER_OF_BATCHES = 10  # Number of batches to wait before computing new frequency
+NUMBER_OF_BATCHES = 8  # Number of batches to wait before computing new frequency
 
 # TODO: hmmm... includes the scheduling delay - what if it simply gets behind. get it errs on caution.
 # key[0] is the *oldest* key[-1] is the *newest*
@@ -86,7 +87,7 @@ def find_max_throughput(message_size_bytes, cpu_cost_ms, initial_frequency=1):
         # print(total_delays_secs_by_timestamp)
 
         recent_delays = SortedDict({t: delay for t, delay in total_delays_secs_by_timestamp.items() if
-                                    t > frequency_last_set + BATCH_INTERVAL_SECONDS})
+                                    t > frequency_last_set + 3 + 2 * BATCH_INTERVAL_SECONDS})
 
         if len(recent_delays) == 0:
             # print('waiting for next batch completion...')
@@ -114,7 +115,8 @@ def find_max_throughput(message_size_bytes, cpu_cost_ms, initial_frequency=1):
                 # hack: filter to only look at batches since we last raised the rate - there might not be any yet
             elif len(recent_delays) > NUMBER_OF_BATCHES:
                 longest_total_delays = sorted(list(recent_delays.values()))
-                total_delay_high = max(longest_total_delays[-2], longest_total_delays[-1], mean_total_delay)
+                #total_delay_high = max(longest_total_delays[-2], longest_total_delays[-1], mean_total_delay)
+                total_delay_high = mean_total_delay
                 print('total_delay_high: ' + str(total_delay_high))
 
                 print('waited a few intervals since the last change of frequency, should we increase?..')
@@ -128,7 +130,7 @@ def find_max_throughput(message_size_bytes, cpu_cost_ms, initial_frequency=1):
                     new_frequency = int(frequency * 1.03) + 1
                 elif total_delay_high < BATCH_INTERVAL_SECONDS:
                     # we consider this our max stable throughput
-                    print('max throughput is:' + str(frequency) + ' message size: ' + message_size_bytes)
+                    print('max throughput is:' + str(frequency) + ' message size: ' +str(message_size_bytes))
                     return
                 else:
                     print('we we overshot! frequency was: ' + str(frequency) + ' message size: ' + str(
@@ -170,7 +172,7 @@ def set_new_freq(new_frequency, message_size_bytes, cpu_cost_ms=20):
 
 
 for message_size in MESSAGE_SIZES:
-    if message_size < 100000:
+    if message_size < 10000000:
         print('skipping ' + str(message_size))
         continue
     print('message_size: ' + str(message_size))

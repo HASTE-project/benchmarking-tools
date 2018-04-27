@@ -27,8 +27,9 @@ while true; do
     ssh -t -t ben-spark-master 'PYSPARK_PYTHON=python3 \
         SPARK_HOME=/usr/local/spark ; \
         python3 file_streaming_benchmark.py'
-    sleep 2
-    echo 'restarting..'
+    echo 'restarting soon..'
+    # leave long enough so the old app fails (and we get to re-use port 4040)
+    sleep 20
 done
 
 
