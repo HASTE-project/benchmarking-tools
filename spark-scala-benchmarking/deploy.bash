@@ -15,7 +15,7 @@ ssh ben-spark-master -t -t 'SPARK_HOME=/usr/local/spark-2.3.0-bin-hadoop2.7 ; \
     --master spark://ben-spark-master:6066 \
     --deploy-mode client \
     --class "FileStreamingBenchmark" \
-    spark-scala-benchmarking_2.11-0.1.jar'
+    spark-scala-benchmarking_2.11-0.1.jar' | tee ../spark-app.log
 
 #    --supervise \
 #    --verbose \

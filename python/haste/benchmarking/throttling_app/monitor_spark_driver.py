@@ -61,7 +61,7 @@ class SparkMonitor:
         req = urllib.request.Request(url,
                                      headers={'Content-type': 'application/json',
                                               'Accept': 'application/json'})
-        f = urllib.request.urlopen(req)
+        f = urllib.request.urlopen(req, timeout=10)
         parsed = json.loads(f.read())
         # {'startTime': '2018-03-02T06:26:10.544GMT', 'batchDuration': 1000, 'numReceivers': 1, 'numActiveReceivers': 1,
         #  'numInactiveReceivers': 0, 'numTotalCompletedBatches': 29, 'numRetainedCompletedBatches': 29,

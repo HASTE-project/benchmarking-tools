@@ -7,13 +7,29 @@ from .streaming_server_rest_client import set_new_params
 from ...spark.file_streaming_benchmark import BATCH_INTERVAL_SECONDS
 import calendar
 from ..streaming_server.file_streaming import MESSAGE_SIZES
+from .spark_app_log import find_file_pauses_s_by_unixtime, parse_spark_app_logs_and_update
 
-# = batch interval
-FETCH_STATUS_INTERVAL_SECONDS = 5
+RESULT_FILE_LISTING = 'LIMIT_FILE_LISTNG'
+RESULT_LIMIT_TOTAL_DELAUY = 'LIMIT_TOTAL_DELAY'
+
+# ~= batch interval
+FETCH_STATUS_INTERVAL_SECONDS = 2
 
 # Using port forwarding.
 HOST_FOR_SPARK_REST_API = 'localhost'
-NUMBER_OF_BATCHES = 15  # Number of batches to wait before computing new frequency
+
+# Number of batches to wait before computing new frequency
+# TODO: Should be long enough that we begin to delete files at this frequency
+# TODO: if doing file streaming
+from ..streaming_server.file_streaming import DELETE_OLD_FILES_AFTER
+
+_FULL_RUN = False
+
+if _FULL_RUN:
+    NUMBER_OF_BATCHES = int(DELETE_OLD_FILES_AFTER / BATCH_INTERVAL_SECONDS) + 1
+else:
+    # Test run
+    NUMBER_OF_BATCHES = 3
 
 # TODO: hmmm... includes the scheduling delay - what if it simply gets behind. get it errs on caution.
 # key[0] is the *oldest* key[-1] is the *newest*
@@ -35,7 +51,7 @@ def fetch_total_delays():
         stats = monitor.get_status()
     except:
         import sys
-        sys.exit()
+        sys.exit('counldnt get status')
 
     # print(stats)
 
@@ -78,13 +94,19 @@ def find_max_throughput(message_size_bytes, cpu_cost_ms, initial_frequency=1):
 
     set_new_freq(frequency, message_size_bytes=message_size_bytes, cpu_cost_ms=cpu_cost_ms)
 
+    time.sleep(BATCH_INTERVAL_SECONDS)
+
     while True:
         time.sleep(1)
         new_frequency = None
 
         fetch_total_delays()
-
         # print(total_delays_secs_by_timestamp)
+
+        parse_spark_app_logs_and_update()
+
+        recent_find_file_pauses = {t: pause_float for t, pause_float in find_file_pauses_s_by_unixtime.items() if
+                                   t > frequency_last_set + 3 + 2 * BATCH_INTERVAL_SECONDS}
 
         recent_delays = SortedDict({t: delay for t, delay in total_delays_secs_by_timestamp.items() if
                                     t > frequency_last_set + 3 + 2 * BATCH_INTERVAL_SECONDS})
@@ -97,15 +119,23 @@ def find_max_throughput(message_size_bytes, cpu_cost_ms, initial_frequency=1):
         latest_total_delay = recent_delays.values()[-1]
         # print(latest_total_delay)
         if frequency > 1 and latest_total_delay > BATCH_INTERVAL_SECONDS * 5:
+            # WARNING: if we only wait say 3 intervals, we won't see it taking 5 intervals
             # Spark can't cope
             print('total delay is now: ' + str(latest_total_delay) + ' - spark cant cope - reverting to 1Hz')
             new_frequency = throttle_down(frequency)
+        elif frequency > 1 and len(
+                [delay for t, delay in recent_find_file_pauses.items() if delay > 0.95 * BATCH_INTERVAL_SECONDS]) > 2:
+            # Spark can't cope
+            # TODO: factor out 'outcome'
+            print('max throughput is:' + str(frequency) + ' message size: ' + str(message_size_bytes) + ' reason was ' + RESULT_FILE_LISTING)
+            return RESULT_FILE_LISTING, frequency
         else:
             # latest_total_delays = total_delays_secs_by_timestamp.values()[-min(NUMBER_OF_BATCHES,
             #                                                                    len(total_delays_secs_by_timestamp)):]
             # print(latest_total_delays)
             mean_total_delay = statistics.mean(list(recent_delays.values()))
-            print('mean total delay is now: ' + str(mean_total_delay) + ' target frequency is: ' + str(frequency) + ' message size is ' + str(message_size))
+            print('mean total delay is now: ' + str(mean_total_delay) + ' target frequency is: ' + str(
+                frequency) + ' message size is ' + str(message_size))
 
             if len(recent_delays) > 1:
                 longest_total_delays = sorted(list(recent_delays.values()))
@@ -114,7 +144,6 @@ def find_max_throughput(message_size_bytes, cpu_cost_ms, initial_frequency=1):
                 variance = statistics.variance(recent_delays)
                 stdev = statistics.stdev(recent_delays)
                 print('mean: ' + str(mean_total_delay) + ' variance: ' + str(variance) + ' stdev: ' + str(stdev))
-
 
             if len(recent_delays) > 5 and mean_total_delay > 2 * BATCH_INTERVAL_SECONDS:
                 # throttle down early if we're struggling - but allow time to recover from before
@@ -134,8 +163,8 @@ def find_max_throughput(message_size_bytes, cpu_cost_ms, initial_frequency=1):
                     new_frequency = int(frequency * 1.03) + 1
                 elif total_delay_high < BATCH_INTERVAL_SECONDS:
                     # we consider this our max stable throughput
-                    print('max throughput is:' + str(frequency) + ' message size: ' +str(message_size_bytes))
-                    return
+                    print('max throughput is:' + str(frequency) + ' message size: ' + str(message_size_bytes))
+                    return RESULT_LIMIT_TOTAL_DELAUY, frequency
                 else:
                     print('we we overshot! frequency was: ' + str(frequency) + ' message size: ' + str(
                         message_size_bytes))
@@ -167,7 +196,6 @@ def set_new_freq(new_frequency, message_size_bytes, cpu_cost_ms=20):
     }
     set_new_params(new_params)
 
-
     # fetch_total_delays_thread = threading.Thread(target=fetch_total_delays)
     # fetch_total_delays_thread.start()
 
@@ -177,13 +205,12 @@ def set_new_freq(new_frequency, message_size_bytes, cpu_cost_ms=20):
 
 # Try the bigger message sizes first, because they are more likely to work.
 for message_size in sorted(MESSAGE_SIZES, reverse=True):
-    if message_size < 1000000:
+    if message_size < 10000:
         print('skipping ' + str(message_size))
         continue
     print('message_size: ' + str(message_size))
 
     find_max_throughput(message_size, 20)
-
 
 # find_max_throughput(500, 20, initial_frequency=100)
 

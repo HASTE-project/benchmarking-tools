@@ -5,6 +5,7 @@ import java.time.Instant
 import org.apache.hadoop.fs.Path
 import org.apache.hadoop.io.{LongWritable, Text}
 import org.apache.hadoop.mapreduce.lib.input.TextInputFormat
+import org.apache.log4j.Logger
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.streaming.{Seconds, StreamingContext}
 
@@ -16,21 +17,25 @@ object FileStreamingBenchmark {
   // NOTE: remember to update the matching const in the python code.
   val BATCH_INTERVAL = 5
 
-  def process_line(line: String): Float = {
-    val pause_secs = line.substring(1, 7).toFloat / 1000
+  //val r = Random.javaRandomToRandom(new java.util.Random())
+
+  def pause(pause_secs: Float) = {
 
     val start = Instant.now.getEpochSecond
-    val r = Random.javaRandomToRandom(new java.util.Random())
-
     var dummyResult: Float = 0
     while (start + pause_secs > Instant.now.getEpochSecond) {
       // Keep the CPU busy
       for (i <- 1 to 1000) {
-        val a = r.nextFloat()
-        val b = r.nextFloat()
-        dummyResult = a * b
+        dummyResult = i
       }
     }
+    println(Instant.now.getEpochSecond - (start + pause_secs))
+    dummyResult
+  }
+
+  def process_line(line: String): Float = {
+    val pause_secs = line.substring(1, 7).toFloat / 1000
+    var dummyResult: Float = pause(pause_secs)
     dummyResult
   }
 
@@ -50,13 +55,19 @@ object FileStreamingBenchmark {
     val unix_timestamp = filename_parts(0).toInt
     //println(filename_parts(0))
 
-    // This means if file listing overruns, we start to drop files.
-    // This is OK
+    // This means if file listing overruns significantly, we start to drop files.
+    // This is OK - we throttle back in this case anyway
     Instant.now.getEpochSecond < unix_timestamp + BATCH_INTERVAL * 2
   }
 
   def main(args: Array[String]) {
 
+    runSparkApp
+
+    //pause(0.0001f)
+  }
+
+  private def runSparkApp = {
     val dir = "/mnt/nfs/ben-stream-src-3/bench2/"
 
     val sparkSession = SparkSession.builder
@@ -68,25 +79,23 @@ object FileStreamingBenchmark {
 
     // Leaving this as default 60
 
-    sparkSession.sparkContext.setLogLevel("INFO")
+    sparkSession.sparkContext.setLogLevel("INFO") // Need info to read "Finding new files took ...."
 
+    val logger = Logger.getLogger("file-streaming-app")
 
+    logger.info("test log message")
 
     if (true) {
       val ssc = new StreamingContext(sparkSession.sparkContext, Seconds(BATCH_INTERVAL))
-
-
 
       ssc.fileStream[LongWritable, Text, TextInputFormat](dir,
         filter = includePath(_),
         newFilesOnly = true)
         .map(_._2.toString)
         .map(line => process_line(line))
-        .foreachRDD(rdd => println(rdd.count()))
-
+        .foreachRDD(rdd => println("processed: " + rdd.count()))
       ssc.start()
       ssc.awaitTermination()
     }
-
   }
 }

@@ -1,0 +1,470 @@
+2018-04-29 10:02:34 WARN  NativeCodeLoader:62 - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2018-04-29 10:02:34 INFO  SparkContext:54 - Running Spark version 2.3.0
+2018-04-29 10:02:34 INFO  SparkContext:54 - Submitted application: File Streaming
+2018-04-29 10:02:34 INFO  SecurityManager:54 - Changing view acls to: ubuntu
+2018-04-29 10:02:34 INFO  SecurityManager:54 - Changing modify acls to: ubuntu
+2018-04-29 10:02:34 INFO  SecurityManager:54 - Changing view acls groups to: 
+2018-04-29 10:02:34 INFO  SecurityManager:54 - Changing modify acls groups to: 
+2018-04-29 10:02:34 INFO  SecurityManager:54 - SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(ubuntu); groups with view permissions: Set(); users  with modify permissions: Set(ubuntu); groups with modify permissions: Set()
+2018-04-29 10:02:35 INFO  Utils:54 - Successfully started service 'sparkDriver' on port 42645.
+2018-04-29 10:02:35 INFO  SparkEnv:54 - Registering MapOutputTracker
+2018-04-29 10:02:35 INFO  SparkEnv:54 - Registering BlockManagerMaster
+2018-04-29 10:02:35 INFO  BlockManagerMasterEndpoint:54 - Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+2018-04-29 10:02:35 INFO  BlockManagerMasterEndpoint:54 - BlockManagerMasterEndpoint up
+2018-04-29 10:02:35 INFO  DiskBlockManager:54 - Created local directory at /tmp/blockmgr-b80eda29-6afc-4000-849b-0e3b634ffaa0
+2018-04-29 10:02:35 INFO  MemoryStore:54 - MemoryStore started with capacity 366.3 MB
+2018-04-29 10:02:35 INFO  SparkEnv:54 - Registering OutputCommitCoordinator
+2018-04-29 10:02:35 INFO  log:192 - Logging initialized @2652ms
+2018-04-29 10:02:35 INFO  Server:346 - jetty-9.3.z-SNAPSHOT
+2018-04-29 10:02:35 INFO  Server:414 - Started @2781ms
+2018-04-29 10:02:35 WARN  Utils:66 - Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+2018-04-29 10:02:35 INFO  AbstractConnector:278 - Started ServerConnector@73393584{HTTP/1.1,[http/1.1]}{0.0.0.0:4041}
+2018-04-29 10:02:35 INFO  Utils:54 - Successfully started service 'SparkUI' on port 4041.
+2018-04-29 10:02:35 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@6c451c9c{/jobs,null,AVAILABLE,@Spark}
+2018-04-29 10:02:35 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@f5c79a6{/jobs/json,null,AVAILABLE,@Spark}
+2018-04-29 10:02:35 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@669253b7{/jobs/job,null,AVAILABLE,@Spark}
+2018-04-29 10:02:35 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@51a06cbe{/jobs/job/json,null,AVAILABLE,@Spark}
+2018-04-29 10:02:35 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@3dddbe65{/stages,null,AVAILABLE,@Spark}
+2018-04-29 10:02:35 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@49a64d82{/stages/json,null,AVAILABLE,@Spark}
+2018-04-29 10:02:35 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@344561e0{/stages/stage,null,AVAILABLE,@Spark}
+2018-04-29 10:02:35 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@4d9d1b69{/stages/stage/json,null,AVAILABLE,@Spark}
+2018-04-29 10:02:35 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@52c8295b{/stages/pool,null,AVAILABLE,@Spark}
+2018-04-29 10:02:35 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@251f7d26{/stages/pool/json,null,AVAILABLE,@Spark}
+2018-04-29 10:02:35 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@77b21474{/storage,null,AVAILABLE,@Spark}
+2018-04-29 10:02:35 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@52d10fb8{/storage/json,null,AVAILABLE,@Spark}
+2018-04-29 10:02:35 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@41c07648{/storage/rdd,null,AVAILABLE,@Spark}
+2018-04-29 10:02:35 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@1fe8d51b{/storage/rdd/json,null,AVAILABLE,@Spark}
+2018-04-29 10:02:35 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@781e7326{/environment,null,AVAILABLE,@Spark}
+2018-04-29 10:02:35 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@22680f52{/environment/json,null,AVAILABLE,@Spark}
+2018-04-29 10:02:35 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@60d84f61{/executors,null,AVAILABLE,@Spark}
+2018-04-29 10:02:35 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@39c11e6c{/executors/json,null,AVAILABLE,@Spark}
+2018-04-29 10:02:35 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@324dcd31{/executors/threadDump,null,AVAILABLE,@Spark}
+2018-04-29 10:02:35 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@503d56b5{/executors/threadDump/json,null,AVAILABLE,@Spark}
+2018-04-29 10:02:35 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@72bca894{/static,null,AVAILABLE,@Spark}
+2018-04-29 10:02:35 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@2f40a43{/,null,AVAILABLE,@Spark}
+2018-04-29 10:02:35 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@3caa4757{/api,null,AVAILABLE,@Spark}
+2018-04-29 10:02:35 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@547e29a4{/jobs/job/kill,null,AVAILABLE,@Spark}
+2018-04-29 10:02:35 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@1c807b1d{/stages/stage/kill,null,AVAILABLE,@Spark}
+2018-04-29 10:02:35 INFO  SparkUI:54 - Bound SparkUI to 0.0.0.0, and started at http://ben-spark-master:4041
+2018-04-29 10:02:35 INFO  SparkContext:54 - Added JAR file:/home/ubuntu/spark-scala-benchmarking_2.11-0.1.jar at spark://ben-spark-master:42645/jars/spark-scala-benchmarking_2.11-0.1.jar with timestamp 1524996155692
+2018-04-29 10:02:35 INFO  StandaloneAppClient$ClientEndpoint:54 - Connecting to master spark://ben-spark-master:7077...
+2018-04-29 10:02:35 INFO  TransportClientFactory:267 - Successfully created connection to ben-spark-master/192.168.1.12:7077 after 44 ms (0 ms spent in bootstraps)
+2018-04-29 10:02:36 INFO  StandaloneSchedulerBackend:54 - Connected to Spark cluster with app ID app-20180429100236-0067
+2018-04-29 10:02:36 INFO  StandaloneAppClient$ClientEndpoint:54 - Executor added: app-20180429100236-0067/0 on worker-20180425191357-192.168.1.19-43473 (192.168.1.19:43473) with 8 core(s)
+2018-04-29 10:02:36 INFO  StandaloneSchedulerBackend:54 - Granted executor ID app-20180429100236-0067/0 on hostPort 192.168.1.19:43473 with 8 core(s), 1024.0 MB RAM
+2018-04-29 10:02:36 INFO  StandaloneAppClient$ClientEndpoint:54 - Executor added: app-20180429100236-0067/1 on worker-20180425191356-192.168.1.31-34689 (192.168.1.31:34689) with 8 core(s)
+2018-04-29 10:02:36 INFO  StandaloneSchedulerBackend:54 - Granted executor ID app-20180429100236-0067/1 on hostPort 192.168.1.31:34689 with 8 core(s), 1024.0 MB RAM
+2018-04-29 10:02:36 INFO  StandaloneAppClient$ClientEndpoint:54 - Executor added: app-20180429100236-0067/2 on worker-20180425191357-192.168.1.23-38928 (192.168.1.23:38928) with 8 core(s)
+2018-04-29 10:02:36 INFO  StandaloneSchedulerBackend:54 - Granted executor ID app-20180429100236-0067/2 on hostPort 192.168.1.23:38928 with 8 core(s), 1024.0 MB RAM
+2018-04-29 10:02:36 INFO  StandaloneAppClient$ClientEndpoint:54 - Executor added: app-20180429100236-0067/3 on worker-20180425191357-192.168.1.30-37273 (192.168.1.30:37273) with 8 core(s)
+2018-04-29 10:02:36 INFO  StandaloneSchedulerBackend:54 - Granted executor ID app-20180429100236-0067/3 on hostPort 192.168.1.30:37273 with 8 core(s), 1024.0 MB RAM
+2018-04-29 10:02:36 INFO  StandaloneAppClient$ClientEndpoint:54 - Executor added: app-20180429100236-0067/4 on worker-20180425191357-192.168.1.27-44653 (192.168.1.27:44653) with 8 core(s)
+2018-04-29 10:02:36 INFO  StandaloneSchedulerBackend:54 - Granted executor ID app-20180429100236-0067/4 on hostPort 192.168.1.27:44653 with 8 core(s), 1024.0 MB RAM
+2018-04-29 10:02:36 INFO  Utils:54 - Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 41901.
+2018-04-29 10:02:36 INFO  NettyBlockTransferService:54 - Server created on ben-spark-master:41901
+2018-04-29 10:02:36 INFO  BlockManager:54 - Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+2018-04-29 10:02:36 INFO  BlockManagerMaster:54 - Registering BlockManager BlockManagerId(driver, ben-spark-master, 41901, None)
+2018-04-29 10:02:36 INFO  BlockManagerMasterEndpoint:54 - Registering block manager ben-spark-master:41901 with 366.3 MB RAM, BlockManagerId(driver, ben-spark-master, 41901, None)
+2018-04-29 10:02:36 INFO  BlockManagerMaster:54 - Registered BlockManager BlockManagerId(driver, ben-spark-master, 41901, None)
+2018-04-29 10:02:36 INFO  BlockManager:54 - Initialized BlockManager: BlockManagerId(driver, ben-spark-master, 41901, None)
+2018-04-29 10:02:36 INFO  StandaloneAppClient$ClientEndpoint:54 - Executor updated: app-20180429100236-0067/4 is now RUNNING
+2018-04-29 10:02:36 INFO  StandaloneAppClient$ClientEndpoint:54 - Executor updated: app-20180429100236-0067/1 is now RUNNING
+2018-04-29 10:02:36 INFO  StandaloneAppClient$ClientEndpoint:54 - Executor updated: app-20180429100236-0067/3 is now RUNNING
+2018-04-29 10:02:36 INFO  StandaloneAppClient$ClientEndpoint:54 - Executor updated: app-20180429100236-0067/0 is now RUNNING
+2018-04-29 10:02:36 INFO  StandaloneAppClient$ClientEndpoint:54 - Executor updated: app-20180429100236-0067/2 is now RUNNING
+2018-04-29 10:02:36 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@7b44b63d{/metrics/json,null,AVAILABLE,@Spark}
+2018-04-29 10:02:36 INFO  StandaloneSchedulerBackend:54 - SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+2018-04-29 10:02:36 INFO  file-streaming-app:76 - test log message
+2018-04-29 10:02:36 INFO  FileInputDStream:54 - Duration for remembering RDDs set to 60000 ms for org.apache.spark.streaming.dstream.FileInputDStream@7cf283e1
+2018-04-29 10:02:36 INFO  FileInputDStream:54 - Slide time = 5000 ms
+2018-04-29 10:02:36 INFO  FileInputDStream:54 - Storage level = Serialized 1x Replicated
+2018-04-29 10:02:36 INFO  FileInputDStream:54 - Checkpoint interval = null
+2018-04-29 10:02:36 INFO  FileInputDStream:54 - Remember interval = 60000 ms
+2018-04-29 10:02:36 INFO  FileInputDStream:54 - Initialized and validated org.apache.spark.streaming.dstream.FileInputDStream@7cf283e1
+2018-04-29 10:02:36 INFO  MappedDStream:54 - Slide time = 5000 ms
+2018-04-29 10:02:36 INFO  MappedDStream:54 - Storage level = Serialized 1x Replicated
+2018-04-29 10:02:36 INFO  MappedDStream:54 - Checkpoint interval = null
+2018-04-29 10:02:36 INFO  MappedDStream:54 - Remember interval = 5000 ms
+2018-04-29 10:02:36 INFO  MappedDStream:54 - Initialized and validated org.apache.spark.streaming.dstream.MappedDStream@62da2a5
+2018-04-29 10:02:36 INFO  MappedDStream:54 - Slide time = 5000 ms
+2018-04-29 10:02:36 INFO  MappedDStream:54 - Storage level = Serialized 1x Replicated
+2018-04-29 10:02:36 INFO  MappedDStream:54 - Checkpoint interval = null
+2018-04-29 10:02:36 INFO  MappedDStream:54 - Remember interval = 5000 ms
+2018-04-29 10:02:36 INFO  MappedDStream:54 - Initialized and validated org.apache.spark.streaming.dstream.MappedDStream@3c98c4a5
+2018-04-29 10:02:36 INFO  ForEachDStream:54 - Slide time = 5000 ms
+2018-04-29 10:02:36 INFO  ForEachDStream:54 - Storage level = Serialized 1x Replicated
+2018-04-29 10:02:36 INFO  ForEachDStream:54 - Checkpoint interval = null
+2018-04-29 10:02:36 INFO  ForEachDStream:54 - Remember interval = 5000 ms
+2018-04-29 10:02:36 INFO  ForEachDStream:54 - Initialized and validated org.apache.spark.streaming.dstream.ForEachDStream@14bbc18e
+2018-04-29 10:02:37 INFO  RecurringTimer:54 - Started timer for JobGenerator at time 1524996160000
+2018-04-29 10:02:37 INFO  JobGenerator:54 - Started JobGenerator at 1524996160000 ms
+2018-04-29 10:02:37 INFO  JobScheduler:54 - Started JobScheduler
+2018-04-29 10:02:37 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@de77232{/streaming,null,AVAILABLE,@Spark}
+2018-04-29 10:02:37 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@62628e78{/streaming/json,null,AVAILABLE,@Spark}
+2018-04-29 10:02:37 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@3cd206b5{/streaming/batch,null,AVAILABLE,@Spark}
+2018-04-29 10:02:37 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@58e85c6f{/streaming/batch/json,null,AVAILABLE,@Spark}
+2018-04-29 10:02:37 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@468be356{/static/streaming,null,AVAILABLE,@Spark}
+2018-04-29 10:02:37 INFO  StreamingContext:54 - StreamingContext started
+2018-04-29 10:02:38 INFO  CoarseGrainedSchedulerBackend$DriverEndpoint:54 - Registered executor NettyRpcEndpointRef(spark-client://Executor) (192.168.1.27:37320) with ID 4
+2018-04-29 10:02:38 INFO  CoarseGrainedSchedulerBackend$DriverEndpoint:54 - Registered executor NettyRpcEndpointRef(spark-client://Executor) (192.168.1.19:45704) with ID 0
+2018-04-29 10:02:38 INFO  BlockManagerMasterEndpoint:54 - Registering block manager 192.168.1.27:40718 with 366.3 MB RAM, BlockManagerId(4, 192.168.1.27, 40718, None)
+2018-04-29 10:02:38 INFO  BlockManagerMasterEndpoint:54 - Registering block manager 192.168.1.19:39046 with 366.3 MB RAM, BlockManagerId(0, 192.168.1.19, 39046, None)
+2018-04-29 10:02:39 INFO  CoarseGrainedSchedulerBackend$DriverEndpoint:54 - Registered executor NettyRpcEndpointRef(spark-client://Executor) (192.168.1.30:58218) with ID 3
+2018-04-29 10:02:39 INFO  CoarseGrainedSchedulerBackend$DriverEndpoint:54 - Registered executor NettyRpcEndpointRef(spark-client://Executor) (192.168.1.23:50660) with ID 2
+2018-04-29 10:02:39 INFO  CoarseGrainedSchedulerBackend$DriverEndpoint:54 - Registered executor NettyRpcEndpointRef(spark-client://Executor) (192.168.1.31:54616) with ID 1
+2018-04-29 10:02:39 INFO  BlockManagerMasterEndpoint:54 - Registering block manager 192.168.1.23:46323 with 366.3 MB RAM, BlockManagerId(2, 192.168.1.23, 46323, None)
+2018-04-29 10:02:39 INFO  BlockManagerMasterEndpoint:54 - Registering block manager 192.168.1.30:42902 with 366.3 MB RAM, BlockManagerId(3, 192.168.1.30, 42902, None)
+2018-04-29 10:02:39 INFO  BlockManagerMasterEndpoint:54 - Registering block manager 192.168.1.31:37603 with 366.3 MB RAM, BlockManagerId(1, 192.168.1.31, 37603, None)
+2018-04-29 10:02:40 INFO  FileInputDStream:54 - Finding new files took 325 ms
+2018-04-29 10:02:40 INFO  FileInputDStream:54 - New files at time 1524996160000 ms:
+file:/mnt/nfs/ben-stream-src-3/bench2/1524996158_0000000223
+file:/mnt/nfs/ben-stream-src-3/bench2/1524996160_0000000225
+file:/mnt/nfs/ben-stream-src-3/bench2/1524996157_0000000222
+file:/mnt/nfs/ben-stream-src-3/bench2/1524996159_0000000224
+2018-04-29 10:02:40 INFO  MemoryStore:54 - Block broadcast_0 stored as values in memory (estimated size 275.4 KB, free 366.0 MB)
+2018-04-29 10:02:40 INFO  MemoryStore:54 - Block broadcast_0_piece0 stored as bytes in memory (estimated size 23.0 KB, free 366.0 MB)
+2018-04-29 10:02:40 INFO  BlockManagerInfo:54 - Added broadcast_0_piece0 in memory on ben-spark-master:41901 (size: 23.0 KB, free: 366.3 MB)
+2018-04-29 10:02:40 INFO  SparkContext:54 - Created broadcast 0 from fileStream at FileStreamingBenchmark.scala:81
+2018-04-29 10:02:40 INFO  FileInputFormat:283 - Total input paths to process : 1
+2018-04-29 10:02:40 INFO  MemoryStore:54 - Block broadcast_1 stored as values in memory (estimated size 275.4 KB, free 365.7 MB)
+2018-04-29 10:02:40 INFO  MemoryStore:54 - Block broadcast_1_piece0 stored as bytes in memory (estimated size 23.0 KB, free 365.7 MB)
+2018-04-29 10:02:40 INFO  BlockManagerInfo:54 - Added broadcast_1_piece0 in memory on ben-spark-master:41901 (size: 23.0 KB, free: 366.3 MB)
+2018-04-29 10:02:40 INFO  SparkContext:54 - Created broadcast 1 from fileStream at FileStreamingBenchmark.scala:81
+2018-04-29 10:02:40 INFO  FileInputFormat:283 - Total input paths to process : 1
+2018-04-29 10:02:40 INFO  MemoryStore:54 - Block broadcast_2 stored as values in memory (estimated size 275.4 KB, free 365.4 MB)
+2018-04-29 10:02:40 INFO  MemoryStore:54 - Block broadcast_2_piece0 stored as bytes in memory (estimated size 23.0 KB, free 365.4 MB)
+2018-04-29 10:02:40 INFO  BlockManagerInfo:54 - Added broadcast_2_piece0 in memory on ben-spark-master:41901 (size: 23.0 KB, free: 366.2 MB)
+2018-04-29 10:02:40 INFO  SparkContext:54 - Created broadcast 2 from fileStream at FileStreamingBenchmark.scala:81
+2018-04-29 10:02:40 INFO  FileInputFormat:283 - Total input paths to process : 1
+2018-04-29 10:02:40 INFO  MemoryStore:54 - Block broadcast_3 stored as values in memory (estimated size 275.4 KB, free 365.2 MB)
+2018-04-29 10:02:40 INFO  MemoryStore:54 - Block broadcast_3_piece0 stored as bytes in memory (estimated size 23.0 KB, free 365.1 MB)
+2018-04-29 10:02:40 INFO  BlockManagerInfo:54 - Added broadcast_3_piece0 in memory on ben-spark-master:41901 (size: 23.0 KB, free: 366.2 MB)
+2018-04-29 10:02:40 INFO  SparkContext:54 - Created broadcast 3 from fileStream at FileStreamingBenchmark.scala:81
+2018-04-29 10:02:40 INFO  FileInputFormat:283 - Total input paths to process : 1
+2018-04-29 10:02:40 INFO  JobScheduler:54 - Added jobs for time 1524996160000 ms
+2018-04-29 10:02:40 INFO  JobScheduler:54 - Starting job streaming job 1524996160000 ms.0 from job set of time 1524996160000 ms
+2018-04-29 10:02:40 INFO  SparkContext:54 - Starting job: count at FileStreamingBenchmark.scala:86
+2018-04-29 10:02:40 INFO  DAGScheduler:54 - Got job 0 (count at FileStreamingBenchmark.scala:86) with 4 output partitions
+2018-04-29 10:02:40 INFO  DAGScheduler:54 - Final stage: ResultStage 0 (count at FileStreamingBenchmark.scala:86)
+2018-04-29 10:02:40 INFO  DAGScheduler:54 - Parents of final stage: List()
+2018-04-29 10:02:40 INFO  DAGScheduler:54 - Missing parents: List()
+2018-04-29 10:02:40 INFO  DAGScheduler:54 - Submitting ResultStage 0 (MapPartitionsRDD[6] at map at FileStreamingBenchmark.scala:85), which has no missing parents
+2018-04-29 10:02:41 INFO  MemoryStore:54 - Block broadcast_4 stored as values in memory (estimated size 3.7 KB, free 365.1 MB)
+2018-04-29 10:02:41 INFO  MemoryStore:54 - Block broadcast_4_piece0 stored as bytes in memory (estimated size 2.2 KB, free 365.1 MB)
+2018-04-29 10:02:41 INFO  BlockManagerInfo:54 - Added broadcast_4_piece0 in memory on ben-spark-master:41901 (size: 2.2 KB, free: 366.2 MB)
+2018-04-29 10:02:41 INFO  SparkContext:54 - Created broadcast 4 from broadcast at DAGScheduler.scala:1039
+2018-04-29 10:02:41 INFO  DAGScheduler:54 - Submitting 4 missing tasks from ResultStage 0 (MapPartitionsRDD[6] at map at FileStreamingBenchmark.scala:85) (first 15 tasks are for partitions Vector(0, 1, 2, 3))
+2018-04-29 10:02:41 INFO  TaskSchedulerImpl:54 - Adding task set 0.0 with 4 tasks
+2018-04-29 10:02:41 INFO  TaskSetManager:54 - Starting task 0.0 in stage 0.0 (TID 0, 192.168.1.27, executor 4, partition 0, PROCESS_LOCAL, 8061 bytes)
+2018-04-29 10:02:41 INFO  TaskSetManager:54 - Starting task 1.0 in stage 0.0 (TID 1, 192.168.1.30, executor 3, partition 1, PROCESS_LOCAL, 8061 bytes)
+2018-04-29 10:02:41 INFO  TaskSetManager:54 - Starting task 2.0 in stage 0.0 (TID 2, 192.168.1.23, executor 2, partition 2, PROCESS_LOCAL, 8061 bytes)
+2018-04-29 10:02:41 INFO  TaskSetManager:54 - Starting task 3.0 in stage 0.0 (TID 3, 192.168.1.19, executor 0, partition 3, PROCESS_LOCAL, 8061 bytes)
+2018-04-29 10:02:41 INFO  BlockManagerInfo:54 - Added broadcast_4_piece0 in memory on 192.168.1.30:42902 (size: 2.2 KB, free: 366.3 MB)
+2018-04-29 10:02:41 INFO  BlockManagerInfo:54 - Added broadcast_4_piece0 in memory on 192.168.1.27:40718 (size: 2.2 KB, free: 366.3 MB)
+2018-04-29 10:02:42 INFO  BlockManagerInfo:54 - Added broadcast_4_piece0 in memory on 192.168.1.19:39046 (size: 2.2 KB, free: 366.3 MB)
+2018-04-29 10:02:42 INFO  BlockManagerInfo:54 - Added broadcast_4_piece0 in memory on 192.168.1.23:46323 (size: 2.2 KB, free: 366.3 MB)
+2018-04-29 10:02:42 INFO  BlockManagerInfo:54 - Added broadcast_1_piece0 in memory on 192.168.1.30:42902 (size: 23.0 KB, free: 366.3 MB)
+2018-04-29 10:02:42 INFO  BlockManagerInfo:54 - Added broadcast_0_piece0 in memory on 192.168.1.27:40718 (size: 23.0 KB, free: 366.3 MB)
+2018-04-29 10:02:42 INFO  BlockManagerInfo:54 - Added broadcast_2_piece0 in memory on 192.168.1.23:46323 (size: 23.0 KB, free: 366.3 MB)
+2018-04-29 10:02:42 INFO  BlockManagerInfo:54 - Added broadcast_3_piece0 in memory on 192.168.1.19:39046 (size: 23.0 KB, free: 366.3 MB)
+2018-04-29 10:02:42 INFO  TaskSetManager:54 - Finished task 1.0 in stage 0.0 (TID 1) in 1460 ms on 192.168.1.30 (executor 3) (1/4)
+2018-04-29 10:02:42 INFO  TaskSetManager:54 - Finished task 0.0 in stage 0.0 (TID 0) in 1512 ms on 192.168.1.27 (executor 4) (2/4)
+2018-04-29 10:02:42 INFO  TaskSetManager:54 - Finished task 2.0 in stage 0.0 (TID 2) in 1588 ms on 192.168.1.23 (executor 2) (3/4)
+2018-04-29 10:02:42 INFO  TaskSetManager:54 - Finished task 3.0 in stage 0.0 (TID 3) in 1601 ms on 192.168.1.19 (executor 0) (4/4)
+2018-04-29 10:02:42 INFO  DAGScheduler:54 - ResultStage 0 (count at FileStreamingBenchmark.scala:86) finished in 1.737 s
+2018-04-29 10:02:43 INFO  TaskSchedulerImpl:54 - Removed TaskSet 0.0, whose tasks have all completed, from pool 
+2018-04-29 10:02:43 INFO  DAGScheduler:54 - Job 0 finished: count at FileStreamingBenchmark.scala:86, took 2.175603 s
+2018-04-29 10:02:43 INFO  file-streaming-app:86 - processed: 4
+2018-04-29 10:02:43 INFO  JobScheduler:54 - Finished job streaming job 1524996160000 ms.0 from job set of time 1524996160000 ms
+2018-04-29 10:02:43 INFO  JobScheduler:54 - Total delay: 3.096 s for time 1524996160000 ms (execution: 2.219 s)
+2018-04-29 10:02:43 INFO  FileInputDStream:54 - Cleared 0 old files that were older than 1524996100000 ms: 
+2018-04-29 10:02:43 INFO  ReceivedBlockTracker:54 - Deleting batches: 
+2018-04-29 10:02:43 INFO  InputInfoTracker:54 - remove old batch metadata: 
+2018-04-29 10:02:45 INFO  FileInputDStream:54 - Finding new files took 35 ms
+2018-04-29 10:02:45 INFO  FileInputDStream:54 - New files at time 1524996165000 ms:
+file:/mnt/nfs/ben-stream-src-3/bench2/1524996164_0000000229
+file:/mnt/nfs/ben-stream-src-3/bench2/1524996163_0000000228
+file:/mnt/nfs/ben-stream-src-3/bench2/1524996162_0000000227
+file:/mnt/nfs/ben-stream-src-3/bench2/1524996161_0000000226
+2018-04-29 10:02:45 INFO  MemoryStore:54 - Block broadcast_5 stored as values in memory (estimated size 275.4 KB, free 364.9 MB)
+2018-04-29 10:02:45 INFO  MemoryStore:54 - Block broadcast_5_piece0 stored as bytes in memory (estimated size 23.0 KB, free 364.8 MB)
+2018-04-29 10:02:45 INFO  BlockManagerInfo:54 - Added broadcast_5_piece0 in memory on ben-spark-master:41901 (size: 23.0 KB, free: 366.2 MB)
+2018-04-29 10:02:45 INFO  SparkContext:54 - Created broadcast 5 from fileStream at FileStreamingBenchmark.scala:81
+2018-04-29 10:02:45 INFO  FileInputFormat:283 - Total input paths to process : 1
+2018-04-29 10:02:45 INFO  MemoryStore:54 - Block broadcast_6 stored as values in memory (estimated size 275.4 KB, free 364.6 MB)
+2018-04-29 10:02:45 INFO  MemoryStore:54 - Block broadcast_6_piece0 stored as bytes in memory (estimated size 23.0 KB, free 364.5 MB)
+2018-04-29 10:02:45 INFO  BlockManagerInfo:54 - Added broadcast_6_piece0 in memory on ben-spark-master:41901 (size: 23.0 KB, free: 366.2 MB)
+2018-04-29 10:02:45 INFO  SparkContext:54 - Created broadcast 6 from fileStream at FileStreamingBenchmark.scala:81
+2018-04-29 10:02:45 INFO  FileInputFormat:283 - Total input paths to process : 1
+2018-04-29 10:02:45 INFO  MemoryStore:54 - Block broadcast_7 stored as values in memory (estimated size 275.4 KB, free 364.3 MB)
+2018-04-29 10:02:45 INFO  MemoryStore:54 - Block broadcast_7_piece0 stored as bytes in memory (estimated size 23.0 KB, free 364.3 MB)
+2018-04-29 10:02:45 INFO  BlockManagerInfo:54 - Added broadcast_7_piece0 in memory on ben-spark-master:41901 (size: 23.0 KB, free: 366.1 MB)
+2018-04-29 10:02:45 INFO  SparkContext:54 - Created broadcast 7 from fileStream at FileStreamingBenchmark.scala:81
+2018-04-29 10:02:45 INFO  FileInputFormat:283 - Total input paths to process : 1
+2018-04-29 10:02:45 INFO  MemoryStore:54 - Block broadcast_8 stored as values in memory (estimated size 275.4 KB, free 364.0 MB)
+2018-04-29 10:02:45 INFO  MemoryStore:54 - Block broadcast_8_piece0 stored as bytes in memory (estimated size 23.0 KB, free 364.0 MB)
+2018-04-29 10:02:45 INFO  BlockManagerInfo:54 - Added broadcast_8_piece0 in memory on ben-spark-master:41901 (size: 23.0 KB, free: 366.1 MB)
+2018-04-29 10:02:45 INFO  SparkContext:54 - Created broadcast 8 from fileStream at FileStreamingBenchmark.scala:81
+2018-04-29 10:02:45 INFO  FileInputFormat:283 - Total input paths to process : 1
+2018-04-29 10:02:45 INFO  JobScheduler:54 - Added jobs for time 1524996165000 ms
+2018-04-29 10:02:45 INFO  SparkContext:54 - Starting job: count at FileStreamingBenchmark.scala:86
+2018-04-29 10:02:45 INFO  JobScheduler:54 - Starting job streaming job 1524996165000 ms.0 from job set of time 1524996165000 ms
+2018-04-29 10:02:45 INFO  DAGScheduler:54 - Got job 1 (count at FileStreamingBenchmark.scala:86) with 4 output partitions
+2018-04-29 10:02:45 INFO  DAGScheduler:54 - Final stage: ResultStage 1 (count at FileStreamingBenchmark.scala:86)
+2018-04-29 10:02:45 INFO  DAGScheduler:54 - Parents of final stage: List()
+2018-04-29 10:02:45 INFO  DAGScheduler:54 - Missing parents: List()
+2018-04-29 10:02:45 INFO  DAGScheduler:54 - Submitting ResultStage 1 (MapPartitionsRDD[13] at map at FileStreamingBenchmark.scala:85), which has no missing parents
+2018-04-29 10:02:45 INFO  MemoryStore:54 - Block broadcast_9 stored as values in memory (estimated size 3.7 KB, free 364.0 MB)
+2018-04-29 10:02:45 INFO  MemoryStore:54 - Block broadcast_9_piece0 stored as bytes in memory (estimated size 2.2 KB, free 364.0 MB)
+2018-04-29 10:02:45 INFO  BlockManagerInfo:54 - Added broadcast_9_piece0 in memory on ben-spark-master:41901 (size: 2.2 KB, free: 366.1 MB)
+2018-04-29 10:02:45 INFO  SparkContext:54 - Created broadcast 9 from broadcast at DAGScheduler.scala:1039
+2018-04-29 10:02:45 INFO  DAGScheduler:54 - Submitting 4 missing tasks from ResultStage 1 (MapPartitionsRDD[13] at map at FileStreamingBenchmark.scala:85) (first 15 tasks are for partitions Vector(0, 1, 2, 3))
+2018-04-29 10:02:45 INFO  TaskSchedulerImpl:54 - Adding task set 1.0 with 4 tasks
+2018-04-29 10:02:45 INFO  TaskSetManager:54 - Starting task 0.0 in stage 1.0 (TID 4, 192.168.1.19, executor 0, partition 0, PROCESS_LOCAL, 8061 bytes)
+2018-04-29 10:02:45 INFO  TaskSetManager:54 - Starting task 1.0 in stage 1.0 (TID 5, 192.168.1.31, executor 1, partition 1, PROCESS_LOCAL, 8061 bytes)
+2018-04-29 10:02:45 INFO  TaskSetManager:54 - Starting task 2.0 in stage 1.0 (TID 6, 192.168.1.30, executor 3, partition 2, PROCESS_LOCAL, 8061 bytes)
+2018-04-29 10:02:45 INFO  TaskSetManager:54 - Starting task 3.0 in stage 1.0 (TID 7, 192.168.1.23, executor 2, partition 3, PROCESS_LOCAL, 8061 bytes)
+2018-04-29 10:02:45 INFO  BlockManagerInfo:54 - Added broadcast_9_piece0 in memory on 192.168.1.23:46323 (size: 2.2 KB, free: 366.3 MB)
+2018-04-29 10:02:45 INFO  BlockManagerInfo:54 - Added broadcast_9_piece0 in memory on 192.168.1.19:39046 (size: 2.2 KB, free: 366.3 MB)
+2018-04-29 10:02:45 INFO  BlockManagerInfo:54 - Added broadcast_9_piece0 in memory on 192.168.1.30:42902 (size: 2.2 KB, free: 366.3 MB)
+2018-04-29 10:02:45 INFO  BlockManagerInfo:54 - Added broadcast_8_piece0 in memory on 192.168.1.23:46323 (size: 23.0 KB, free: 366.3 MB)
+2018-04-29 10:02:45 INFO  BlockManagerInfo:54 - Added broadcast_5_piece0 in memory on 192.168.1.19:39046 (size: 23.0 KB, free: 366.3 MB)
+2018-04-29 10:02:45 INFO  BlockManagerInfo:54 - Added broadcast_7_piece0 in memory on 192.168.1.30:42902 (size: 23.0 KB, free: 366.3 MB)
+2018-04-29 10:02:45 INFO  TaskSetManager:54 - Finished task 2.0 in stage 1.0 (TID 6) in 200 ms on 192.168.1.30 (executor 3) (1/4)
+2018-04-29 10:02:45 INFO  TaskSetManager:54 - Finished task 0.0 in stage 1.0 (TID 4) in 208 ms on 192.168.1.19 (executor 0) (2/4)
+2018-04-29 10:02:45 INFO  TaskSetManager:54 - Finished task 3.0 in stage 1.0 (TID 7) in 208 ms on 192.168.1.23 (executor 2) (3/4)
+2018-04-29 10:02:46 INFO  BlockManagerInfo:54 - Added broadcast_9_piece0 in memory on 192.168.1.31:37603 (size: 2.2 KB, free: 366.3 MB)
+2018-04-29 10:02:46 INFO  BlockManagerInfo:54 - Added broadcast_6_piece0 in memory on 192.168.1.31:37603 (size: 23.0 KB, free: 366.3 MB)
+2018-04-29 10:02:46 INFO  TaskSetManager:54 - Finished task 1.0 in stage 1.0 (TID 5) in 1578 ms on 192.168.1.31 (executor 1) (4/4)
+2018-04-29 10:02:46 INFO  TaskSchedulerImpl:54 - Removed TaskSet 1.0, whose tasks have all completed, from pool 
+2018-04-29 10:02:46 INFO  DAGScheduler:54 - ResultStage 1 (count at FileStreamingBenchmark.scala:86) finished in 1.601 s
+2018-04-29 10:02:46 INFO  DAGScheduler:54 - Job 1 finished: count at FileStreamingBenchmark.scala:86, took 1.620190 s
+2018-04-29 10:02:46 INFO  file-streaming-app:86 - processed: 4
+2018-04-29 10:02:46 INFO  JobScheduler:54 - Finished job streaming job 1524996165000 ms.0 from job set of time 1524996165000 ms
+2018-04-29 10:02:46 INFO  JobScheduler:54 - Total delay: 1.820 s for time 1524996165000 ms (execution: 1.633 s)
+2018-04-29 10:02:46 INFO  MapPartitionsRDD:54 - Removing RDD 6 from persistence list
+2018-04-29 10:02:46 INFO  MapPartitionsRDD:54 - Removing RDD 5 from persistence list
+2018-04-29 10:02:46 INFO  BlockManager:54 - Removing RDD 6
+2018-04-29 10:02:46 INFO  BlockManager:54 - Removing RDD 5
+2018-04-29 10:02:46 INFO  FileInputDStream:54 - Cleared 0 old files that were older than 1524996105000 ms: 
+2018-04-29 10:02:46 INFO  ReceivedBlockTracker:54 - Deleting batches: 
+2018-04-29 10:02:46 INFO  InputInfoTracker:54 - remove old batch metadata: 
+2018-04-29 10:02:50 INFO  FileInputDStream:54 - Finding new files took 26 ms
+2018-04-29 10:02:50 INFO  FileInputDStream:54 - New files at time 1524996170000 ms:
+file:/mnt/nfs/ben-stream-src-3/bench2/1524996168_0000000233
+file:/mnt/nfs/ben-stream-src-3/bench2/1524996165_0000000230
+file:/mnt/nfs/ben-stream-src-3/bench2/1524996166_0000000231
+file:/mnt/nfs/ben-stream-src-3/bench2/1524996167_0000000232
+file:/mnt/nfs/ben-stream-src-3/bench2/1524996169_0000000234
+2018-04-29 10:02:50 INFO  MemoryStore:54 - Block broadcast_10 stored as values in memory (estimated size 275.4 KB, free 363.7 MB)
+2018-04-29 10:02:50 INFO  MemoryStore:54 - Block broadcast_10_piece0 stored as bytes in memory (estimated size 23.0 KB, free 363.7 MB)
+2018-04-29 10:02:50 INFO  BlockManagerInfo:54 - Added broadcast_10_piece0 in memory on ben-spark-master:41901 (size: 23.0 KB, free: 366.1 MB)
+2018-04-29 10:02:50 INFO  SparkContext:54 - Created broadcast 10 from fileStream at FileStreamingBenchmark.scala:81
+2018-04-29 10:02:50 INFO  FileInputFormat:283 - Total input paths to process : 1
+2018-04-29 10:02:50 INFO  MemoryStore:54 - Block broadcast_11 stored as values in memory (estimated size 275.4 KB, free 363.4 MB)
+2018-04-29 10:02:50 INFO  MemoryStore:54 - Block broadcast_11_piece0 stored as bytes in memory (estimated size 23.0 KB, free 363.4 MB)
+2018-04-29 10:02:50 INFO  BlockManagerInfo:54 - Added broadcast_11_piece0 in memory on ben-spark-master:41901 (size: 23.0 KB, free: 366.1 MB)
+2018-04-29 10:02:50 INFO  SparkContext:54 - Created broadcast 11 from fileStream at FileStreamingBenchmark.scala:81
+2018-04-29 10:02:50 INFO  FileInputFormat:283 - Total input paths to process : 1
+2018-04-29 10:02:50 INFO  MemoryStore:54 - Block broadcast_12 stored as values in memory (estimated size 275.4 KB, free 363.1 MB)
+2018-04-29 10:02:50 INFO  MemoryStore:54 - Block broadcast_12_piece0 stored as bytes in memory (estimated size 23.0 KB, free 363.1 MB)
+2018-04-29 10:02:50 INFO  BlockManagerInfo:54 - Added broadcast_12_piece0 in memory on ben-spark-master:41901 (size: 23.0 KB, free: 366.0 MB)
+2018-04-29 10:02:50 INFO  SparkContext:54 - Created broadcast 12 from fileStream at FileStreamingBenchmark.scala:81
+2018-04-29 10:02:50 INFO  FileInputFormat:283 - Total input paths to process : 1
+2018-04-29 10:02:50 INFO  MemoryStore:54 - Block broadcast_13 stored as values in memory (estimated size 275.4 KB, free 362.8 MB)
+2018-04-29 10:02:50 INFO  MemoryStore:54 - Block broadcast_13_piece0 stored as bytes in memory (estimated size 23.0 KB, free 362.8 MB)
+2018-04-29 10:02:50 INFO  BlockManagerInfo:54 - Added broadcast_13_piece0 in memory on ben-spark-master:41901 (size: 23.0 KB, free: 366.0 MB)
+2018-04-29 10:02:50 INFO  SparkContext:54 - Created broadcast 13 from fileStream at FileStreamingBenchmark.scala:81
+2018-04-29 10:02:50 INFO  FileInputFormat:283 - Total input paths to process : 1
+2018-04-29 10:02:50 INFO  MemoryStore:54 - Block broadcast_14 stored as values in memory (estimated size 275.4 KB, free 362.5 MB)
+2018-04-29 10:02:50 INFO  MemoryStore:54 - Block broadcast_14_piece0 stored as bytes in memory (estimated size 23.0 KB, free 362.5 MB)
+2018-04-29 10:02:50 INFO  BlockManagerInfo:54 - Added broadcast_14_piece0 in memory on ben-spark-master:41901 (size: 23.0 KB, free: 366.0 MB)
+2018-04-29 10:02:50 INFO  SparkContext:54 - Created broadcast 14 from fileStream at FileStreamingBenchmark.scala:81
+2018-04-29 10:02:50 INFO  FileInputFormat:283 - Total input paths to process : 1
+2018-04-29 10:02:50 INFO  JobScheduler:54 - Added jobs for time 1524996170000 ms
+2018-04-29 10:02:50 INFO  JobScheduler:54 - Starting job streaming job 1524996170000 ms.0 from job set of time 1524996170000 ms
+2018-04-29 10:02:50 INFO  SparkContext:54 - Starting job: count at FileStreamingBenchmark.scala:86
+2018-04-29 10:02:50 INFO  DAGScheduler:54 - Got job 2 (count at FileStreamingBenchmark.scala:86) with 5 output partitions
+2018-04-29 10:02:50 INFO  DAGScheduler:54 - Final stage: ResultStage 2 (count at FileStreamingBenchmark.scala:86)
+2018-04-29 10:02:50 INFO  DAGScheduler:54 - Parents of final stage: List()
+2018-04-29 10:02:50 INFO  DAGScheduler:54 - Missing parents: List()
+2018-04-29 10:02:50 INFO  DAGScheduler:54 - Submitting ResultStage 2 (MapPartitionsRDD[21] at map at FileStreamingBenchmark.scala:85), which has no missing parents
+2018-04-29 10:02:50 INFO  MemoryStore:54 - Block broadcast_15 stored as values in memory (estimated size 3.8 KB, free 362.5 MB)
+2018-04-29 10:02:50 INFO  MemoryStore:54 - Block broadcast_15_piece0 stored as bytes in memory (estimated size 2.2 KB, free 362.5 MB)
+2018-04-29 10:02:50 INFO  BlockManagerInfo:54 - Added broadcast_15_piece0 in memory on ben-spark-master:41901 (size: 2.2 KB, free: 366.0 MB)
+2018-04-29 10:02:50 INFO  SparkContext:54 - Created broadcast 15 from broadcast at DAGScheduler.scala:1039
+2018-04-29 10:02:50 INFO  DAGScheduler:54 - Submitting 5 missing tasks from ResultStage 2 (MapPartitionsRDD[21] at map at FileStreamingBenchmark.scala:85) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4))
+2018-04-29 10:02:50 INFO  TaskSchedulerImpl:54 - Adding task set 2.0 with 5 tasks
+2018-04-29 10:02:50 INFO  TaskSetManager:54 - Starting task 0.0 in stage 2.0 (TID 8, 192.168.1.31, executor 1, partition 0, PROCESS_LOCAL, 8061 bytes)
+2018-04-29 10:02:50 INFO  TaskSetManager:54 - Starting task 1.0 in stage 2.0 (TID 9, 192.168.1.19, executor 0, partition 1, PROCESS_LOCAL, 8061 bytes)
+2018-04-29 10:02:50 INFO  TaskSetManager:54 - Starting task 2.0 in stage 2.0 (TID 10, 192.168.1.23, executor 2, partition 2, PROCESS_LOCAL, 8061 bytes)
+2018-04-29 10:02:50 INFO  TaskSetManager:54 - Starting task 3.0 in stage 2.0 (TID 11, 192.168.1.30, executor 3, partition 3, PROCESS_LOCAL, 8061 bytes)
+2018-04-29 10:02:50 INFO  TaskSetManager:54 - Starting task 4.0 in stage 2.0 (TID 12, 192.168.1.27, executor 4, partition 4, PROCESS_LOCAL, 8061 bytes)
+2018-04-29 10:02:50 INFO  BlockManagerInfo:54 - Added broadcast_15_piece0 in memory on 192.168.1.23:46323 (size: 2.2 KB, free: 366.2 MB)
+2018-04-29 10:02:50 INFO  BlockManagerInfo:54 - Added broadcast_15_piece0 in memory on 192.168.1.30:42902 (size: 2.2 KB, free: 366.2 MB)
+2018-04-29 10:02:50 INFO  BlockManagerInfo:54 - Added broadcast_15_piece0 in memory on 192.168.1.19:39046 (size: 2.2 KB, free: 366.2 MB)
+2018-04-29 10:02:50 INFO  BlockManagerInfo:54 - Added broadcast_12_piece0 in memory on 192.168.1.23:46323 (size: 23.0 KB, free: 366.2 MB)
+2018-04-29 10:02:50 INFO  BlockManagerInfo:54 - Added broadcast_13_piece0 in memory on 192.168.1.30:42902 (size: 23.0 KB, free: 366.2 MB)
+2018-04-29 10:02:50 INFO  BlockManagerInfo:54 - Added broadcast_11_piece0 in memory on 192.168.1.19:39046 (size: 23.0 KB, free: 366.2 MB)
+2018-04-29 10:02:50 INFO  TaskSetManager:54 - Finished task 2.0 in stage 2.0 (TID 10) in 116 ms on 192.168.1.23 (executor 2) (1/5)
+2018-04-29 10:02:50 INFO  TaskSetManager:54 - Finished task 1.0 in stage 2.0 (TID 9) in 134 ms on 192.168.1.19 (executor 0) (2/5)
+2018-04-29 10:02:50 INFO  BlockManagerInfo:54 - Added broadcast_15_piece0 in memory on 192.168.1.27:40718 (size: 2.2 KB, free: 366.3 MB)
+2018-04-29 10:02:50 INFO  TaskSetManager:54 - Finished task 3.0 in stage 2.0 (TID 11) in 150 ms on 192.168.1.30 (executor 3) (3/5)
+2018-04-29 10:02:50 INFO  BlockManagerInfo:54 - Added broadcast_14_piece0 in memory on 192.168.1.27:40718 (size: 23.0 KB, free: 366.3 MB)
+2018-04-29 10:02:50 INFO  BlockManagerInfo:54 - Added broadcast_15_piece0 in memory on 192.168.1.31:37603 (size: 2.2 KB, free: 366.3 MB)
+2018-04-29 10:02:50 INFO  TaskSetManager:54 - Finished task 4.0 in stage 2.0 (TID 12) in 244 ms on 192.168.1.27 (executor 4) (4/5)
+2018-04-29 10:02:50 INFO  BlockManagerInfo:54 - Added broadcast_10_piece0 in memory on 192.168.1.31:37603 (size: 23.0 KB, free: 366.3 MB)
+2018-04-29 10:02:50 INFO  TaskSetManager:54 - Finished task 0.0 in stage 2.0 (TID 8) in 342 ms on 192.168.1.31 (executor 1) (5/5)
+2018-04-29 10:02:50 INFO  TaskSchedulerImpl:54 - Removed TaskSet 2.0, whose tasks have all completed, from pool 
+2018-04-29 10:02:50 INFO  DAGScheduler:54 - ResultStage 2 (count at FileStreamingBenchmark.scala:86) finished in 0.355 s
+2018-04-29 10:02:50 INFO  DAGScheduler:54 - Job 2 finished: count at FileStreamingBenchmark.scala:86, took 0.363258 s
+2018-04-29 10:02:50 INFO  file-streaming-app:86 - processed: 5
+2018-04-29 10:02:50 INFO  JobScheduler:54 - Finished job streaming job 1524996170000 ms.0 from job set of time 1524996170000 ms
+2018-04-29 10:02:50 INFO  JobScheduler:54 - Total delay: 0.551 s for time 1524996170000 ms (execution: 0.371 s)
+2018-04-29 10:02:50 INFO  MapPartitionsRDD:54 - Removing RDD 13 from persistence list
+2018-04-29 10:02:50 INFO  MapPartitionsRDD:54 - Removing RDD 12 from persistence list
+2018-04-29 10:02:50 INFO  BlockManager:54 - Removing RDD 13
+2018-04-29 10:02:50 INFO  BlockManager:54 - Removing RDD 12
+2018-04-29 10:02:50 INFO  FileInputDStream:54 - Cleared 0 old files that were older than 1524996110000 ms: 
+2018-04-29 10:02:50 INFO  ReceivedBlockTracker:54 - Deleting batches: 
+2018-04-29 10:02:50 INFO  InputInfoTracker:54 - remove old batch metadata: 
+2018-04-29 10:02:55 INFO  FileInputDStream:54 - Finding new files took 27 ms
+2018-04-29 10:02:55 INFO  FileInputDStream:54 - New files at time 1524996175000 ms:
+file:/mnt/nfs/ben-stream-src-3/bench2/1524996174_0000000239
+file:/mnt/nfs/ben-stream-src-3/bench2/1524996170_0000000235
+file:/mnt/nfs/ben-stream-src-3/bench2/1524996172_0000000237
+file:/mnt/nfs/ben-stream-src-3/bench2/1524996173_0000000238
+file:/mnt/nfs/ben-stream-src-3/bench2/1524996171_0000000236
+2018-04-29 10:02:55 INFO  MemoryStore:54 - Block broadcast_16 stored as values in memory (estimated size 275.4 KB, free 362.2 MB)
+2018-04-29 10:02:55 INFO  MemoryStore:54 - Block broadcast_16_piece0 stored as bytes in memory (estimated size 23.0 KB, free 362.2 MB)
+2018-04-29 10:02:55 INFO  BlockManagerInfo:54 - Added broadcast_16_piece0 in memory on ben-spark-master:41901 (size: 23.0 KB, free: 366.0 MB)
+2018-04-29 10:02:55 INFO  SparkContext:54 - Created broadcast 16 from fileStream at FileStreamingBenchmark.scala:81
+2018-04-29 10:02:55 INFO  FileInputFormat:283 - Total input paths to process : 1
+2018-04-29 10:02:55 INFO  MemoryStore:54 - Block broadcast_17 stored as values in memory (estimated size 275.4 KB, free 361.9 MB)
+2018-04-29 10:02:55 INFO  MemoryStore:54 - Block broadcast_17_piece0 stored as bytes in memory (estimated size 23.0 KB, free 361.9 MB)
+2018-04-29 10:02:55 INFO  BlockManagerInfo:54 - Added broadcast_17_piece0 in memory on ben-spark-master:41901 (size: 23.0 KB, free: 366.0 MB)
+2018-04-29 10:02:55 INFO  SparkContext:54 - Created broadcast 17 from fileStream at FileStreamingBenchmark.scala:81
+2018-04-29 10:02:55 INFO  FileInputFormat:283 - Total input paths to process : 1
+2018-04-29 10:02:55 INFO  MemoryStore:54 - Block broadcast_18 stored as values in memory (estimated size 275.4 KB, free 361.6 MB)
+2018-04-29 10:02:55 INFO  MemoryStore:54 - Block broadcast_18_piece0 stored as bytes in memory (estimated size 23.0 KB, free 361.6 MB)
+2018-04-29 10:02:55 INFO  BlockManagerInfo:54 - Added broadcast_18_piece0 in memory on ben-spark-master:41901 (size: 23.0 KB, free: 365.9 MB)
+2018-04-29 10:02:55 INFO  SparkContext:54 - Created broadcast 18 from fileStream at FileStreamingBenchmark.scala:81
+2018-04-29 10:02:55 INFO  FileInputFormat:283 - Total input paths to process : 1
+2018-04-29 10:02:55 INFO  MemoryStore:54 - Block broadcast_19 stored as values in memory (estimated size 275.4 KB, free 361.4 MB)
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 74
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 61
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 72
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 66
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 68
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 40
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 44
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 60
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 39
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 65
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 43
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 64
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 29
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 50
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 31
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 36
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 37
+2018-04-29 10:02:55 INFO  MemoryStore:54 - Block broadcast_19_piece0 stored as bytes in memory (estimated size 23.0 KB, free 361.3 MB)
+2018-04-29 10:02:55 INFO  BlockManagerInfo:54 - Added broadcast_19_piece0 in memory on ben-spark-master:41901 (size: 23.0 KB, free: 365.9 MB)
+2018-04-29 10:02:55 INFO  SparkContext:54 - Created broadcast 19 from fileStream at FileStreamingBenchmark.scala:81
+2018-04-29 10:02:55 INFO  FileInputFormat:283 - Total input paths to process : 1
+2018-04-29 10:02:55 INFO  BlockManagerInfo:54 - Removed broadcast_9_piece0 on ben-spark-master:41901 in memory (size: 2.2 KB, free: 365.9 MB)
+2018-04-29 10:02:55 INFO  MemoryStore:54 - Block broadcast_20 stored as values in memory (estimated size 275.4 KB, free 361.1 MB)
+2018-04-29 10:02:55 INFO  BlockManagerInfo:54 - Removed broadcast_9_piece0 on 192.168.1.23:46323 in memory (size: 2.2 KB, free: 366.2 MB)
+2018-04-29 10:02:55 INFO  BlockManagerInfo:54 - Removed broadcast_9_piece0 on 192.168.1.19:39046 in memory (size: 2.2 KB, free: 366.2 MB)
+2018-04-29 10:02:55 INFO  BlockManagerInfo:54 - Removed broadcast_9_piece0 on 192.168.1.30:42902 in memory (size: 2.2 KB, free: 366.2 MB)
+2018-04-29 10:02:55 INFO  BlockManagerInfo:54 - Removed broadcast_9_piece0 on 192.168.1.31:37603 in memory (size: 2.2 KB, free: 366.3 MB)
+2018-04-29 10:02:55 INFO  MemoryStore:54 - Block broadcast_20_piece0 stored as bytes in memory (estimated size 23.0 KB, free 361.0 MB)
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 27
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 56
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 42
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 30
+2018-04-29 10:02:55 INFO  BlockManagerInfo:54 - Added broadcast_20_piece0 in memory on ben-spark-master:41901 (size: 23.0 KB, free: 365.9 MB)
+2018-04-29 10:02:55 INFO  SparkContext:54 - Created broadcast 20 from fileStream at FileStreamingBenchmark.scala:81
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 41
+2018-04-29 10:02:55 INFO  FileInputFormat:283 - Total input paths to process : 1
+2018-04-29 10:02:55 INFO  BlockManagerInfo:54 - Removed broadcast_15_piece0 on ben-spark-master:41901 in memory (size: 2.2 KB, free: 365.9 MB)
+2018-04-29 10:02:55 INFO  BlockManagerInfo:54 - Removed broadcast_15_piece0 on 192.168.1.23:46323 in memory (size: 2.2 KB, free: 366.2 MB)
+2018-04-29 10:02:55 INFO  BlockManagerInfo:54 - Removed broadcast_15_piece0 on 192.168.1.19:39046 in memory (size: 2.2 KB, free: 366.2 MB)
+2018-04-29 10:02:55 INFO  BlockManagerInfo:54 - Removed broadcast_15_piece0 on 192.168.1.31:37603 in memory (size: 2.2 KB, free: 366.3 MB)
+2018-04-29 10:02:55 INFO  BlockManagerInfo:54 - Removed broadcast_15_piece0 on 192.168.1.30:42902 in memory (size: 2.2 KB, free: 366.2 MB)
+2018-04-29 10:02:55 INFO  JobScheduler:54 - Added jobs for time 1524996175000 ms
+2018-04-29 10:02:55 INFO  JobScheduler:54 - Starting job streaming job 1524996175000 ms.0 from job set of time 1524996175000 ms
+2018-04-29 10:02:55 INFO  SparkContext:54 - Starting job: count at FileStreamingBenchmark.scala:86
+2018-04-29 10:02:55 INFO  BlockManagerInfo:54 - Removed broadcast_15_piece0 on 192.168.1.27:40718 in memory (size: 2.2 KB, free: 366.3 MB)
+2018-04-29 10:02:55 INFO  DAGScheduler:54 - Got job 3 (count at FileStreamingBenchmark.scala:86) with 5 output partitions
+2018-04-29 10:02:55 INFO  DAGScheduler:54 - Final stage: ResultStage 3 (count at FileStreamingBenchmark.scala:86)
+2018-04-29 10:02:55 INFO  DAGScheduler:54 - Parents of final stage: List()
+2018-04-29 10:02:55 INFO  DAGScheduler:54 - Missing parents: List()
+2018-04-29 10:02:55 INFO  DAGScheduler:54 - Submitting ResultStage 3 (MapPartitionsRDD[29] at map at FileStreamingBenchmark.scala:85), which has no missing parents
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 58
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 49
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 67
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 52
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 59
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 28
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 51
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 47
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 34
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 70
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 63
+2018-04-29 10:02:55 INFO  MemoryStore:54 - Block broadcast_21 stored as values in memory (estimated size 3.8 KB, free 361.0 MB)
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 25
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 53
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 57
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 62
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 54
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 48
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 71
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 55
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 46
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 32
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 26
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 33
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 45
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 73
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 69
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 35
+2018-04-29 10:02:55 INFO  ContextCleaner:54 - Cleaned accumulator 38
+2018-04-29 10:02:55 INFO  MemoryStore:54 - Block broadcast_21_piece0 stored as bytes in memory (estimated size 2.2 KB, free 361.0 MB)
+2018-04-29 10:02:55 INFO  BlockManagerInfo:54 - Added broadcast_21_piece0 in memory on ben-spark-master:41901 (size: 2.2 KB, free: 365.9 MB)
+2018-04-29 10:02:55 INFO  SparkContext:54 - Created broadcast 21 from broadcast at DAGScheduler.scala:1039
+2018-04-29 10:02:55 INFO  DAGScheduler:54 - Submitting 5 missing tasks from ResultStage 3 (MapPartitionsRDD[29] at map at FileStreamingBenchmark.scala:85) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4))
+2018-04-29 10:02:55 INFO  TaskSchedulerImpl:54 - Adding task set 3.0 with 5 tasks
+2018-04-29 10:02:55 INFO  TaskSetManager:54 - Starting task 0.0 in stage 3.0 (TID 13, 192.168.1.30, executor 3, partition 0, PROCESS_LOCAL, 8061 bytes)
+2018-04-29 10:02:55 INFO  TaskSetManager:54 - Starting task 1.0 in stage 3.0 (TID 14, 192.168.1.19, executor 0, partition 1, PROCESS_LOCAL, 8061 bytes)
+2018-04-29 10:02:55 INFO  TaskSetManager:54 - Starting task 2.0 in stage 3.0 (TID 15, 192.168.1.23, executor 2, partition 2, PROCESS_LOCAL, 8061 bytes)
+2018-04-29 10:02:55 INFO  TaskSetManager:54 - Starting task 3.0 in stage 3.0 (TID 16, 192.168.1.27, executor 4, partition 3, PROCESS_LOCAL, 8061 bytes)
+2018-04-29 10:02:55 INFO  TaskSetManager:54 - Starting task 4.0 in stage 3.0 (TID 17, 192.168.1.31, executor 1, partition 4, PROCESS_LOCAL, 8061 bytes)
+2018-04-29 10:02:55 INFO  BlockManagerInfo:54 - Added broadcast_21_piece0 in memory on 192.168.1.27:40718 (size: 2.2 KB, free: 366.3 MB)
+2018-04-29 10:02:55 INFO  BlockManagerInfo:54 - Added broadcast_21_piece0 in memory on 192.168.1.19:39046 (size: 2.2 KB, free: 366.2 MB)
+2018-04-29 10:02:55 INFO  BlockManagerInfo:54 - Added broadcast_21_piece0 in memory on 192.168.1.23:46323 (size: 2.2 KB, free: 366.2 MB)
+2018-04-29 10:02:55 INFO  BlockManagerInfo:54 - Added broadcast_21_piece0 in memory on 192.168.1.30:42902 (size: 2.2 KB, free: 366.2 MB)
+2018-04-29 10:02:55 INFO  BlockManagerInfo:54 - Added broadcast_21_piece0 in memory on 192.168.1.31:37603 (size: 2.2 KB, free: 366.3 MB)
+2018-04-29 10:02:55 INFO  BlockManagerInfo:54 - Added broadcast_19_piece0 in memory on 192.168.1.27:40718 (size: 23.0 KB, free: 366.2 MB)
+2018-04-29 10:02:55 INFO  BlockManagerInfo:54 - Added broadcast_18_piece0 in memory on 192.168.1.23:46323 (size: 23.0 KB, free: 366.2 MB)
+2018-04-29 10:02:55 INFO  BlockManagerInfo:54 - Added broadcast_17_piece0 in memory on 192.168.1.19:39046 (size: 23.0 KB, free: 366.2 MB)
+2018-04-29 10:02:55 INFO  BlockManagerInfo:54 - Added broadcast_16_piece0 in memory on 192.168.1.30:42902 (size: 23.0 KB, free: 366.2 MB)
+2018-04-29 10:02:55 INFO  BlockManagerInfo:54 - Added broadcast_20_piece0 in memory on 192.168.1.31:37603 (size: 23.0 KB, free: 366.2 MB)
+2018-04-29 10:02:55 INFO  TaskSetManager:54 - Finished task 1.0 in stage 3.0 (TID 14) in 136 ms on 192.168.1.19 (executor 0) (1/5)
+2018-04-29 10:02:55 INFO  TaskSetManager:54 - Finished task 2.0 in stage 3.0 (TID 15) in 136 ms on 192.168.1.23 (executor 2) (2/5)
+2018-04-29 10:02:55 INFO  TaskSetManager:54 - Finished task 4.0 in stage 3.0 (TID 17) in 144 ms on 192.168.1.31 (executor 1) (3/5)
+2018-04-29 10:02:55 INFO  TaskSetManager:54 - Finished task 3.0 in stage 3.0 (TID 16) in 155 ms on 192.168.1.27 (executor 4) (4/5)
+2018-04-29 10:02:55 INFO  TaskSetManager:54 - Finished task 0.0 in stage 3.0 (TID 13) in 168 ms on 192.168.1.30 (executor 3) (5/5)
+2018-04-29 10:02:55 INFO  TaskSchedulerImpl:54 - Removed TaskSet 3.0, whose tasks have all completed, from pool 
+2018-04-29 10:02:55 INFO  DAGScheduler:54 - ResultStage 3 (count at FileStreamingBenchmark.scala:86) finished in 0.181 s
+2018-04-29 10:02:55 INFO  DAGScheduler:54 - Job 3 finished: count at FileStreamingBenchmark.scala:86, took 0.191684 s
+2018-04-29 10:02:55 INFO  file-streaming-app:86 - processed: 5
+2018-04-29 10:02:55 INFO  JobScheduler:54 - Finished job streaming job 1524996175000 ms.0 from job set of time 1524996175000 ms
+2018-04-29 10:02:55 INFO  MapPartitionsRDD:54 - Removing RDD 21 from persistence list
+2018-04-29 10:02:55 INFO  JobScheduler:54 - Total delay: 0.423 s for time 1524996175000 ms (execution: 0.200 s)
+2018-04-29 10:02:55 INFO  BlockManager:54 - Removing RDD 21
+2018-04-29 10:02:55 INFO  MapPartitionsRDD:54 - Removing RDD 20 from persistence list
+2018-04-29 10:02:55 INFO  BlockManager:54 - Removing RDD 20
+2018-04-29 10:02:55 INFO  FileInputDStream:54 - Cleared 0 old files that were older than 1524996115000 ms: 
+2018-04-29 10:02:55 INFO  ReceivedBlockTracker:54 - Deleting batches: 
+2018-04-29 10:02:55 INFO  InputInfoTracker:54 - remove old batch metadata: 
