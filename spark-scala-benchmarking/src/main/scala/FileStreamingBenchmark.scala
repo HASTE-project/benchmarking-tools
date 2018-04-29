@@ -40,6 +40,8 @@ object FileStreamingBenchmark {
   }
 
   def includePath(path: Path): Boolean = {
+
+
     // Exclude old files - so that the last modified time check is skipped, so we don't crash
     // if the file is deleted.
     // See: https://stackoverflow.com/questions/50058451/when-is-it-safe-to-delete-files-when-using-file-based-streaming/50062050#50062050
@@ -49,6 +51,7 @@ object FileStreamingBenchmark {
     //val localhostname = java.net.InetAddress.getLocalHost.getHostName
     // println(localhostname) 'ben-spark-master' -- is this the driver app ?
 
+    // This is what the default filter does.
     if (name.startsWith(".")) return false
 
     val filename_parts = name.split("_")
