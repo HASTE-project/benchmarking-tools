@@ -10,7 +10,7 @@ from ..streaming_server.file_streaming import MESSAGE_SIZES
 from .spark_app_log import find_file_pauses_s_by_unixtime, parse_spark_app_logs_and_update
 
 RESULT_FILE_LISTING = 'LIMIT_FILE_LISTNG'
-RESULT_LIMIT_TOTAL_DELAUY = 'LIMIT_TOTAL_DELAY'
+RESULT_LIMIT_TOTAL_DELAY = 'LIMIT_TOTAL_DELAY'
 
 # ~= batch interval
 FETCH_STATUS_INTERVAL_SECONDS = 2
@@ -43,8 +43,10 @@ frequency = -1
 monitor = SparkMonitor(HOST_FOR_SPARK_REST_API)
 monitor.start()
 
+in_process_secs = 0
 
 def fetch_total_delays():
+    global in_process_secs
     # while True:
 
     try:
@@ -56,26 +58,30 @@ def fetch_total_delays():
     # print(stats)
 
     queued_job_count = 0
+    in_process_secs = 0
     for batch in stats['batches']:
+        batch_timestamp = calendar.timegm(time.strptime(batch['batchTime'], '%Y-%m-%dT%H:%M:%S.000%Z'))
+
         if batch['status'] != 'COMPLETED':
             if batch['status'] == 'QUEUED':
                 queued_job_count += 1
+            if batch['status'] == 'PROCESSING':
+                in_process_secs = max(in_process_secs, time.time() - batch_timestamp)
 
             print('..skipping batch ' + str(batch['batchId']) + ' with status ' + str(batch['status']))
             continue
 
-        timestamp = calendar.timegm(time.strptime(batch['batchTime'], '%Y-%m-%dT%H:%M:%S.000%Z'))
         total_delay = int(batch.get('totalDelay', -1)) / 1000
         if total_delay < 0:
             print('..skipping batch ' + str(batch['batchId']) + ' with missing totalDelay')
             continue
 
         # TODO: print out the data
-        if timestamp not in total_delays_secs_by_timestamp:
+        if batch_timestamp not in total_delays_secs_by_timestamp:
             import datetime
             # print('fetched batch: ' + datetime.datetime.utcfromtimestamp(timestamp).strftime(
             #     '%Y-%m-%dT%H:%M:%SZ') + ' ' + str(total_delay) + 's')
-            total_delays_secs_by_timestamp[timestamp] = total_delay
+            total_delays_secs_by_timestamp[batch_timestamp] = total_delay
 
         have_queued_jobs = queued_job_count > 1
 
@@ -116,9 +122,14 @@ def find_max_throughput(message_size_bytes, cpu_cost_ms, initial_frequency=1):
             continue
 
         print(recent_delays)
+        print(recent_find_file_pauses)
         latest_total_delay = recent_delays.values()[-1]
+
+        # TODO: refactor so that these checks are applied immediately after the increase (not the buffer in the list comps above)
+        # Instead, pause after a throttle-down, or after achieving max throughput. Otherwise by the end of the buffer time, it can be completely overwhelmned
+
         # print(latest_total_delay)
-        if frequency > 1 and latest_total_delay > BATCH_INTERVAL_SECONDS * 5:
+        if frequency > 1 and latest_total_delay > BATCH_INTERVAL_SECONDS * 5 or in_process_secs > BATCH_INTERVAL_SECONDS * 5:
             # WARNING: if we only wait say 3 intervals, we won't see it taking 5 intervals
             # Spark can't cope
             print('total delay is now: ' + str(latest_total_delay) + ' - spark cant cope - reverting to 1Hz')
@@ -143,7 +154,7 @@ def find_max_throughput(message_size_bytes, cpu_cost_ms, initial_frequency=1):
                 total_delay_high = mean_total_delay
                 variance = statistics.variance(recent_delays)
                 stdev = statistics.stdev(recent_delays)
-                print('mean: ' + str(mean_total_delay) + ' variance: ' + str(variance) + ' stdev: ' + str(stdev))
+                # print('mean: ' + str(mean_total_delay) + ' variance: ' + str(variance) + ' stdev: ' + str(stdev))
 
             if len(recent_delays) > 5 and mean_total_delay > 2 * BATCH_INTERVAL_SECONDS:
                 # throttle down early if we're struggling - but allow time to recover from before
@@ -163,8 +174,8 @@ def find_max_throughput(message_size_bytes, cpu_cost_ms, initial_frequency=1):
                     new_frequency = int(frequency * 1.03) + 1
                 elif total_delay_high < BATCH_INTERVAL_SECONDS:
                     # we consider this our max stable throughput
-                    print('max throughput is:' + str(frequency) + ' message size: ' + str(message_size_bytes))
-                    return RESULT_LIMIT_TOTAL_DELAUY, frequency
+                    print('max throughput is:' + str(frequency) + ' message size: ' + str(message_size_bytes) + 'reason:' + RESULT_LIMIT_TOTAL_DELAY)
+                    return RESULT_LIMIT_TOTAL_DELAY, frequency
                 else:
                     print('we we overshot! frequency was: ' + str(frequency) + ' message size: ' + str(
                         message_size_bytes))
@@ -205,9 +216,9 @@ def set_new_freq(new_frequency, message_size_bytes, cpu_cost_ms=20):
 
 # Try the bigger message sizes first, because they are more likely to work.
 for message_size in sorted(MESSAGE_SIZES, reverse=True):
-    if message_size < 10000:
-        print('skipping ' + str(message_size))
-        continue
+    # if message_size < 10000:
+    #     print('skipping ' + str(message_size))
+    #     continue
     print('message_size: ' + str(message_size))
 
     find_max_throughput(message_size, 20)

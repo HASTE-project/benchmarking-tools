@@ -9,10 +9,11 @@ import threading
 import json
 
 SEARCH_FOR_OLD_FILES_INTERVAL = 1
-MESSAGE_SIZES = [500, 1000, 10000, 100000,
+MESSAGE_SIZES = [500, 1000, 10000,
+                 100000,
                  1000000,  # 1MB
-                 5000000,  # 5MB
-                 10000000,  # 10MB
+                 #5000000,  # 5MB
+                 #10000000,  # 10MB
                  #50000000,  # 50MB
                  #100000000  # 100MB
                  ]

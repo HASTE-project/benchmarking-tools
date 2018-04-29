@@ -1,0 +1,860 @@
+[{'id': 'app-20180429210649-0074', 'name': 'File Streaming', 'attempts': [{'startTime': '2018-04-29T21:06:47.546GMT', 'endTime': '1969-12-31T23:59:59.999GMT', 'lastUpdated': '2018-04-29T21:06:47.546GMT', 'duration': 0, 'sparkUser': 'ubuntu', 'completed': False, 'appSparkVersion': '2.3.0', 'startTimeEpoch': 1525036007546, 'endTimeEpoch': -1, 'lastUpdatedEpoch': 1525036007546}]}]
+message_size: 1000000
+setting new frequency...1
+b'{"cpu_pause_ms": 20, "message_bytes": 1000000, "period_sec": 1.0}'
+{'result':'new config applied.'}
+SortedDict({1525036625: 0.137})
+{1525036625: 0.035}
+mean total delay is now: 0.137 target frequency is: 1 message size is 1000000
+SortedDict({1525036625: 0.137})
+{1525036625: 0.035}
+mean total delay is now: 0.137 target frequency is: 1 message size is 1000000
+SortedDict({1525036625: 0.137})
+{1525036625: 0.035}
+mean total delay is now: 0.137 target frequency is: 1 message size is 1000000
+SortedDict({1525036625: 0.137})
+{1525036625: 0.035}
+mean total delay is now: 0.137 target frequency is: 1 message size is 1000000
+SortedDict({1525036625: 0.137, 1525036630: 0.123})
+{1525036625: 0.035, 1525036630: 0.035}
+mean total delay is now: 0.13 target frequency is: 1 message size is 1000000
+SortedDict({1525036625: 0.137, 1525036630: 0.123})
+{1525036625: 0.035, 1525036630: 0.035}
+mean total delay is now: 0.13 target frequency is: 1 message size is 1000000
+SortedDict({1525036625: 0.137, 1525036630: 0.123})
+{1525036625: 0.035, 1525036630: 0.035}
+mean total delay is now: 0.13 target frequency is: 1 message size is 1000000
+SortedDict({1525036625: 0.137, 1525036630: 0.123})
+{1525036625: 0.035, 1525036630: 0.035}
+mean total delay is now: 0.13 target frequency is: 1 message size is 1000000
+SortedDict({1525036625: 0.137, 1525036630: 0.123, 1525036635: 0.147})
+{1525036625: 0.035, 1525036630: 0.035, 1525036635: 0.033}
+mean total delay is now: 0.13566666666666666 target frequency is: 1 message size is 1000000
+SortedDict({1525036625: 0.137, 1525036630: 0.123, 1525036635: 0.147})
+{1525036625: 0.035, 1525036630: 0.035, 1525036635: 0.033}
+mean total delay is now: 0.13566666666666666 target frequency is: 1 message size is 1000000
+SortedDict({1525036625: 0.137, 1525036630: 0.123, 1525036635: 0.147})
+{1525036625: 0.035, 1525036630: 0.035, 1525036635: 0.033}
+mean total delay is now: 0.13566666666666666 target frequency is: 1 message size is 1000000
+SortedDict({1525036625: 0.137, 1525036630: 0.123, 1525036635: 0.147})
+{1525036625: 0.035, 1525036630: 0.035, 1525036635: 0.033}
+mean total delay is now: 0.13566666666666666 target frequency is: 1 message size is 1000000
+SortedDict({1525036625: 0.137, 1525036630: 0.123, 1525036635: 0.147, 1525036640: 0.133})
+{1525036625: 0.035, 1525036630: 0.035, 1525036635: 0.033, 1525036640: 0.037}
+mean total delay is now: 0.135 target frequency is: 1 message size is 1000000
+waited a few intervals since the last change of frequency, should we increase?..
+setting new frequency...5
+b'{"cpu_pause_ms": 20, "message_bytes": 1000000, "period_sec": 0.2}'
+{'result':'new config applied.'}
+SortedDict({1525036655: 0.296})
+{1525036655: 0.036}
+mean total delay is now: 0.296 target frequency is: 5 message size is 1000000
+SortedDict({1525036655: 0.296})
+{1525036655: 0.036}
+mean total delay is now: 0.296 target frequency is: 5 message size is 1000000
+SortedDict({1525036655: 0.296})
+{1525036655: 0.036}
+mean total delay is now: 0.296 target frequency is: 5 message size is 1000000
+SortedDict({1525036655: 0.296})
+{1525036655: 0.036, 1525036660: 0.036}
+mean total delay is now: 0.296 target frequency is: 5 message size is 1000000
+SortedDict({1525036655: 0.296, 1525036660: 0.322})
+{1525036655: 0.036, 1525036660: 0.036}
+mean total delay is now: 0.309 target frequency is: 5 message size is 1000000
+SortedDict({1525036655: 0.296, 1525036660: 0.322})
+{1525036655: 0.036, 1525036660: 0.036}
+mean total delay is now: 0.309 target frequency is: 5 message size is 1000000
+SortedDict({1525036655: 0.296, 1525036660: 0.322})
+{1525036655: 0.036, 1525036660: 0.036}
+mean total delay is now: 0.309 target frequency is: 5 message size is 1000000
+SortedDict({1525036655: 0.296, 1525036660: 0.322})
+{1525036655: 0.036, 1525036660: 0.036, 1525036665: 0.031}
+mean total delay is now: 0.309 target frequency is: 5 message size is 1000000
+SortedDict({1525036655: 0.296, 1525036660: 0.322, 1525036665: 0.263})
+{1525036655: 0.036, 1525036660: 0.036, 1525036665: 0.031}
+mean total delay is now: 0.2936666666666667 target frequency is: 5 message size is 1000000
+SortedDict({1525036655: 0.296, 1525036660: 0.322, 1525036665: 0.263})
+{1525036655: 0.036, 1525036660: 0.036, 1525036665: 0.031}
+mean total delay is now: 0.2936666666666667 target frequency is: 5 message size is 1000000
+SortedDict({1525036655: 0.296, 1525036660: 0.322, 1525036665: 0.263})
+{1525036655: 0.036, 1525036660: 0.036, 1525036665: 0.031}
+mean total delay is now: 0.2936666666666667 target frequency is: 5 message size is 1000000
+SortedDict({1525036655: 0.296, 1525036660: 0.322, 1525036665: 0.263})
+{1525036655: 0.036, 1525036660: 0.036, 1525036665: 0.031, 1525036670: 0.035}
+mean total delay is now: 0.2936666666666667 target frequency is: 5 message size is 1000000
+SortedDict({1525036655: 0.296, 1525036660: 0.322, 1525036665: 0.263, 1525036670: 0.318})
+{1525036655: 0.036, 1525036660: 0.036, 1525036665: 0.031, 1525036670: 0.035}
+mean total delay is now: 0.29975 target frequency is: 5 message size is 1000000
+waited a few intervals since the last change of frequency, should we increase?..
+setting new frequency...25
+b'{"cpu_pause_ms": 20, "message_bytes": 1000000, "period_sec": 0.04}'
+{'result':'new config applied.'}
+..skipping batch 1525036675000 with status PROCESSING
+..skipping batch 1525036680000 with status PROCESSING
+..skipping batch 1525036685000 with status PROCESSING
+SortedDict({1525036685: 0.865})
+{1525036685: 0.089}
+mean total delay is now: 0.865 target frequency is: 25 message size is 1000000
+SortedDict({1525036685: 0.865})
+{1525036685: 0.089, 1525036690: 0.086}
+mean total delay is now: 0.865 target frequency is: 25 message size is 1000000
+SortedDict({1525036685: 0.865})
+{1525036685: 0.089, 1525036690: 0.086}
+mean total delay is now: 0.865 target frequency is: 25 message size is 1000000
+SortedDict({1525036685: 0.865})
+{1525036685: 0.089, 1525036690: 0.086}
+mean total delay is now: 0.865 target frequency is: 25 message size is 1000000
+..skipping batch 1525036690000 with status PROCESSING
+SortedDict({1525036685: 0.865})
+{1525036685: 0.089, 1525036690: 0.086}
+mean total delay is now: 0.865 target frequency is: 25 message size is 1000000
+SortedDict({1525036685: 0.865, 1525036690: 0.891})
+{1525036685: 0.089, 1525036690: 0.086, 1525036695: 0.153}
+mean total delay is now: 0.878 target frequency is: 25 message size is 1000000
+SortedDict({1525036685: 0.865, 1525036690: 0.891})
+{1525036685: 0.089, 1525036690: 0.086, 1525036695: 0.153}
+mean total delay is now: 0.878 target frequency is: 25 message size is 1000000
+..skipping batch 1525036695000 with status PROCESSING
+SortedDict({1525036685: 0.865, 1525036690: 0.891})
+{1525036685: 0.089, 1525036690: 0.086, 1525036695: 0.153}
+mean total delay is now: 0.878 target frequency is: 25 message size is 1000000
+SortedDict({1525036685: 0.865, 1525036690: 0.891, 1525036695: 0.884})
+{1525036685: 0.089, 1525036690: 0.086, 1525036695: 0.153}
+mean total delay is now: 0.88 target frequency is: 25 message size is 1000000
+SortedDict({1525036685: 0.865, 1525036690: 0.891, 1525036695: 0.884})
+{1525036685: 0.089, 1525036690: 0.086, 1525036695: 0.153, 1525036700: 0.181}
+mean total delay is now: 0.88 target frequency is: 25 message size is 1000000
+SortedDict({1525036685: 0.865, 1525036690: 0.891, 1525036695: 0.884})
+{1525036685: 0.089, 1525036690: 0.086, 1525036695: 0.153, 1525036700: 0.181}
+mean total delay is now: 0.88 target frequency is: 25 message size is 1000000
+..skipping batch 1525036700000 with status PROCESSING
+SortedDict({1525036685: 0.865, 1525036690: 0.891, 1525036695: 0.884})
+{1525036685: 0.089, 1525036690: 0.086, 1525036695: 0.153, 1525036700: 0.181}
+mean total delay is now: 0.88 target frequency is: 25 message size is 1000000
+SortedDict({1525036685: 0.865, 1525036690: 0.891, 1525036695: 0.884, 1525036700: 0.832})
+{1525036685: 0.089, 1525036690: 0.086, 1525036695: 0.153, 1525036700: 0.181}
+mean total delay is now: 0.868 target frequency is: 25 message size is 1000000
+waited a few intervals since the last change of frequency, should we increase?..
+setting new frequency...44
+b'{"cpu_pause_ms": 20, "message_bytes": 1000000, "period_sec": 0.022727272727272728}'
+{'result':'new config applied.'}
+..skipping batch 1525036705000 with status PROCESSING
+..skipping batch 1525036710000 with status PROCESSING
+..skipping batch 1525036720000 with status PROCESSING
+..skipping batch 1525036720000 with status PROCESSING
+SortedDict({1525036720: 1.678, 1525036725: 0.003})
+{1525036724: 1.933, 1525036735: 0.233}
+mean total delay is now: 0.8404999999999999 target frequency is: 44 message size is 1000000
+SortedDict({1525036720: 1.678, 1525036725: 0.003})
+{1525036724: 1.933, 1525036735: 0.233}
+mean total delay is now: 0.8404999999999999 target frequency is: 44 message size is 1000000
+SortedDict({1525036720: 1.678, 1525036725: 0.003})
+{1525036724: 1.933, 1525036735: 0.233}
+mean total delay is now: 0.8404999999999999 target frequency is: 44 message size is 1000000
+SortedDict({1525036720: 1.678, 1525036725: 0.003})
+{1525036724: 1.933, 1525036735: 0.233}
+mean total delay is now: 0.8404999999999999 target frequency is: 44 message size is 1000000
+SortedDict({1525036720: 1.678, 1525036725: 0.003})
+{1525036724: 1.933, 1525036735: 0.233}
+mean total delay is now: 0.8404999999999999 target frequency is: 44 message size is 1000000
+SortedDict({1525036720: 1.678, 1525036725: 0.003})
+{1525036724: 1.933, 1525036735: 0.233}
+mean total delay is now: 0.8404999999999999 target frequency is: 44 message size is 1000000
+..skipping batch 1525036730000 with status PROCESSING
+SortedDict({1525036720: 1.678, 1525036725: 0.003})
+{1525036724: 1.933, 1525036735: 0.233}
+mean total delay is now: 0.8404999999999999 target frequency is: 44 message size is 1000000
+SortedDict({1525036720: 1.678, 1525036725: 0.003, 1525036730: 1.518})
+{1525036724: 1.933, 1525036735: 0.233}
+mean total delay is now: 1.0663333333333334 target frequency is: 44 message size is 1000000
+SortedDict({1525036720: 1.678, 1525036725: 0.003, 1525036730: 1.518, 1525036735: 0.005})
+{1525036724: 1.933, 1525036735: 0.233, 1525036745: 2.433, 1525036746: 0.587}
+mean total delay is now: 0.8009999999999999 target frequency is: 44 message size is 1000000
+waited a few intervals since the last change of frequency, should we increase?..
+setting new frequency...78
+b'{"cpu_pause_ms": 20, "message_bytes": 1000000, "period_sec": 0.01282051282051282}'
+{'result':'new config applied.'}
+..skipping batch 1525036740000 with status PROCESSING
+..skipping batch 1525036750000 with status PROCESSING
+..skipping batch 1525036760000 with status PROCESSING
+SortedDict({1525036760: 1.569})
+{1525036767: 2.474, 1525036768: 0.994}
+mean total delay is now: 1.569 target frequency is: 78 message size is 1000000
+SortedDict({1525036760: 1.569, 1525036765: 0.008})
+{1525036767: 2.474, 1525036768: 0.994, 1525036776: 2.945}
+mean total delay is now: 0.7885 target frequency is: 78 message size is 1000000
+SortedDict({1525036760: 1.569, 1525036765: 0.008})
+{1525036767: 2.474, 1525036768: 0.994, 1525036776: 2.945}
+mean total delay is now: 0.7885 target frequency is: 78 message size is 1000000
+SortedDict({1525036760: 1.569, 1525036765: 0.008})
+{1525036767: 2.474, 1525036768: 0.994, 1525036776: 2.945}
+mean total delay is now: 0.7885 target frequency is: 78 message size is 1000000
+SortedDict({1525036760: 1.569, 1525036765: 0.008})
+{1525036767: 2.474, 1525036768: 0.994, 1525036776: 2.945}
+mean total delay is now: 0.7885 target frequency is: 78 message size is 1000000
+SortedDict({1525036760: 1.569, 1525036765: 0.008})
+{1525036767: 2.474, 1525036768: 0.994, 1525036776: 2.945}
+mean total delay is now: 0.7885 target frequency is: 78 message size is 1000000
+SortedDict({1525036760: 1.569, 1525036765: 0.008})
+{1525036767: 2.474, 1525036768: 0.994, 1525036776: 2.945}
+mean total delay is now: 0.7885 target frequency is: 78 message size is 1000000
+SortedDict({1525036760: 1.569, 1525036765: 0.008})
+{1525036767: 2.474, 1525036768: 0.994, 1525036776: 2.945}
+mean total delay is now: 0.7885 target frequency is: 78 message size is 1000000
+SortedDict({1525036760: 1.569, 1525036765: 0.008, 1525036770: 0.003})
+{1525036767: 2.474, 1525036768: 0.994, 1525036776: 2.945, 1525036784: 8.158}
+mean total delay is now: 0.5266666666666666 target frequency is: 78 message size is 1000000
+SortedDict({1525036760: 1.569, 1525036765: 0.008, 1525036770: 0.003})
+{1525036767: 2.474, 1525036768: 0.994, 1525036776: 2.945, 1525036784: 8.158}
+mean total delay is now: 0.5266666666666666 target frequency is: 78 message size is 1000000
+SortedDict({1525036760: 1.569, 1525036765: 0.008, 1525036770: 0.003, 1525036775: 0.003})
+{1525036767: 2.474, 1525036768: 0.994, 1525036776: 2.945, 1525036784: 8.158, 1525036787: 2.419, 1525036788: 1.201}
+mean total delay is now: 0.39575 target frequency is: 78 message size is 1000000
+waited a few intervals since the last change of frequency, should we increase?..
+setting new frequency...390
+b'{"cpu_pause_ms": 20, "message_bytes": 1000000, "period_sec": 0.002564102564102564}'
+{'result':'new config applied.'}
+..skipping batch 1525036785000 with status PROCESSING
+SortedDict({1525036805: 0.004})
+{1525036804: 5.522, 1525036812: 7.669, 1525036817: 5.183, 1525036825: 8.185}
+max throughput is:390 message size: 1000000 reason was LIMIT_FILE_LISTNG
+message_size: 100000
+setting new frequency...1
+b'{"cpu_pause_ms": 20, "message_bytes": 100000, "period_sec": 1.0}'
+{'result':'new config applied.'}
+SortedDict({1525036840: 0.104})
+{1525036840: 2.7, 1525036843: 2.554, 1525036845: 2.444, 1525036848: 2.698}
+mean total delay is now: 0.104 target frequency is: 1 message size is 100000
+SortedDict({1525036840: 0.104})
+{1525036840: 2.7, 1525036843: 2.554, 1525036845: 2.444, 1525036848: 2.698}
+mean total delay is now: 0.104 target frequency is: 1 message size is 100000
+SortedDict({1525036840: 0.104, 1525036845: 0.108})
+{1525036840: 2.7, 1525036843: 2.554, 1525036845: 2.444, 1525036848: 2.698, 1525036851: 2.554}
+mean total delay is now: 0.106 target frequency is: 1 message size is 100000
+SortedDict({1525036840: 0.104, 1525036845: 0.108})
+{1525036840: 2.7, 1525036843: 2.554, 1525036845: 2.444, 1525036848: 2.698, 1525036851: 2.554}
+mean total delay is now: 0.106 target frequency is: 1 message size is 100000
+SortedDict({1525036840: 0.104, 1525036845: 0.108, 1525036850: 0.111})
+{1525036840: 2.7, 1525036843: 2.554, 1525036845: 2.444, 1525036848: 2.698, 1525036851: 2.554, 1525036853: 2.703}
+mean total delay is now: 0.10766666666666666 target frequency is: 1 message size is 100000
+SortedDict({1525036840: 0.104, 1525036845: 0.108, 1525036850: 0.111})
+{1525036840: 2.7, 1525036843: 2.554, 1525036845: 2.444, 1525036848: 2.698, 1525036851: 2.554, 1525036853: 2.703}
+mean total delay is now: 0.10766666666666666 target frequency is: 1 message size is 100000
+SortedDict({1525036840: 0.104, 1525036845: 0.108, 1525036850: 0.111})
+{1525036840: 2.7, 1525036843: 2.554, 1525036845: 2.444, 1525036848: 2.698, 1525036851: 2.554, 1525036853: 2.703, 1525036857: 2.051}
+mean total delay is now: 0.10766666666666666 target frequency is: 1 message size is 100000
+SortedDict({1525036840: 0.104, 1525036845: 0.108, 1525036850: 0.111, 1525036855: 0.095})
+{1525036840: 2.7, 1525036843: 2.554, 1525036845: 2.444, 1525036848: 2.698, 1525036851: 2.554, 1525036853: 2.703, 1525036857: 2.051}
+mean total delay is now: 0.1045 target frequency is: 1 message size is 100000
+waited a few intervals since the last change of frequency, should we increase?..
+setting new frequency...5
+b'{"cpu_pause_ms": 20, "message_bytes": 100000, "period_sec": 0.2}'
+{'result':'new config applied.'}
+..skipping batch 1525036875000 with status PROCESSING
+SortedDict({1525036875: 0.172})
+{1525036875: 0.988}
+mean total delay is now: 0.172 target frequency is: 5 message size is 100000
+SortedDict({1525036875: 0.172})
+{1525036875: 0.988}
+mean total delay is now: 0.172 target frequency is: 5 message size is 100000
+SortedDict({1525036875: 0.172})
+{1525036875: 0.988, 1525036880: 0.23}
+mean total delay is now: 0.172 target frequency is: 5 message size is 100000
+SortedDict({1525036875: 0.172, 1525036880: 0.185})
+{1525036875: 0.988, 1525036880: 0.23}
+mean total delay is now: 0.1785 target frequency is: 5 message size is 100000
+SortedDict({1525036875: 0.172, 1525036880: 0.185})
+{1525036875: 0.988, 1525036880: 0.23}
+mean total delay is now: 0.1785 target frequency is: 5 message size is 100000
+SortedDict({1525036875: 0.172, 1525036880: 0.185})
+{1525036875: 0.988, 1525036880: 0.23}
+mean total delay is now: 0.1785 target frequency is: 5 message size is 100000
+SortedDict({1525036875: 0.172, 1525036880: 0.185})
+{1525036875: 0.988, 1525036880: 0.23, 1525036885: 0.046}
+mean total delay is now: 0.1785 target frequency is: 5 message size is 100000
+SortedDict({1525036875: 0.172, 1525036880: 0.185, 1525036885: 0.267})
+{1525036875: 0.988, 1525036880: 0.23, 1525036885: 0.046}
+mean total delay is now: 0.208 target frequency is: 5 message size is 100000
+SortedDict({1525036875: 0.172, 1525036880: 0.185, 1525036885: 0.267})
+{1525036875: 0.988, 1525036880: 0.23, 1525036885: 0.046}
+mean total delay is now: 0.208 target frequency is: 5 message size is 100000
+SortedDict({1525036875: 0.172, 1525036880: 0.185, 1525036885: 0.267})
+{1525036875: 0.988, 1525036880: 0.23, 1525036885: 0.046}
+mean total delay is now: 0.208 target frequency is: 5 message size is 100000
+SortedDict({1525036875: 0.172, 1525036880: 0.185, 1525036885: 0.267})
+{1525036875: 0.988, 1525036880: 0.23, 1525036885: 0.046, 1525036890: 0.041}
+mean total delay is now: 0.208 target frequency is: 5 message size is 100000
+SortedDict({1525036875: 0.172, 1525036880: 0.185, 1525036885: 0.267, 1525036890: 0.195})
+{1525036875: 0.988, 1525036880: 0.23, 1525036885: 0.046, 1525036890: 0.041}
+mean total delay is now: 0.20475 target frequency is: 5 message size is 100000
+waited a few intervals since the last change of frequency, should we increase?..
+setting new frequency...25
+b'{"cpu_pause_ms": 20, "message_bytes": 100000, "period_sec": 0.04}'
+{'result':'new config applied.'}
+..skipping batch 1525036905000 with status PROCESSING
+SortedDict({1525036910: 0.618})
+{1525036910: 0.083}
+mean total delay is now: 0.618 target frequency is: 25 message size is 100000
+SortedDict({1525036910: 0.618})
+{1525036910: 0.083}
+mean total delay is now: 0.618 target frequency is: 25 message size is 100000
+SortedDict({1525036910: 0.618})
+{1525036910: 0.083}
+mean total delay is now: 0.618 target frequency is: 25 message size is 100000
+SortedDict({1525036910: 0.618})
+{1525036910: 0.083}
+mean total delay is now: 0.618 target frequency is: 25 message size is 100000
+SortedDict({1525036910: 0.618, 1525036915: 0.582})
+{1525036910: 0.083, 1525036920: 0.187}
+mean total delay is now: 0.6 target frequency is: 25 message size is 100000
+SortedDict({1525036910: 0.618, 1525036915: 0.582})
+{1525036910: 0.083, 1525036920: 0.187}
+mean total delay is now: 0.6 target frequency is: 25 message size is 100000
+SortedDict({1525036910: 0.618, 1525036915: 0.582})
+{1525036910: 0.083, 1525036920: 0.187}
+mean total delay is now: 0.6 target frequency is: 25 message size is 100000
+SortedDict({1525036910: 0.618, 1525036915: 0.582})
+{1525036910: 0.083, 1525036920: 0.187}
+mean total delay is now: 0.6 target frequency is: 25 message size is 100000
+SortedDict({1525036910: 0.618, 1525036915: 0.582, 1525036920: 0.724})
+{1525036910: 0.083, 1525036920: 0.187, 1525036925: 0.211}
+mean total delay is now: 0.6413333333333333 target frequency is: 25 message size is 100000
+SortedDict({1525036910: 0.618, 1525036915: 0.582, 1525036920: 0.724})
+{1525036910: 0.083, 1525036920: 0.187, 1525036925: 0.211}
+mean total delay is now: 0.6413333333333333 target frequency is: 25 message size is 100000
+SortedDict({1525036910: 0.618, 1525036915: 0.582, 1525036920: 0.724})
+{1525036910: 0.083, 1525036920: 0.187, 1525036925: 0.211}
+mean total delay is now: 0.6413333333333333 target frequency is: 25 message size is 100000
+SortedDict({1525036910: 0.618, 1525036915: 0.582, 1525036920: 0.724})
+{1525036910: 0.083, 1525036920: 0.187, 1525036925: 0.211}
+mean total delay is now: 0.6413333333333333 target frequency is: 25 message size is 100000
+..skipping batch 1525036925000 with status PROCESSING
+SortedDict({1525036910: 0.618, 1525036915: 0.582, 1525036920: 0.724})
+{1525036910: 0.083, 1525036920: 0.187, 1525036925: 0.211, 1525036930: 0.427}
+mean total delay is now: 0.6413333333333333 target frequency is: 25 message size is 100000
+SortedDict({1525036910: 0.618, 1525036915: 0.582, 1525036920: 0.724, 1525036925: 1.056})
+{1525036910: 0.083, 1525036920: 0.187, 1525036925: 0.211, 1525036930: 0.427}
+mean total delay is now: 0.745 target frequency is: 25 message size is 100000
+waited a few intervals since the last change of frequency, should we increase?..
+setting new frequency...44
+b'{"cpu_pause_ms": 20, "message_bytes": 100000, "period_sec": 0.022727272727272728}'
+{'result':'new config applied.'}
+..skipping batch 1525036930000 with status PROCESSING
+..skipping batch 1525036940000 with status PROCESSING
+SortedDict({1525036950: 0.447})
+{1525036957: 0.786}
+mean total delay is now: 0.447 target frequency is: 44 message size is 100000
+SortedDict({1525036950: 0.447})
+{1525036957: 0.786}
+mean total delay is now: 0.447 target frequency is: 44 message size is 100000
+SortedDict({1525036950: 0.447})
+{1525036957: 0.786}
+mean total delay is now: 0.447 target frequency is: 44 message size is 100000
+SortedDict({1525036950: 0.447})
+{1525036957: 0.786}
+mean total delay is now: 0.447 target frequency is: 44 message size is 100000
+SortedDict({1525036950: 0.447})
+{1525036957: 0.786}
+mean total delay is now: 0.447 target frequency is: 44 message size is 100000
+SortedDict({1525036950: 0.447})
+{1525036957: 0.786}
+mean total delay is now: 0.447 target frequency is: 44 message size is 100000
+SortedDict({1525036950: 0.447})
+{1525036957: 0.786}
+mean total delay is now: 0.447 target frequency is: 44 message size is 100000
+..skipping batch 1525036955000 with status PROCESSING
+SortedDict({1525036950: 0.447})
+{1525036957: 0.786}
+mean total delay is now: 0.447 target frequency is: 44 message size is 100000
+SortedDict({1525036950: 0.447, 1525036955: 1.366, 1525036960: 0.006})
+{1525036957: 0.786, 1525036970: 1.72}
+mean total delay is now: 0.6063333333333334 target frequency is: 44 message size is 100000
+SortedDict({1525036950: 0.447, 1525036955: 1.366, 1525036960: 0.006})
+{1525036957: 0.786, 1525036970: 1.72, 1525036971: 1.142}
+mean total delay is now: 0.6063333333333334 target frequency is: 44 message size is 100000
+SortedDict({1525036950: 0.447, 1525036955: 1.366, 1525036960: 0.006})
+{1525036957: 0.786, 1525036970: 1.72, 1525036971: 1.142}
+mean total delay is now: 0.6063333333333334 target frequency is: 44 message size is 100000
+SortedDict({1525036950: 0.447, 1525036955: 1.366, 1525036960: 0.006})
+{1525036957: 0.786, 1525036970: 1.72, 1525036971: 1.142}
+mean total delay is now: 0.6063333333333334 target frequency is: 44 message size is 100000
+SortedDict({1525036950: 0.447, 1525036955: 1.366, 1525036960: 0.006})
+{1525036957: 0.786, 1525036970: 1.72, 1525036971: 1.142}
+mean total delay is now: 0.6063333333333334 target frequency is: 44 message size is 100000
+SortedDict({1525036950: 0.447, 1525036955: 1.366, 1525036960: 0.006})
+{1525036957: 0.786, 1525036970: 1.72, 1525036971: 1.142}
+mean total delay is now: 0.6063333333333334 target frequency is: 44 message size is 100000
+..skipping batch 1525036965000 with status PROCESSING
+SortedDict({1525036950: 0.447, 1525036955: 1.366, 1525036960: 0.006})
+{1525036957: 0.786, 1525036970: 1.72, 1525036971: 1.142}
+mean total delay is now: 0.6063333333333334 target frequency is: 44 message size is 100000
+SortedDict({1525036950: 0.447, 1525036955: 1.366, 1525036960: 0.006, 1525036965: 0.859})
+{1525036957: 0.786, 1525036970: 1.72, 1525036971: 1.142, 1525036978: 1.084}
+mean total delay is now: 0.6695 target frequency is: 44 message size is 100000
+waited a few intervals since the last change of frequency, should we increase?..
+setting new frequency...78
+b'{"cpu_pause_ms": 20, "message_bytes": 100000, "period_sec": 0.01282051282051282}'
+{'result':'new config applied.'}
+..skipping batch 1525036970000 with status PROCESSING
+..skipping batch 1525036970000 with status PROCESSING
+..skipping batch 1525036970000 with status PROCESSING
+..skipping batch 1525036970000 with status PROCESSING
+..skipping batch 1525036975000 with status QUEUED
+..skipping batch 1525036970000 with status PROCESSING
+..skipping batch 1525036980000 with status PROCESSING
+..skipping batch 1525036990000 with status PROCESSING
+SortedDict({1525036995: 0.002})
+{1525036995: 1.785, 1525037013: 2.793}
+mean total delay is now: 0.002 target frequency is: 78 message size is 100000
+SortedDict({1525036995: 0.002})
+{1525036995: 1.785, 1525037013: 2.793}
+mean total delay is now: 0.002 target frequency is: 78 message size is 100000
+SortedDict({1525036995: 0.002, 1525037000: 0.002, 1525037005: 0.002})
+{1525036995: 1.785, 1525037013: 2.793, 1525037015: 1.883, 1525037016: 0.877}
+mean total delay is now: 0.002 target frequency is: 78 message size is 100000
+SortedDict({1525036995: 0.002, 1525037000: 0.002, 1525037005: 0.002})
+{1525036995: 1.785, 1525037013: 2.793, 1525037015: 1.883, 1525037016: 0.877}
+mean total delay is now: 0.002 target frequency is: 78 message size is 100000
+SortedDict({1525036995: 0.002, 1525037000: 0.002, 1525037005: 0.002})
+{1525036995: 1.785, 1525037013: 2.793, 1525037015: 1.883, 1525037016: 0.877}
+mean total delay is now: 0.002 target frequency is: 78 message size is 100000
+SortedDict({1525036995: 0.002, 1525037000: 0.002, 1525037005: 0.002})
+{1525036995: 1.785, 1525037013: 2.793, 1525037015: 1.883, 1525037016: 0.877}
+mean total delay is now: 0.002 target frequency is: 78 message size is 100000
+SortedDict({1525036995: 0.002, 1525037000: 0.002, 1525037005: 0.002})
+{1525036995: 1.785, 1525037013: 2.793, 1525037015: 1.883, 1525037016: 0.877}
+mean total delay is now: 0.002 target frequency is: 78 message size is 100000
+SortedDict({1525036995: 0.002, 1525037000: 0.002, 1525037005: 0.002})
+{1525036995: 1.785, 1525037013: 2.793, 1525037015: 1.883, 1525037016: 0.877}
+mean total delay is now: 0.002 target frequency is: 78 message size is 100000
+SortedDict({1525036995: 0.002, 1525037000: 0.002, 1525037005: 0.002})
+{1525036995: 1.785, 1525037013: 2.793, 1525037015: 1.883, 1525037016: 0.877}
+mean total delay is now: 0.002 target frequency is: 78 message size is 100000
+..skipping batch 1525037010000 with status PROCESSING
+SortedDict({1525036995: 0.002, 1525037000: 0.002, 1525037005: 0.002})
+{1525036995: 1.785, 1525037013: 2.793, 1525037015: 1.883, 1525037016: 0.877}
+mean total delay is now: 0.002 target frequency is: 78 message size is 100000
+SortedDict({1525036995: 0.002, 1525037000: 0.002, 1525037005: 0.002, 1525037010: 1.088})
+{1525036995: 1.785, 1525037013: 2.793, 1525037015: 1.883, 1525037016: 0.877, 1525037026: 1.932}
+mean total delay is now: 0.2735 target frequency is: 78 message size is 100000
+waited a few intervals since the last change of frequency, should we increase?..
+setting new frequency...390
+b'{"cpu_pause_ms": 20, "message_bytes": 100000, "period_sec": 0.002564102564102564}'
+{'result':'new config applied.'}
+..skipping batch 1525037020000 with status PROCESSING
+SortedDict({1525037040: 0.006})
+{1525037040: 4.635, 1525037044: 4.228, 1525037051: 7.206, 1525037056: 4.524}
+mean total delay is now: 0.006 target frequency is: 390 message size is 100000
+SortedDict({1525037040: 0.006})
+{1525037040: 4.635, 1525037044: 4.228, 1525037051: 7.206, 1525037056: 4.524}
+mean total delay is now: 0.006 target frequency is: 390 message size is 100000
+SortedDict({1525037040: 0.006})
+{1525037040: 4.635, 1525037044: 4.228, 1525037051: 7.206, 1525037056: 4.524}
+mean total delay is now: 0.006 target frequency is: 390 message size is 100000
+SortedDict({1525037040: 0.006})
+{1525037040: 4.635, 1525037044: 4.228, 1525037051: 7.206, 1525037056: 4.524}
+mean total delay is now: 0.006 target frequency is: 390 message size is 100000
+SortedDict({1525037040: 0.006})
+{1525037040: 4.635, 1525037044: 4.228, 1525037051: 7.206, 1525037056: 4.524}
+mean total delay is now: 0.006 target frequency is: 390 message size is 100000
+SortedDict({1525037040: 0.006, 1525037045: 0.002})
+{1525037040: 4.635, 1525037044: 4.228, 1525037051: 7.206, 1525037056: 4.524, 1525037061: 5.476}
+mean total delay is now: 0.004 target frequency is: 390 message size is 100000
+SortedDict({1525037040: 0.006, 1525037045: 0.002})
+{1525037040: 4.635, 1525037044: 4.228, 1525037051: 7.206, 1525037056: 4.524, 1525037061: 5.476}
+mean total delay is now: 0.004 target frequency is: 390 message size is 100000
+SortedDict({1525037040: 0.006, 1525037045: 0.002})
+{1525037040: 4.635, 1525037044: 4.228, 1525037051: 7.206, 1525037056: 4.524, 1525037061: 5.476}
+mean total delay is now: 0.004 target frequency is: 390 message size is 100000
+SortedDict({1525037040: 0.006, 1525037045: 0.002})
+{1525037040: 4.635, 1525037044: 4.228, 1525037051: 7.206, 1525037056: 4.524, 1525037061: 5.476}
+mean total delay is now: 0.004 target frequency is: 390 message size is 100000
+SortedDict({1525037040: 0.006, 1525037045: 0.002})
+{1525037040: 4.635, 1525037044: 4.228, 1525037051: 7.206, 1525037056: 4.524, 1525037061: 5.476}
+mean total delay is now: 0.004 target frequency is: 390 message size is 100000
+SortedDict({1525037040: 0.006, 1525037045: 0.002, 1525037050: 0.003})
+{1525037040: 4.635, 1525037044: 4.228, 1525037051: 7.206, 1525037056: 4.524, 1525037061: 5.476, 1525037068: 6.993}
+max throughput is:390 message size: 100000 reason was LIMIT_FILE_LISTNG
+message_size: 10000
+setting new frequency...1
+b'{"cpu_pause_ms": 20, "message_bytes": 10000, "period_sec": 1.0}'
+{'result':'new config applied.'}
+..skipping batch 1525037070000 with status PROCESSING
+SortedDict({1525037085: 0.006})
+{1525037085: 7.61, 1525037091: 6.257, 1525037096: 5.178, 1525037103: 6.807, 1525037108: 4.638, 1525037111: 2.82}
+mean total delay is now: 0.006 target frequency is: 1 message size is 10000
+SortedDict({1525037085: 0.006})
+{1525037085: 7.61, 1525037091: 6.257, 1525037096: 5.178, 1525037103: 6.807, 1525037108: 4.638, 1525037111: 2.82}
+mean total delay is now: 0.006 target frequency is: 1 message size is 10000
+SortedDict({1525037085: 0.006, 1525037090: 0.002})
+{1525037085: 7.61, 1525037091: 6.257, 1525037096: 5.178, 1525037103: 6.807, 1525037108: 4.638, 1525037111: 2.82, 1525037114: 3.226}
+mean total delay is now: 0.004 target frequency is: 1 message size is 10000
+SortedDict({1525037085: 0.006, 1525037090: 0.002})
+{1525037085: 7.61, 1525037091: 6.257, 1525037096: 5.178, 1525037103: 6.807, 1525037108: 4.638, 1525037111: 2.82, 1525037114: 3.226}
+mean total delay is now: 0.004 target frequency is: 1 message size is 10000
+SortedDict({1525037085: 0.006, 1525037090: 0.002, 1525037095: 0.003})
+{1525037085: 7.61, 1525037091: 6.257, 1525037096: 5.178, 1525037103: 6.807, 1525037108: 4.638, 1525037111: 2.82, 1525037114: 3.226, 1525037116: 2.119}
+mean total delay is now: 0.0036666666666666666 target frequency is: 1 message size is 10000
+SortedDict({1525037085: 0.006, 1525037090: 0.002, 1525037095: 0.003, 1525037100: 0.003})
+{1525037085: 7.61, 1525037091: 6.257, 1525037096: 5.178, 1525037103: 6.807, 1525037108: 4.638, 1525037111: 2.82, 1525037114: 3.226, 1525037116: 2.119, 1525037118: 1.878}
+mean total delay is now: 0.0035 target frequency is: 1 message size is 10000
+waited a few intervals since the last change of frequency, should we increase?..
+setting new frequency...50
+b'{"cpu_pause_ms": 20, "message_bytes": 10000, "period_sec": 0.02}'
+{'result':'new config applied.'}
+..skipping batch 1525037125000 with status QUEUED
+..skipping batch 1525037120000 with status PROCESSING
+..skipping batch 1525037135000 with status PROCESSING
+SortedDict({1525037135: 1.229})
+{1525037133: 0.018, 1525037145: 0.489}
+mean total delay is now: 1.229 target frequency is: 50 message size is 10000
+SortedDict({1525037135: 1.229})
+{1525037133: 0.018, 1525037145: 0.489}
+mean total delay is now: 1.229 target frequency is: 50 message size is 10000
+SortedDict({1525037135: 1.229})
+{1525037133: 0.018, 1525037145: 0.489}
+mean total delay is now: 1.229 target frequency is: 50 message size is 10000
+SortedDict({1525037135: 1.229})
+{1525037133: 0.018, 1525037145: 0.489}
+mean total delay is now: 1.229 target frequency is: 50 message size is 10000
+SortedDict({1525037135: 1.229})
+{1525037133: 0.018, 1525037145: 0.489}
+mean total delay is now: 1.229 target frequency is: 50 message size is 10000
+SortedDict({1525037135: 1.229})
+{1525037133: 0.018, 1525037145: 0.489}
+mean total delay is now: 1.229 target frequency is: 50 message size is 10000
+..skipping batch 1525037140000 with status PROCESSING
+SortedDict({1525037135: 1.229})
+{1525037133: 0.018, 1525037145: 0.489, 1525037153: 0.852}
+mean total delay is now: 1.229 target frequency is: 50 message size is 10000
+SortedDict({1525037135: 1.229, 1525037140: 1.811})
+{1525037133: 0.018, 1525037145: 0.489, 1525037153: 0.852}
+mean total delay is now: 1.52 target frequency is: 50 message size is 10000
+SortedDict({1525037135: 1.229, 1525037140: 1.811})
+{1525037133: 0.018, 1525037145: 0.489, 1525037153: 0.852}
+mean total delay is now: 1.52 target frequency is: 50 message size is 10000
+SortedDict({1525037135: 1.229, 1525037140: 1.811, 1525037145: 0.652})
+{1525037133: 0.018, 1525037145: 0.489, 1525037153: 0.852, 1525037157: 0.722}
+mean total delay is now: 1.2306666666666666 target frequency is: 50 message size is 10000
+SortedDict({1525037135: 1.229, 1525037140: 1.811, 1525037145: 0.652})
+{1525037133: 0.018, 1525037145: 0.489, 1525037153: 0.852, 1525037157: 0.722}
+mean total delay is now: 1.2306666666666666 target frequency is: 50 message size is 10000
+SortedDict({1525037135: 1.229, 1525037140: 1.811, 1525037145: 0.652})
+{1525037133: 0.018, 1525037145: 0.489, 1525037153: 0.852, 1525037157: 0.722}
+mean total delay is now: 1.2306666666666666 target frequency is: 50 message size is 10000
+SortedDict({1525037135: 1.229, 1525037140: 1.811, 1525037145: 0.652})
+{1525037133: 0.018, 1525037145: 0.489, 1525037153: 0.852, 1525037157: 0.722}
+mean total delay is now: 1.2306666666666666 target frequency is: 50 message size is 10000
+SortedDict({1525037135: 1.229, 1525037140: 1.811, 1525037145: 0.652})
+{1525037133: 0.018, 1525037145: 0.489, 1525037153: 0.852, 1525037157: 0.722}
+mean total delay is now: 1.2306666666666666 target frequency is: 50 message size is 10000
+SortedDict({1525037135: 1.229, 1525037140: 1.811, 1525037145: 0.652, 1525037150: 0.782})
+{1525037133: 0.018, 1525037145: 0.489, 1525037153: 0.852, 1525037157: 0.722, 1525037163: 0.879}
+mean total delay is now: 1.1185 target frequency is: 50 message size is 10000
+waited a few intervals since the last change of frequency, should we increase?..
+setting new frequency...88
+b'{"cpu_pause_ms": 20, "message_bytes": 10000, "period_sec": 0.011363636363636364}'
+{'result':'new config applied.'}
+..skipping batch 1525037160000 with status PROCESSING
+..skipping batch 1525037165000 with status PROCESSING
+..skipping batch 1525037175000 with status PROCESSING
+SortedDict({1525037180: 0.003})
+{1525037181: 1.539, 1525037192: 2.963}
+mean total delay is now: 0.003 target frequency is: 88 message size is 10000
+SortedDict({1525037180: 0.003})
+{1525037181: 1.539, 1525037192: 2.963}
+mean total delay is now: 0.003 target frequency is: 88 message size is 10000
+SortedDict({1525037180: 0.003})
+{1525037181: 1.539, 1525037192: 2.963}
+mean total delay is now: 0.003 target frequency is: 88 message size is 10000
+SortedDict({1525037180: 0.003, 1525037185: 0.002})
+{1525037181: 1.539, 1525037192: 2.963, 1525037196: 3.357}
+mean total delay is now: 0.0025 target frequency is: 88 message size is 10000
+SortedDict({1525037180: 0.003, 1525037185: 0.002})
+{1525037181: 1.539, 1525037192: 2.963, 1525037196: 3.357}
+mean total delay is now: 0.0025 target frequency is: 88 message size is 10000
+SortedDict({1525037180: 0.003, 1525037185: 0.002})
+{1525037181: 1.539, 1525037192: 2.963, 1525037196: 3.357}
+mean total delay is now: 0.0025 target frequency is: 88 message size is 10000
+SortedDict({1525037180: 0.003, 1525037185: 0.002})
+{1525037181: 1.539, 1525037192: 2.963, 1525037196: 3.357}
+mean total delay is now: 0.0025 target frequency is: 88 message size is 10000
+SortedDict({1525037180: 0.003, 1525037185: 0.002})
+{1525037181: 1.539, 1525037192: 2.963, 1525037196: 3.357}
+mean total delay is now: 0.0025 target frequency is: 88 message size is 10000
+SortedDict({1525037180: 0.003, 1525037185: 0.002})
+{1525037181: 1.539, 1525037192: 2.963, 1525037196: 3.357}
+mean total delay is now: 0.0025 target frequency is: 88 message size is 10000
+SortedDict({1525037180: 0.003, 1525037185: 0.002})
+{1525037181: 1.539, 1525037192: 2.963, 1525037196: 3.357}
+mean total delay is now: 0.0025 target frequency is: 88 message size is 10000
+SortedDict({1525037180: 0.003, 1525037185: 0.002})
+{1525037181: 1.539, 1525037192: 2.963, 1525037196: 3.357}
+mean total delay is now: 0.0025 target frequency is: 88 message size is 10000
+SortedDict({1525037180: 0.003, 1525037185: 0.002})
+{1525037181: 1.539, 1525037192: 2.963, 1525037196: 3.357}
+mean total delay is now: 0.0025 target frequency is: 88 message size is 10000
+SortedDict({1525037180: 0.003, 1525037185: 0.002})
+{1525037181: 1.539, 1525037192: 2.963, 1525037196: 3.357}
+mean total delay is now: 0.0025 target frequency is: 88 message size is 10000
+SortedDict({1525037180: 0.003, 1525037185: 0.002})
+{1525037181: 1.539, 1525037192: 2.963, 1525037196: 3.357}
+mean total delay is now: 0.0025 target frequency is: 88 message size is 10000
+SortedDict({1525037180: 0.003, 1525037185: 0.002, 1525037190: 0.806})
+{1525037181: 1.539, 1525037192: 2.963, 1525037196: 3.357}
+mean total delay is now: 0.27033333333333337 target frequency is: 88 message size is 10000
+SortedDict({1525037180: 0.003, 1525037185: 0.002, 1525037190: 0.806})
+{1525037181: 1.539, 1525037192: 2.963, 1525037196: 3.357}
+mean total delay is now: 0.27033333333333337 target frequency is: 88 message size is 10000
+SortedDict({1525037180: 0.003, 1525037185: 0.002, 1525037190: 0.806})
+{1525037181: 1.539, 1525037192: 2.963, 1525037196: 3.357}
+mean total delay is now: 0.27033333333333337 target frequency is: 88 message size is 10000
+SortedDict({1525037180: 0.003, 1525037185: 0.002, 1525037190: 0.806, 1525037195: 0.004})
+{1525037181: 1.539, 1525037192: 2.963, 1525037196: 3.357, 1525037213: 3.832}
+mean total delay is now: 0.20375000000000001 target frequency is: 88 message size is 10000
+waited a few intervals since the last change of frequency, should we increase?..
+setting new frequency...440
+b'{"cpu_pause_ms": 20, "message_bytes": 10000, "period_sec": 0.0022727272727272726}'
+{'result':'new config applied.'}
+SortedDict({1525037230: 0.004})
+{1525037235: 7.753, 1525037239: 4.903, 1525037246: 6.517}
+max throughput is:440 message size: 10000 reason was LIMIT_FILE_LISTNG
+message_size: 1000
+setting new frequency...1
+b'{"cpu_pause_ms": 20, "message_bytes": 1000, "period_sec": 1.0}'
+{'result':'new config applied.'}
+SortedDict({1525037260: 0.005})
+{1525037264: 4.661, 1525037272: 7.718, 1525037280: 8.148, 1525037287: 6.892}
+mean total delay is now: 0.005 target frequency is: 1 message size is 1000
+SortedDict({1525037260: 0.005})
+{1525037264: 4.661, 1525037272: 7.718, 1525037280: 8.148, 1525037287: 6.892}
+mean total delay is now: 0.005 target frequency is: 1 message size is 1000
+SortedDict({1525037260: 0.005, 1525037265: 0.009})
+{1525037264: 4.661, 1525037272: 7.718, 1525037280: 8.148, 1525037287: 6.892, 1525037290: 3.204}
+mean total delay is now: 0.006999999999999999 target frequency is: 1 message size is 1000
+SortedDict({1525037260: 0.005, 1525037265: 0.009})
+{1525037264: 4.661, 1525037272: 7.718, 1525037280: 8.148, 1525037287: 6.892, 1525037290: 3.204}
+mean total delay is now: 0.006999999999999999 target frequency is: 1 message size is 1000
+SortedDict({1525037260: 0.005, 1525037265: 0.009, 1525037270: 0.005})
+{1525037264: 4.661, 1525037272: 7.718, 1525037280: 8.148, 1525037287: 6.892, 1525037290: 3.204, 1525037292: 1.924}
+mean total delay is now: 0.006333333333333333 target frequency is: 1 message size is 1000
+SortedDict({1525037260: 0.005, 1525037265: 0.009, 1525037270: 0.005, 1525037275: 0.005})
+{1525037264: 4.661, 1525037272: 7.718, 1525037280: 8.148, 1525037287: 6.892, 1525037290: 3.204, 1525037292: 1.924, 1525037294: 1.918}
+mean total delay is now: 0.006 target frequency is: 1 message size is 1000
+waited a few intervals since the last change of frequency, should we increase?..
+setting new frequency...50
+b'{"cpu_pause_ms": 20, "message_bytes": 1000, "period_sec": 0.02}'
+{'result':'new config applied.'}
+..skipping batch 1525037305000 with status PROCESSING
+SortedDict({1525037310: 1.105})
+{1525037308: 0.021}
+mean total delay is now: 1.105 target frequency is: 50 message size is 1000
+SortedDict({1525037310: 1.105})
+{1525037308: 0.021}
+mean total delay is now: 1.105 target frequency is: 50 message size is 1000
+SortedDict({1525037310: 1.105})
+{1525037308: 0.021}
+mean total delay is now: 1.105 target frequency is: 50 message size is 1000
+SortedDict({1525037310: 1.105})
+{1525037308: 0.021}
+mean total delay is now: 1.105 target frequency is: 50 message size is 1000
+SortedDict({1525037310: 1.105})
+{1525037308: 0.021}
+mean total delay is now: 1.105 target frequency is: 50 message size is 1000
+..skipping batch 1525037315000 with status PROCESSING
+SortedDict({1525037310: 1.105})
+{1525037308: 0.021, 1525037328: 0.655}
+mean total delay is now: 1.105 target frequency is: 50 message size is 1000
+SortedDict({1525037310: 1.105, 1525037315: 1.041})
+{1525037308: 0.021, 1525037328: 0.655}
+mean total delay is now: 1.073 target frequency is: 50 message size is 1000
+SortedDict({1525037310: 1.105, 1525037315: 1.041})
+{1525037308: 0.021, 1525037328: 0.655}
+mean total delay is now: 1.073 target frequency is: 50 message size is 1000
+SortedDict({1525037310: 1.105, 1525037315: 1.041, 1525037320: 0.473})
+{1525037308: 0.021, 1525037328: 0.655}
+mean total delay is now: 0.873 target frequency is: 50 message size is 1000
+SortedDict({1525037310: 1.105, 1525037315: 1.041, 1525037320: 0.473})
+{1525037308: 0.021, 1525037328: 0.655, 1525037332: 0.766}
+mean total delay is now: 0.873 target frequency is: 50 message size is 1000
+SortedDict({1525037310: 1.105, 1525037315: 1.041, 1525037320: 0.473})
+{1525037308: 0.021, 1525037328: 0.655, 1525037332: 0.766}
+mean total delay is now: 0.873 target frequency is: 50 message size is 1000
+SortedDict({1525037310: 1.105, 1525037315: 1.041, 1525037320: 0.473})
+{1525037308: 0.021, 1525037328: 0.655, 1525037332: 0.766}
+mean total delay is now: 0.873 target frequency is: 50 message size is 1000
+SortedDict({1525037310: 1.105, 1525037315: 1.041, 1525037320: 0.473})
+{1525037308: 0.021, 1525037328: 0.655, 1525037332: 0.766}
+mean total delay is now: 0.873 target frequency is: 50 message size is 1000
+SortedDict({1525037310: 1.105, 1525037315: 1.041, 1525037320: 0.473, 1525037325: 0.696})
+{1525037308: 0.021, 1525037328: 0.655, 1525037332: 0.766}
+mean total delay is now: 0.82875 target frequency is: 50 message size is 1000
+waited a few intervals since the last change of frequency, should we increase?..
+setting new frequency...88
+b'{"cpu_pause_ms": 20, "message_bytes": 1000, "period_sec": 0.011363636363636364}'
+{'result':'new config applied.'}
+..skipping batch 1525037340000 with status PROCESSING
+..skipping batch 1525037345000 with status PROCESSING
+..skipping batch 1525037355000 with status PROCESSING
+SortedDict({1525037355: 1.212})
+{1525037353: 1.421, 1525037361: 2.516, 1525037362: 1.599}
+mean total delay is now: 1.212 target frequency is: 88 message size is 1000
+SortedDict({1525037355: 1.212})
+{1525037353: 1.421, 1525037361: 2.516, 1525037362: 1.599}
+mean total delay is now: 1.212 target frequency is: 88 message size is 1000
+SortedDict({1525037355: 1.212})
+{1525037353: 1.421, 1525037361: 2.516, 1525037362: 1.599, 1525037376: 3.871}
+mean total delay is now: 1.212 target frequency is: 88 message size is 1000
+SortedDict({1525037355: 1.212, 1525037360: 0.007})
+{1525037353: 1.421, 1525037361: 2.516, 1525037362: 1.599, 1525037376: 3.871}
+mean total delay is now: 0.6094999999999999 target frequency is: 88 message size is 1000
+SortedDict({1525037355: 1.212, 1525037360: 0.007})
+{1525037353: 1.421, 1525037361: 2.516, 1525037362: 1.599, 1525037376: 3.871}
+mean total delay is now: 0.6094999999999999 target frequency is: 88 message size is 1000
+SortedDict({1525037355: 1.212, 1525037360: 0.007})
+{1525037353: 1.421, 1525037361: 2.516, 1525037362: 1.599, 1525037376: 3.871, 1525037379: 3.789}
+mean total delay is now: 0.6094999999999999 target frequency is: 88 message size is 1000
+SortedDict({1525037355: 1.212, 1525037360: 0.007, 1525037365: 0.006})
+{1525037353: 1.421, 1525037361: 2.516, 1525037362: 1.599, 1525037376: 3.871, 1525037379: 3.789}
+mean total delay is now: 0.4083333333333333 target frequency is: 88 message size is 1000
+SortedDict({1525037355: 1.212, 1525037360: 0.007, 1525037365: 0.006, 1525037370: 0.012})
+{1525037353: 1.421, 1525037361: 2.516, 1525037362: 1.599, 1525037376: 3.871, 1525037379: 3.789, 1525037382: 2.388}
+mean total delay is now: 0.30924999999999997 target frequency is: 88 message size is 1000
+waited a few intervals since the last change of frequency, should we increase?..
+setting new frequency...440
+b'{"cpu_pause_ms": 20, "message_bytes": 1000, "period_sec": 0.0022727272727272726}'
+{'result':'new config applied.'}
+..skipping batch 1525037385000 with status PROCESSING
+..skipping batch 1525037385000 with status PROCESSING
+SortedDict({1525037400: 0.004})
+{1525037413: 12.256, 1525037428: 14.134, 1525037435: 7.23}
+max throughput is:440 message size: 1000 reason was LIMIT_FILE_LISTNG
+message_size: 500
+setting new frequency...1
+b'{"cpu_pause_ms": 20, "message_bytes": 500, "period_sec": 1.0}'
+{'result':'new config applied.'}
+SortedDict({1525037450: 0.002})
+{1525037455: 11.623, 1525037464: 8.26, 1525037467: 3.652, 1525037473: 5.391, 1525037477: 4.186, 1525037479: 2.562, 1525037482: 2.091, 1525037483: 1.611, 1525037485: 1.831}
+mean total delay is now: 0.002 target frequency is: 1 message size is 500
+SortedDict({1525037450: 0.002, 1525037455: 0.004})
+{1525037455: 11.623, 1525037464: 8.26, 1525037467: 3.652, 1525037473: 5.391, 1525037477: 4.186, 1525037479: 2.562, 1525037482: 2.091, 1525037483: 1.611, 1525037485: 1.831, 1525037487: 1.695}
+mean total delay is now: 0.003 target frequency is: 1 message size is 500
+SortedDict({1525037450: 0.002, 1525037455: 0.004, 1525037460: 0.003})
+{1525037455: 11.623, 1525037464: 8.26, 1525037467: 3.652, 1525037473: 5.391, 1525037477: 4.186, 1525037479: 2.562, 1525037482: 2.091, 1525037483: 1.611, 1525037485: 1.831, 1525037487: 1.695, 1525037488: 1.278}
+mean total delay is now: 0.003 target frequency is: 1 message size is 500
+SortedDict({1525037450: 0.002, 1525037455: 0.004, 1525037460: 0.003, 1525037465: 0.004})
+{1525037455: 11.623, 1525037464: 8.26, 1525037467: 3.652, 1525037473: 5.391, 1525037477: 4.186, 1525037479: 2.562, 1525037482: 2.091, 1525037483: 1.611, 1525037485: 1.831, 1525037487: 1.695, 1525037488: 1.278, 1525037489: 1.261}
+mean total delay is now: 0.0032500000000000003 target frequency is: 1 message size is 500
+waited a few intervals since the last change of frequency, should we increase?..
+setting new frequency...50
+b'{"cpu_pause_ms": 20, "message_bytes": 500, "period_sec": 0.02}'
+{'result':'new config applied.'}
+..skipping batch 1525037490000 with status PROCESSING
+..skipping batch 1525037495000 with status PROCESSING
+..skipping batch 1525037500000 with status PROCESSING
+SortedDict({1525037505: 0.383})
+{1525037513: 0.663, 1525037517: 0.556}
+mean total delay is now: 0.383 target frequency is: 50 message size is 500
+SortedDict({1525037505: 0.383})
+{1525037513: 0.663, 1525037517: 0.556}
+mean total delay is now: 0.383 target frequency is: 50 message size is 500
+SortedDict({1525037505: 0.383})
+{1525037513: 0.663, 1525037517: 0.556}
+mean total delay is now: 0.383 target frequency is: 50 message size is 500
+SortedDict({1525037505: 0.383})
+{1525037513: 0.663, 1525037517: 0.556}
+mean total delay is now: 0.383 target frequency is: 50 message size is 500
+SortedDict({1525037505: 0.383, 1525037510: 0.762})
+{1525037513: 0.663, 1525037517: 0.556}
+mean total delay is now: 0.5725 target frequency is: 50 message size is 500
+SortedDict({1525037505: 0.383, 1525037510: 0.762})
+{1525037513: 0.663, 1525037517: 0.556, 1525037523: 1.067}
+mean total delay is now: 0.5725 target frequency is: 50 message size is 500
+SortedDict({1525037505: 0.383, 1525037510: 0.762})
+{1525037513: 0.663, 1525037517: 0.556, 1525037523: 1.067}
+mean total delay is now: 0.5725 target frequency is: 50 message size is 500
+..skipping batch 1525037515000 with status PROCESSING
+SortedDict({1525037505: 0.383, 1525037510: 0.762})
+{1525037513: 0.663, 1525037517: 0.556, 1525037523: 1.067, 1525037526: 0.745}
+mean total delay is now: 0.5725 target frequency is: 50 message size is 500
+SortedDict({1525037505: 0.383, 1525037510: 0.762, 1525037515: 1.076})
+{1525037513: 0.663, 1525037517: 0.556, 1525037523: 1.067, 1525037526: 0.745}
+mean total delay is now: 0.7403333333333334 target frequency is: 50 message size is 500
+SortedDict({1525037505: 0.383, 1525037510: 0.762, 1525037515: 1.076})
+{1525037513: 0.663, 1525037517: 0.556, 1525037523: 1.067, 1525037526: 0.745}
+mean total delay is now: 0.7403333333333334 target frequency is: 50 message size is 500
+SortedDict({1525037505: 0.383, 1525037510: 0.762, 1525037515: 1.076})
+{1525037513: 0.663, 1525037517: 0.556, 1525037523: 1.067, 1525037526: 0.745}
+mean total delay is now: 0.7403333333333334 target frequency is: 50 message size is 500
+SortedDict({1525037505: 0.383, 1525037510: 0.762, 1525037515: 1.076})
+{1525037513: 0.663, 1525037517: 0.556, 1525037523: 1.067, 1525037526: 0.745}
+mean total delay is now: 0.7403333333333334 target frequency is: 50 message size is 500
+SortedDict({1525037505: 0.383, 1525037510: 0.762, 1525037515: 1.076})
+{1525037513: 0.663, 1525037517: 0.556, 1525037523: 1.067, 1525037526: 0.745}
+mean total delay is now: 0.7403333333333334 target frequency is: 50 message size is 500
+..skipping batch 1525037520000 with status PROCESSING
+SortedDict({1525037505: 0.383, 1525037510: 0.762, 1525037515: 1.076})
+{1525037513: 0.663, 1525037517: 0.556, 1525037523: 1.067, 1525037526: 0.745}
+mean total delay is now: 0.7403333333333334 target frequency is: 50 message size is 500
+SortedDict({1525037505: 0.383, 1525037510: 0.762, 1525037515: 1.076, 1525037520: 2.262})
+{1525037513: 0.663, 1525037517: 0.556, 1525037523: 1.067, 1525037526: 0.745, 1525037535: 2.414}
+mean total delay is now: 1.1207500000000001 target frequency is: 50 message size is 500
+waited a few intervals since the last change of frequency, should we increase?..
+setting new frequency...88
+b'{"cpu_pause_ms": 20, "message_bytes": 500, "period_sec": 0.011363636363636364}'
+{'result':'new config applied.'}
+..skipping batch 1525037540000 with status PROCESSING
+SortedDict({1525037550: 0.006})
+{1525037557: 2.985, 1525037560: 2.688}
+mean total delay is now: 0.006 target frequency is: 88 message size is 500
+SortedDict({1525037550: 0.006})
+{1525037557: 2.985, 1525037560: 2.688, 1525037562: 2.303}
+mean total delay is now: 0.006 target frequency is: 88 message size is 500
+SortedDict({1525037550: 0.006})
+{1525037557: 2.985, 1525037560: 2.688, 1525037562: 2.303}
+mean total delay is now: 0.006 target frequency is: 88 message size is 500
+SortedDict({1525037550: 0.006})
+{1525037557: 2.985, 1525037560: 2.688, 1525037562: 2.303}
+mean total delay is now: 0.006 target frequency is: 88 message size is 500
+SortedDict({1525037550: 0.006})
+{1525037557: 2.985, 1525037560: 2.688, 1525037562: 2.303}
+mean total delay is now: 0.006 target frequency is: 88 message size is 500
+SortedDict({1525037550: 0.006})
+{1525037557: 2.985, 1525037560: 2.688, 1525037562: 2.303}
+mean total delay is now: 0.006 target frequency is: 88 message size is 500
+SortedDict({1525037550: 0.006})
+{1525037557: 2.985, 1525037560: 2.688, 1525037562: 2.303}
+mean total delay is now: 0.006 target frequency is: 88 message size is 500
+SortedDict({1525037550: 0.006})
+{1525037557: 2.985, 1525037560: 2.688, 1525037562: 2.303}
+mean total delay is now: 0.006 target frequency is: 88 message size is 500
+SortedDict({1525037550: 0.006})
+{1525037557: 2.985, 1525037560: 2.688, 1525037562: 2.303}
+mean total delay is now: 0.006 target frequency is: 88 message size is 500
+SortedDict({1525037550: 0.006})
+{1525037557: 2.985, 1525037560: 2.688, 1525037562: 2.303}
+mean total delay is now: 0.006 target frequency is: 88 message size is 500
+SortedDict({1525037550: 0.006})
+{1525037557: 2.985, 1525037560: 2.688, 1525037562: 2.303}
+mean total delay is now: 0.006 target frequency is: 88 message size is 500
+..skipping batch 1525037555000 with status PROCESSING
+SortedDict({1525037550: 0.006})
+{1525037557: 2.985, 1525037560: 2.688, 1525037562: 2.303}
+mean total delay is now: 0.006 target frequency is: 88 message size is 500
+..skipping batch 1525037560000 with status PROCESSING
+SortedDict({1525037550: 0.006, 1525037555: 0.767})
+{1525037557: 2.985, 1525037560: 2.688, 1525037562: 2.303, 1525037576: 1.66}
+mean total delay is now: 0.3865 target frequency is: 88 message size is 500
+SortedDict({1525037550: 0.006, 1525037555: 0.767, 1525037560: 0.006, 1525037565: 0.005})
+{1525037557: 2.985, 1525037560: 2.688, 1525037562: 2.303, 1525037576: 1.66, 1525037577: 1.19}
+mean total delay is now: 0.196 target frequency is: 88 message size is 500
+waited a few intervals since the last change of frequency, should we increase?..
+setting new frequency...440
+b'{"cpu_pause_ms": 20, "message_bytes": 500, "period_sec": 0.0022727272727272726}'
+{'result':'new config applied.'}
+..skipping batch 1525037575000 with status PROCESSING
+..skipping batch 1525037575000 with status PROCESSING
+..skipping batch 1525037575000 with status PROCESSING
+SortedDict({1525037595: 0.008})
+{1525037608: 11.958, 1525037613: 5.343, 1525037619: 6.272, 1525037627: 7.629}
+max throughput is:440 message size: 500 reason was LIMIT_FILE_LISTNG
