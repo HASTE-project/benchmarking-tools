@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-SERVER=ben-stream-src-3
+SERVER=ben-stream-src-4
 
 rsync -rvd ../.. $SERVER:~/benchmarking-tools
 
