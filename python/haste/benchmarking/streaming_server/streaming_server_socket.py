@@ -10,6 +10,7 @@ ALL_HOSTS = ""
 STREAM_PORT = 9999
 CONTROL_PORT = 8889
 
+
 class ClientStreamingThread(threading.Thread):
 
     def __init__(self, client_address, client_socket):
@@ -57,15 +58,13 @@ class ClientStreamingThread(threading.Thread):
 
             if pause > 0:
                 time.sleep(pause)
-            #else:
+            # else:
             #   print('streaming_server: overran target period by ' + str(-pause) + ' seconds!')
 
             if int(ts_before_stream) >= last_unix_time_interval + REPORT_INTERVAL:
                 last_unix_time_interval = int(ts_before_stream)
                 print('streamed ' + str(message_count) + ' messages to ' + str(self.client_address)
                       + ' , reporting every ' + str(REPORT_INTERVAL) + ' seconds')
-
-
 
 
 # Shared state looks like this:
@@ -81,7 +80,6 @@ class ClientStreamingThread(threading.Thread):
 def start_socket_streaming():
     stream_server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     stream_server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-
 
     stream_server.bind((ALL_HOSTS, STREAM_PORT))
     print("Streaming Server started on " + ALL_HOSTS + ":" + str(STREAM_PORT))

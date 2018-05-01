@@ -45,6 +45,7 @@ monitor.start()
 
 in_process_secs = 0
 
+
 def fetch_total_delays():
     global in_process_secs
     # while True:
@@ -138,7 +139,8 @@ def find_max_throughput(message_size_bytes, cpu_cost_ms, initial_frequency=1):
                 [delay for t, delay in recent_find_file_pauses.items() if delay > 0.95 * BATCH_INTERVAL_SECONDS]) > 2:
             # Spark can't cope
             # TODO: factor out 'outcome'
-            print('max throughput is:' + str(frequency) + ' message size: ' + str(message_size_bytes) + ' reason was ' + RESULT_FILE_LISTING)
+            print('max throughput is:' + str(frequency) + ' message size: ' + str(
+                message_size_bytes) + ' reason was ' + RESULT_FILE_LISTING)
             return RESULT_FILE_LISTING, frequency
         else:
             # latest_total_delays = total_delays_secs_by_timestamp.values()[-min(NUMBER_OF_BATCHES,
@@ -174,7 +176,8 @@ def find_max_throughput(message_size_bytes, cpu_cost_ms, initial_frequency=1):
                     new_frequency = int(frequency * 1.03) + 1
                 elif total_delay_high < BATCH_INTERVAL_SECONDS:
                     # we consider this our max stable throughput
-                    print('max throughput is:' + str(frequency) + ' message size: ' + str(message_size_bytes) + 'reason:' + RESULT_LIMIT_TOTAL_DELAY)
+                    print('max throughput is:' + str(frequency) + ' message size: ' + str(
+                        message_size_bytes) + 'reason:' + RESULT_LIMIT_TOTAL_DELAY)
                     return RESULT_LIMIT_TOTAL_DELAY, frequency
                 else:
                     print('we we overshot! frequency was: ' + str(frequency) + ' message size: ' + str(

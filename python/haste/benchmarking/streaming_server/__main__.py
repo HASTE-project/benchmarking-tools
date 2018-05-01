@@ -8,12 +8,12 @@ import threading
 # control_http_server - listens for HTTP POSTs on 8080 to vary parameters (format below)
 
 
-TCP_OR_FILE = False
+TCP_ELSE_FILE = False
 
 if __name__ == '__main__':
     run_control_server()
 
-    if TCP_OR_FILE:
+    if TCP_ELSE_FILE:
         start_socket_streaming()
     else:
         start()

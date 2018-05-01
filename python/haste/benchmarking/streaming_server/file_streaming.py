@@ -9,16 +9,18 @@ import threading
 import json
 
 SEARCH_FOR_OLD_FILES_INTERVAL = 1
-MESSAGE_SIZES = [500, 1000, 10000,
+MESSAGE_SIZES = [500,
+                 1000,
+                 10000,
                  100000,
                  1000000,  # 1MB
-                 #5000000,  # 5MB
-                 #10000000,  # 10MB
-                 #50000000,  # 50MB
-                 #100000000  # 100MB
+                 5000000,  # 5MB
+                 10000000,  # 10MB
+                 50000000,  # 50MB
+                 # 100000000  # 100MB
                  ]
 
-_FILENAME_IGNORE_PREFIX = ".COPYING." #filenames starting with a . are ignored by Spark
+_FILENAME_IGNORE_PREFIX = ".COPYING."  # filenames starting with a . are ignored by Spark
 _REPORT_INTERVAL = 3
 _counter = 0
 _USE_HARD_LINKS = False
@@ -70,7 +72,7 @@ def _start_deleting_old_files():
         it = os.scandir(WORKING_DIR_BASE)
         for entry in it:
             if _FILENAME_IGNORE_PREFIX not in entry.name and entry.is_file():
-                #print(entry.name)
+                # print(entry.name)
 
                 # The file is a hard-link - delete it based on its creation time (not the file attributes)
 
@@ -87,14 +89,13 @@ def _start_deleting_old_files():
                 modification_time_seconds = stat.st_mtime
                 # #print(access_time_seconds)
 
-
                 # Think there is an issue if garbage collection occurs and the files have been removed:
                 if now > DELETE_OLD_FILES_AFTER + modification_time_seconds:
-                    #print(time.asctime() + ' deleting.. ' + entry.name)
+                    # print(time.asctime() + ' deleting.. ' + entry.name)
                     os.remove(WORKING_DIR_BASE + entry.name)
-        #it.close() needs >py3.6
+        # it.close() needs >py3.6
         time.sleep(SEARCH_FOR_OLD_FILES_INTERVAL)
-        #print('looking for files to delete...')
+        # print('looking for files to delete...')
 
 
 def _start_file_streaming():
@@ -113,7 +114,7 @@ def _start_file_streaming():
         with shared_state_lock:
             shared_state_copy = shared_state.copy()
             # TODO: don't send the exact same string each time (incase Spark caches it)
-            frequency = 1/shared_state['params']['period_sec']
+            frequency = 1 / shared_state['params']['period_sec']
 
         print('frequency is ' + str(frequency))
 
@@ -145,17 +146,13 @@ def _start_file_streaming():
             last_unix_time_interval = int(ts_before_stream)
             print('streamed ' + str(message_count_all_time) + ' messages to ' + WORKING_DIR_BASE
                   + ' , reporting every ' + str(_REPORT_INTERVAL) + ' seconds')
-            #print(message_count_this_interval/_REPORT_INTERVAL, 1/shared_state_copy['params']['period_sec'])
+            # print(message_count_this_interval/_REPORT_INTERVAL, 1/shared_state_copy['params']['period_sec'])
             message_count_this_interval = 0
-
-
-
-
 
 
 def create_file(shared_state):
     key = json.dumps(shared_state['params'], sort_keys=True)
-    #print(key)
+    # print(key)
 
     new_filename = generate_filename()
     new_file_path_without_prefix = WORKING_DIR_BASE + new_filename
@@ -166,19 +163,19 @@ def create_file(shared_state):
         path_to_target = _file_paths[key]
 
         # (hard link is atomic)
-        #a = time.time()
+        # a = time.time()
         os.link(path_to_target, new_file_path_without_prefix)
-        #print(time.time() - a)
+        # print(time.time() - a)
 
         return path_to_target
     else:
-        #print('making a new file')
+        # print('making a new file')
         # Make a new file
         new_file_path_with_prefix = WORKING_DIR_BASE + _FILENAME_IGNORE_PREFIX + new_filename
 
         # TODO: if this fails, kill the application
 
-        #try:
+        # try:
         file = open(new_file_path_with_prefix, "wb")
         file.write(shared_state['message'])
         file.close()
@@ -196,7 +193,7 @@ def generate_filename():
     global _counter
     _counter = _counter + 1
     filename = "{0:}_{1:0>10}".format(int(time.time()), _counter % 1000000)
-    #filename = "%s_{}" % (int(time.time()), _counter % 1000000)
+    # filename = "%s_{}" % (int(time.time()), _counter % 1000000)
     return filename
 
 
@@ -228,11 +225,10 @@ if __name__ == '__main__':
         # 0.011159896850585938
         # 2.115196943283081 - copying 200 files
 
-
         # MESSAGE_SIZES = [5000000]
 
         for message_size in MESSAGE_SIZES:
-            #print(message_size)
+            # print(message_size)
 
             config = {'cpu_pause_ms': 20, 'message_bytes': message_size}
             working_dir = WORKING_DIR_BASE + str(message_size) + '/'
@@ -241,7 +237,7 @@ if __name__ == '__main__':
 
             filename_base, filename_with_suffix = create_new_file(config, working_dir, filename_suffix='')
 
-            #number_of_files = min(max(int((15 * 1000000) / message_size), 10),10000)
+            # number_of_files = min(max(int((15 * 1000000) / message_size), 10),10000)
             number_of_files = 200
 
             ts_start_file_streaming = time.time()
@@ -249,7 +245,7 @@ if __name__ == '__main__':
             for i in range(number_of_files):
                 shutil.copy(filename_with_suffix, filename_with_suffix + '_' + str(i))
 
-            #print(time.time() - ts_start_file_streaming)
+            # print(time.time() - ts_start_file_streaming)
 
     #
     #
