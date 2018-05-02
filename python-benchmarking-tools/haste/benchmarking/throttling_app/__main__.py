@@ -23,6 +23,12 @@ HOST_FOR_SPARK_REST_API = 'localhost'
 # TODO: if doing file streaming
 from ..streaming_server.file_streaming import DELETE_OLD_FILES_AFTER
 
+
+class Foo:
+    def bar(self):
+        pass
+
+
 _FULL_RUN = False
 
 if _FULL_RUN:
